@@ -6,9 +6,12 @@ class Splash extends GetView<SplashController> {
   @override
   Widget build(context) {
     return Scaffold(
-      body: Center(
-        child: controller.isLoading ? CircularProgressIndicator() : Container(),
+        body: Obx(
+      () => Center(
+        child: controller.isLoading.value
+            ? CircularProgressIndicator()
+            : Container(),
       ),
-    );
+    ));
   }
 }

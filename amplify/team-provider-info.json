@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-amrmobile-dev-201145-authRole",
+            "UnauthRoleArn": "arn:aws:iam::923250232734:role/amplify-amrmobile-dev-201145-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::923250232734:role/amplify-amrmobile-dev-201145-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-amrmobile-dev-201145-deployment",
+            "UnauthRoleName": "amplify-amrmobile-dev-201145-unauthRole",
+            "StackName": "amplify-amrmobile-dev-201145",
+            "StackId": "arn:aws:cloudformation:us-east-1:923250232734:stack/amplify-amrmobile-dev-201145/59e446f0-3d51-11eb-8327-0abf94ca9997",
+            "AmplifyAppId": "d3vj24g3l51tub"
+        },
+        "categories": {
+            "auth": {
+                "amrmobiled724785b": {}
+            }
+        }
+    }
+}

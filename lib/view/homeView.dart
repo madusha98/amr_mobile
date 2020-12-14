@@ -10,8 +10,12 @@ class Home extends GetView<HomeController> {
         title: Hero(tag: 'title', child: Text('AMR')),
       ),
       body: Center(
-        child:
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
             RaisedButton(child: Text('Logout'), onPressed: controller.logout),
+          ],
+        ),
       ),
     );
   }
