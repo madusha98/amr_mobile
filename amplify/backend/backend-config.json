@@ -1,10 +1,9 @@
 {
 	"auth": {
-		"amrmobiled724785b": {
+		"amrmobile28a34c2d28a34c2d": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
-			"dependsOn": [],
-			"customAuth": false
+			"dependsOn": []
 		}
 	}
 }

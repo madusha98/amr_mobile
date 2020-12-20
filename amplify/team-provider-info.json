@@ -1,19 +1,19 @@
 {
     "dev": {
         "awscloudformation": {
-            "AuthRoleName": "amplify-amrmobile-dev-201145-authRole",
-            "UnauthRoleArn": "arn:aws:iam::923250232734:role/amplify-amrmobile-dev-201145-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::923250232734:role/amplify-amrmobile-dev-201145-authRole",
+            "AuthRoleName": "amplify-amrmobile-dev-182533-authRole",
+            "UnauthRoleArn": "arn:aws:iam::923250232734:role/amplify-amrmobile-dev-182533-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::923250232734:role/amplify-amrmobile-dev-182533-authRole",
             "Region": "us-east-1",
-            "DeploymentBucketName": "amplify-amrmobile-dev-201145-deployment",
-            "UnauthRoleName": "amplify-amrmobile-dev-201145-unauthRole",
-            "StackName": "amplify-amrmobile-dev-201145",
-            "StackId": "arn:aws:cloudformation:us-east-1:923250232734:stack/amplify-amrmobile-dev-201145/59e446f0-3d51-11eb-8327-0abf94ca9997",
-            "AmplifyAppId": "d3vj24g3l51tub"
+            "DeploymentBucketName": "amplify-amrmobile-dev-182533-deployment",
+            "UnauthRoleName": "amplify-amrmobile-dev-182533-unauthRole",
+            "StackName": "amplify-amrmobile-dev-182533",
+            "StackId": "arn:aws:cloudformation:us-east-1:923250232734:stack/amplify-amrmobile-dev-182533/56127d20-4130-11eb-839e-0a24d8353619",
+            "AmplifyAppId": "d3hdmxeg5s1brg"
         },
         "categories": {
             "auth": {
-                "amrmobiled724785b": {}
+                "amrmobile28a34c2d28a34c2d": {}
             }
         }
     }

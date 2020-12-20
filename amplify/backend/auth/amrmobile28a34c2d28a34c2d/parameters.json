@@ -1,8 +1,6 @@
 {
-    "identityPoolName": "amrmobiled724785b_identitypool_d724785b",
-    "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "amrmobd724785b",
-    "userPoolName": "amrmobiled724785b_userpool_d724785b",
+    "resourceNameTruncated": "amrmob28a34c2d",
+    "userPoolName": "amrmobile28a34c2d_userpool_28a34c2d",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -18,21 +16,37 @@
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
-        "email"
+        "email",
+        "name",
+        "phone_number"
     ],
     "userpoolClientGenerateSecret": true,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
-        "email"
+        "email",
+        "name",
+        "phone_number"
     ],
     "userpoolClientReadAttributes": [
+        "email",
+        "name",
+        "phone_number",
+        "email_verified",
+        "phone_number_verified"
+    ],
+    "userpoolClientLambdaRole": "amrmob28a34c2d_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": true,
+    "useDefault": "manual",
+    "authSelections": "userPoolOnly",
+    "resourceName": "amrmobile28a34c2d28a34c2d",
+    "usernameAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "amrmobd724785b_userpoolclient_lambda_role",
-    "userpoolClientSetAttributes": false,
-    "sharedId": "d724785b",
-    "resourceName": "amrmobiled724785b",
-    "authSelections": "identityPoolAndUserPool",
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "triggers": "{}",
+    "hostedUI": false,
+    "userPoolGroupList": [],
     "authRoleArn": {
         "Fn::GetAtt": [
             "AuthRole",
@@ -45,10 +59,9 @@
             "Arn"
         ]
     },
-    "useDefault": "default",
-    "usernameAttributes": [
-        "email"
-    ],
-    "userPoolGroupList": [],
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": [],
     "dependsOn": []
 }

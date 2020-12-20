@@ -9,19 +9,11 @@ const amplifyconfig = ''' {
                 "IdentityManager": {
                     "Default": {}
                 },
-                "CredentialsProvider": {
-                    "CognitoIdentity": {
-                        "Default": {
-                            "PoolId": "us-east-1:4380a129-c302-41b3-9c34-7011c0097e91",
-                            "Region": "us-east-1"
-                        }
-                    }
-                },
                 "CognitoUserPool": {
                     "Default": {
-                        "PoolId": "us-east-1_tKXsdLkhI",
-                        "AppClientId": "1bbbdbi3e71qpbs54ceg9rn1dg",
-                        "AppClientSecret": "1e29c16tmam9a273s2qg3vlnbl0t26qi670e8c4dbrc1paltudvj",
+                        "PoolId": "us-east-1_X8rQ1Si4k",
+                        "AppClientId": "7kt85r7i122tuie5n2ndp1dquv",
+                        "AppClientSecret": "3cpgvvt41h8m2rlqhvhbkkcqomkrh0epbamd5raqt9vinnautvf",
                         "Region": "us-east-1"
                     }
                 },

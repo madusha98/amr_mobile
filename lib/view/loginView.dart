@@ -1,6 +1,5 @@
 import 'package:amr_mobile/routes/pages.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_login/flutter_login.dart';
 import 'package:get/get.dart';
 import 'package:amr_mobile/controller/loginController.dart';
 
@@ -11,16 +10,51 @@ class Login extends GetView<LoginController> {
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
       },
-      child: FlutterLogin(
-        title: 'AMR',
-        titleTag: 'title',
-        // logo: 'assets/images/ecorp-lightblue.png',
-        onLogin: controller.login,
-        onSignup: controller.signup,
-        onSubmitAnimationCompleted: () {
-          Get.offNamed(Routes.SPLASH);
-        },
-        onRecoverPassword: controller.recoverPassword,
+      child: Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                onChanged: (text) => controller.email.value = text,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Email',
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                onChanged: (text) => controller.password.value = text,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Password',
+                ),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: RaisedButton(
+                    child: Text('Login'),
+                    onPressed: controller.login,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: RaisedButton(
+                    child: Text('Register'),
+                    onPressed: () => Get.offNamed(Routes.REGISTER),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

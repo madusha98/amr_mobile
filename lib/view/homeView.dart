@@ -13,6 +13,9 @@ class Home extends GetView<HomeController> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Obx(() => controller.loading.value
+                ? CircularProgressIndicator()
+                : Text(controller.testMsg.value)),
             RaisedButton(child: Text('Logout'), onPressed: controller.logout),
           ],
         ),
