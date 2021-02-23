@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "883462030053",
+    "project_id": "amr-mobile-84b63",
+    "storage_bucket": "amr-mobile-84b63.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883462030053:android:44eb0947b0e42a71f74a0c",
+        "android_client_info": {
+          "package_name": "com.uptransit.amr_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883462030053-igaljnt24iso66em89ob3v8qndjc0j3q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7RJJRQZOh3jDoYqzQB3GaO17y-f-B3OY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "883462030053-igaljnt24iso66em89ob3v8qndjc0j3q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
