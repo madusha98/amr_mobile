@@ -33,7 +33,9 @@ dependencies:
   amplify_core: "<1.0.0"
   amplify_auth_cognito: "<1.0.0"
   modal_bottom_sheet: ^1.0.0+1
-  firebase_analytics: ^7.0.1
+  firebase_analytics:
+  firebase_messaging: ^7.0.3
+  device_info:
 
 dev_dependencies:
   flutter_test:

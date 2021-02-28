@@ -8,26 +8,17 @@ class HttpService extends GetConnect {
   @override
   void onInit() {
     httpClient.baseUrl = baseUrl;
-
-    httpClient.addRequestModifier((request) {
-      request.headers['Authorization'] = 'Bearer ' + storage.read('token');
-      return request;
-    });
-
-    // httpClient.addAuthenticator((request) async {
-    //   final response = await get("http://yourapi/token");
-    //   final token = response.body['token'];
-    //   // Set the header
-    //   request.headers['Authorization'] = "$token";
-    //   return request;
-    // });
-
-    //Autenticator will be called 3 times if HttpStatus is
-    //HttpStatus.unauthorized
     httpClient.maxAuthRetries = 3;
+    httpClient.timeout = Duration(seconds: 30);
   }
 
-  Future<dynamic> getRequest(path, params) {
+  Future<dynamic> getRequest(path, {params, token = ''}) {
+    var headers = {'Authorization': 'Bearer ' + token};
     return get(path);
+  }
+
+  Future<dynamic> postRequest(path, body, {token = ''}) {
+    var headers = {'Authorization': 'Bearer ' + token};
+    return post(path, body, headers: headers);
   }
 }
