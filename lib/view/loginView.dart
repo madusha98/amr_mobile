@@ -2,6 +2,7 @@ import 'package:amr_mobile/routes/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:amr_mobile/controller/loginController.dart';
+import 'package:touchable_opacity/touchable_opacity.dart';
 
 class Login extends GetView<LoginController> {
   @override
@@ -34,6 +35,25 @@ class Login extends GetView<LoginController> {
                 ),
               ),
             ),
+            Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TouchableOpacity(
+                        onTap: () {
+                          Get.toNamed('/otp');
+                        },
+                        child: Text(
+                          'Forgot your password?',
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

@@ -2,6 +2,7 @@ import 'package:amr_mobile/routes/pages.dart';
 import 'package:amr_mobile/service/authService.dart';
 import 'package:amr_mobile/service/httpService.dart';
 import 'package:amr_mobile/utils/logger.dart';
+import 'package:amr_mobile/utils/theme.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
       navigatorObservers: [
         FirebaseAnalyticsObserver(analytics: analytics),
       ],
+      theme: theme,
     );
   }
 }

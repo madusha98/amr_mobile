@@ -1,10 +1,12 @@
 import 'package:amr_mobile/bindings/homeBinding.dart';
 import 'package:amr_mobile/bindings/loginBinding.dart';
+import 'package:amr_mobile/bindings/otpBinding.dart';
 import 'package:amr_mobile/bindings/registerBinding.dart';
 import 'package:amr_mobile/bindings/splashBinding.dart';
 import 'package:amr_mobile/view/homeView.dart';
 import 'package:amr_mobile/view/loginView.dart';
 import 'package:amr_mobile/view/SplashScreen.dart';
+import 'package:amr_mobile/view/otpView.dart';
 import 'package:amr_mobile/view/registerView.dart';
 import 'package:get/get.dart';
 
@@ -32,6 +34,11 @@ class Pages {
       name: Routes.REGISTER,
       page: () => Register(),
       binding: RegisterBinding(),
+    ),
+    GetPage(
+      name: Routes.OTP,
+      page: () => Otp(),
+      binding: OtpBinding(),
     )
   ];
 }
