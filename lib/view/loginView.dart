@@ -36,24 +36,24 @@ class Login extends GetView<LoginController> {
               ),
             ),
             Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TouchableOpacity(
-                        onTap: () {
-                          Get.toNamed('/otp');
-                        },
-                        child: Text(
-                          'Forgot your password?',
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TouchableOpacity(
+                    onTap: () {
+                      Get.toNamed('/otp');
+                    },
+                    child: Text(
+                      'Forgot your password?',
+                      style: TextStyle(
+                        color: Colors.black,
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  ),
+                )
+              ],
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -68,7 +68,7 @@ class Login extends GetView<LoginController> {
                   padding: const EdgeInsets.all(8.0),
                   child: RaisedButton(
                     child: Text('Register'),
-                    onPressed: () => Get.offNamed(Routes.REGISTER),
+                    onPressed: () => Get.toNamed(Routes.REGISTER),
                   ),
                 ),
               ],
