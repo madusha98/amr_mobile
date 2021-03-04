@@ -33,22 +33,48 @@ class Register extends GetView<RegisterController> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  height: Get.height / 5,
-                  child: Text(
-                    'Create an account.',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30,
-                        fontWeight: FontWeight.w400),
+                Padding(
+                  padding: const EdgeInsets.only(top: 100, bottom: 50),
+                  child: Container(
+                    child: Text(
+                      'Create an account.',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.w400),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: OutLinedTextField(
+                    onChanged: (text) => controller.name.value = text,
+                    label: 'Your Name',
+                    keyboardType: TextInputType.name,
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: OutLinedTextField(
                     onChanged: (text) => controller.email.value = text,
-                    label: 'Your Email',
+                    label: 'Email',
                     keyboardType: TextInputType.emailAddress,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: OutLinedTextField(
+                    onChanged: (text) => controller.phone.value = text,
+                    label: 'Mobile',
+                    keyboardType: TextInputType.phone,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: OutLinedTextField(
+                    onChanged: (text) => controller.nic.value = text,
+                    label: 'NIC',
+                    keyboardType: TextInputType.name,
                   ),
                 ),
                 Padding(
@@ -63,7 +89,11 @@ class Register extends GetView<RegisterController> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: OutLinedTextField(
-                    onChanged: (text) => controller.phone.value = text,
+                    onChanged: (text) {
+                      controller.retypePassword.value = text;
+                      var x = controller.matchPasswords(text);
+                      print(x);
+                    },
                     label: 'Repeat Password',
                     obscureText: true,
                     keyboardType: TextInputType.visiblePassword,
@@ -73,9 +103,7 @@ class Register extends GetView<RegisterController> {
                   padding: const EdgeInsets.all(8.0),
                   child: RoundedRectangleButton(
                     label: 'Create an account',
-                    onPressed: () {
-                      // Get.toNamed('/otp');
-                    },
+                    onPressed: controller.register,
                   ),
                   // child: ElevatedButton(
                   //   child: Text('Register'),

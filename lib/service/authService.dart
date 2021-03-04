@@ -2,7 +2,6 @@ import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_core/amplify_core.dart';
 import 'package:amr_mobile/amplifyconfiguration.dart';
 import 'package:amr_mobile/domain/User.dart';
-import 'package:amr_mobile/routes/pages.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -100,6 +99,32 @@ class AuthService extends GetxService {
     } catch (e) {
       print(e);
       Get.snackbar('Error', 'Something went wrong');
+    }
+  }
+
+  Future<ResetPasswordResult> forgotPassword(String email) async {
+    try {
+      var res = await Amplify.Auth.resetPassword(username: email);
+      Get.snackbar('', 'Otp sent successfully');
+      return res;
+    } catch (e) {
+      print(e);
+      Get.snackbar('Error', 'Something went wrong');
+      return null;
+    }
+  }
+
+  Future<UpdatePasswordResult> confirmPassword(
+      String email, String password, String otp) async {
+    try {
+      var res = await Amplify.Auth.confirmPassword(
+          username: email, newPassword: password, confirmationCode: otp);
+      Get.snackbar('', 'Password reset successfull!');
+      return res;
+    } on AuthError catch (e) {
+      print(e);
+      Get.snackbar('Error', 'Something went wrong');
+      return null;
     }
   }
 }

@@ -1,9 +1,9 @@
 import 'package:amr_mobile/controller/forgotPasswordController.dart';
 import 'package:get/get.dart';
 
-class forgotPasswordBinding extends Bindings {
+class ForgotPasswordBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => forgotPasswordController());
+    Get.lazyPut(() => ForgotPasswordController());
   }
 }

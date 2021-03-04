@@ -7,7 +7,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:touchable_opacity/touchable_opacity.dart';
 
-class forgotPassword extends GetView<forgotPasswordController> {
+class ForgotPassword extends GetView<ForgotPasswordController> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -83,19 +83,18 @@ class forgotPassword extends GetView<forgotPasswordController> {
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: OutLinedTextField(
-                                  onChanged: (text) => controller.email = text,
+                                  onChanged: (text) =>
+                                      controller.email.value = text,
                                   label: 'Your Email',
                                   keyboardType: TextInputType.emailAddress,
                                 ),
                               ),
                               Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: RoundedRectangleButton(
+                                padding: const EdgeInsets.all(8.0),
+                                child: RoundedRectangleButton(
                                     label: 'Submit',
-                                    onPressed: () {
-                                      Get.toNamed('/otp');
-                                    },
-                                  ))
+                                    onPressed: controller.resetPassword),
+                              )
                             ],
                           ),
                         ),

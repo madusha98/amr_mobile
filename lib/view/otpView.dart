@@ -49,13 +49,12 @@ class Otp extends GetView<OtpController> {
                                     //
                                   },
                                   child: Container(
-                                    transform: Matrix4.translationValues( -5.0, 0.0, 0.0),
+                                    transform: Matrix4.translationValues(
+                                        -5.0, 0.0, 0.0),
                                     child: Icon(
                                       Icons.close,
                                       color: Colors.white,
                                       size: 26.0,
-                                      semanticLabel:
-                                          'Text to announce in accessibility modes',
                                     ),
                                   ),
                                 ),
@@ -83,8 +82,8 @@ class Otp extends GetView<OtpController> {
                                 padding: const EdgeInsets.only(
                                     top: 50.0, right: 20.0, bottom: 20.0),
                                 child: Container(
-                                  transform: Matrix4.translationValues(
-                                      -8.0, 0.0, 0.0),
+                                  transform:
+                                      Matrix4.translationValues(-8.0, 0.0, 0.0),
                                   child: Theme(
                                     data: ThemeData(
                                       inputDecorationTheme:
@@ -110,9 +109,9 @@ class Otp extends GetView<OtpController> {
                                       textFieldAlignment:
                                           MainAxisAlignment.spaceAround,
                                       fieldStyle: FieldStyle.underline,
-                                      onCompleted: (pin) {
-                                        print('Completed: ' + pin);
-                                      },
+                                      onCompleted: controller.confirmOtp,
+                                      onChanged: (text) =>
+                                          controller.otp.value = text,
                                     ),
                                   ),
                                 ),

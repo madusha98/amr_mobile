@@ -39,8 +39,8 @@ class Pages {
     ),
     GetPage(
       name: Routes.FORGOTPASSWORD,
-      page: () => forgotPassword(),
-      binding: forgotPasswordBinding(),
+      page: () => ForgotPassword(),
+      binding: ForgotPasswordBinding(),
     ),
     GetPage(
       name: Routes.OTP,
