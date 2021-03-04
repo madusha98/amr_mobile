@@ -3,11 +3,13 @@ import 'package:amr_mobile/bindings/loginBinding.dart';
 import 'package:amr_mobile/bindings/otpBinding.dart';
 import 'package:amr_mobile/bindings/registerBinding.dart';
 import 'package:amr_mobile/bindings/splashBinding.dart';
+import 'package:amr_mobile/bindings/forgotPasswordBinding.dart';
 import 'package:amr_mobile/view/homeView.dart';
 import 'package:amr_mobile/view/loginView.dart';
 import 'package:amr_mobile/view/SplashScreen.dart';
 import 'package:amr_mobile/view/otpView.dart';
 import 'package:amr_mobile/view/registerView.dart';
+import 'package:amr_mobile/view/forgotPasswordView.dart';
 import 'package:get/get.dart';
 
 part 'routes.dart';
@@ -34,6 +36,11 @@ class Pages {
       name: Routes.REGISTER,
       page: () => Register(),
       binding: RegisterBinding(),
+    ),
+    GetPage(
+      name: Routes.FORGOTPASSWORD,
+      page: () => forgotPassword(),
+      binding: forgotPasswordBinding(),
     ),
     GetPage(
       name: Routes.OTP,

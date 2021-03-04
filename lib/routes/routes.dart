@@ -6,5 +6,6 @@ abstract class Routes {
   static const OTHER = '/other';
   static const LOGIN = '/login';
   static const REGISTER = '/register';
+  static const FORGOTPASSWORD = '/forgotPassword';
   static const OTP = '/otp';
 }

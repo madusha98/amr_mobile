@@ -42,7 +42,7 @@ class Login extends GetView<LoginController> {
                   padding: const EdgeInsets.all(8.0),
                   child: TouchableOpacity(
                     onTap: () {
-                      Get.toNamed('/otp');
+                      Get.toNamed('/forgotPassword');
                     },
                     child: Text(
                       'Forgot your password?',

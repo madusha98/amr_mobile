@@ -74,7 +74,7 @@ class Register extends GetView<RegisterController> {
                   child: RoundedRectangleButton(
                     label: 'Create an account',
                     onPressed: () {
-                      Get.toNamed('/otp');
+                      // Get.toNamed('/otp');
                     },
                   ),
                   // child: ElevatedButton(
