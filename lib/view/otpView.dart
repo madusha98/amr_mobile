@@ -48,12 +48,15 @@ class Otp extends GetView<OtpController> {
                                   onTap: () {
                                     //
                                   },
-                                  child: Icon(
-                                    Icons.close,
-                                    color: Colors.white,
-                                    size: 26.0,
-                                    semanticLabel:
-                                        'Text to announce in accessibility modes',
+                                  child: Container(
+                                    transform: Matrix4.translationValues( -5.0, 0.0, 0.0),
+                                    child: Icon(
+                                      Icons.close,
+                                      color: Colors.white,
+                                      size: 26.0,
+                                      semanticLabel:
+                                          'Text to announce in accessibility modes',
+                                    ),
                                   ),
                                 ),
                               ),
@@ -78,22 +81,39 @@ class Otp extends GetView<OtpController> {
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(
-                                    top: 50.0, right: 60.0, bottom: 20.0),
+                                    top: 50.0, right: 20.0, bottom: 20.0),
                                 child: Container(
                                   transform: Matrix4.translationValues(
-                                      -20.0, 0.0, 0.0),
-                                  child: OTPTextField(
-                                    length: 4,
-                                    width: MediaQuery.of(context).size.width,
-                                    fieldWidth: 50,
-                                    style: TextStyle(
-                                        fontSize: 24, color: Colors.white),
-                                    textFieldAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    fieldStyle: FieldStyle.underline,
-                                    onCompleted: (pin) {
-                                      print('Completed: ' + pin);
-                                    },
+                                      -8.0, 0.0, 0.0),
+                                  child: Theme(
+                                    data: ThemeData(
+                                      inputDecorationTheme:
+                                          InputDecorationTheme(
+                                        focusedBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        enabledBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    child: OTPTextField(
+                                      length: 6,
+                                      width: MediaQuery.of(context).size.width,
+                                      fieldWidth: 40,
+                                      style: TextStyle(
+                                          fontSize: 24, color: Colors.white),
+                                      textFieldAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      fieldStyle: FieldStyle.underline,
+                                      onCompleted: (pin) {
+                                        print('Completed: ' + pin);
+                                      },
+                                    ),
                                   ),
                                 ),
                               ),

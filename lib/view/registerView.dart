@@ -73,6 +73,9 @@ class Register extends GetView<RegisterController> {
                   padding: const EdgeInsets.all(8.0),
                   child: RoundedRectangleButton(
                     label: 'Create an account',
+                    onPressed: () {
+                      Get.toNamed('/otp');
+                    },
                   ),
                   // child: ElevatedButton(
                   //   child: Text('Register'),
