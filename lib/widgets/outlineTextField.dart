@@ -35,50 +35,48 @@ class _OutLinedTextFieldState extends State<OutLinedTextField> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.white, width: 1.5),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.only(left: 10, right: 10),
-        child: Row(
-          children: [
-            Expanded(
-              child: TextField(
-                keyboardType: widget.keyboardType,
-                obscureText: _obscureText,
-                onChanged: widget.onChanged,
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  labelText: widget.label,
-                  labelStyle: TextStyle(
-                    color: Colors.white.withOpacity(0.5),
-                  ),
-                ),
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 17,
-                ),
-                cursorColor: Colors.white,
-              ),
-            ),
-            widget.obscureText
-                ? TouchableOpacity(
-                    child: Icon(
-                      !_obscureText
-                          ? Icons.visibility_outlined
-                          : Icons.visibility_off_outlined,
-                      color: Colors.white,
-                    ),
-                    activeOpacity: 0.4,
-                    onTap: _toggle,
-                  )
-                : Container(),
-          ],
+  Widget build(BuildContext context) => Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.white, width: 1.5),
+          borderRadius: BorderRadius.circular(8),
         ),
-      ),
-    );
-  }
+        child: Padding(
+          padding: const EdgeInsets.only(left: 10, right: 10),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  keyboardType: widget.keyboardType,
+                  obscureText: _obscureText,
+                  onChanged: widget.onChanged,
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    labelText: widget.label,
+                    labelStyle: TextStyle(
+                      color: Colors.white.withOpacity(0.5),
+                    ),
+                  ),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 17,
+                  ),
+                  cursorColor: Colors.white,
+                ),
+              ),
+              widget.obscureText
+                  ? TouchableOpacity(
+                      child: Icon(
+                        !_obscureText
+                            ? Icons.visibility_outlined
+                            : Icons.visibility_off_outlined,
+                        color: Colors.white,
+                      ),
+                      activeOpacity: 0.4,
+                      onTap: _toggle,
+                    )
+                  : Container(),
+            ],
+          ),
+        ),
+      );
 }

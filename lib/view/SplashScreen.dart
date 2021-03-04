@@ -4,14 +4,12 @@ import 'package:get/get.dart';
 
 class Splash extends GetView<SplashController> {
   @override
-  Widget build(context) {
-    return Scaffold(
-        body: Obx(
-      () => Center(
-        child: controller.isLoading.value
-            ? CircularProgressIndicator()
-            : Container(),
-      ),
-    ));
-  }
+  Widget build(context) => Scaffold(
+          body: Obx(
+        () => Center(
+          child: controller.isLoading.value
+              ? CircularProgressIndicator()
+              : Container(),
+        ),
+      ));
 }

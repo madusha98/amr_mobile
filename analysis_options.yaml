@@ -52,3 +52,7 @@ linter:
     - use_function_type_syntax_for_parameters
     - use_rethrow_when_possible
     - valid_regexps
+    - camel_case_types
+    - always_use_package_imports
+    - avoid_unnecessary_containers
+    - prefer_expression_function_bodies

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class RoundedRectangleButton extends StatelessWidget {
   final String label;
@@ -9,8 +8,7 @@ class RoundedRectangleButton extends StatelessWidget {
       : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
+  Widget build(BuildContext context) => Container(
       height: 60,
       width: double.infinity,
       margin: EdgeInsets.only(left: 0, right: 0),
@@ -22,7 +20,5 @@ class RoundedRectangleButton extends StatelessWidget {
         color: Colors.white,
         textColor: Color.fromRGBO(21, 75, 189, 1),
         child: Text(label, style: TextStyle(fontSize: 17)),
-      ),
-    );
-  }
+      ));
 }
