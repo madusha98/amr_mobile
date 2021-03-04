@@ -32,7 +32,7 @@ class forgotPassword extends GetView<forgotPasswordController> {
                 Column(
                   children: [
                     Container(
-                      height: Get.height / 1.85,
+                      height: Get.height / 1.7,
                       padding: const EdgeInsets.only(
                           left: 0.0, top: 45.0, right: 10.0),
                       child: Align(
@@ -90,13 +90,12 @@ class forgotPassword extends GetView<forgotPasswordController> {
                               ),
                               Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: TouchableOpacity(
-                                      onTap: () {
-                                        Get.toNamed('/otp');
-                                      },
-                                      child: RoundedRectangleButton(
-                                        label: 'Submit',
-                                      )))
+                                  child: RoundedRectangleButton(
+                                    label: 'Submit',
+                                    onPressed: () {
+                                      Get.toNamed('/otp');
+                                    },
+                                  ))
                             ],
                           ),
                         ),
