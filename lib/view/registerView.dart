@@ -34,7 +34,7 @@ class Register extends GetView<RegisterController> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: Get.height / 5,
+                  height: Get.height / 7,
                   child: Text(
                     'Create an account.',
                     style: TextStyle(
@@ -74,7 +74,7 @@ class Register extends GetView<RegisterController> {
                   child: RoundedRectangleButton(
                     label: 'Create an account',
                     onPressed: () {
-                      // Get.toNamed('/otp');
+                      //controller.register(),
                     },
                   ),
                   // child: ElevatedButton(
@@ -82,18 +82,69 @@ class Register extends GetView<RegisterController> {
                   //   onPressed: controller.register,
                   // ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TouchableOpacity(
-                    child: Text(
-                      'By signing up you agree to our Privacy Policy and Terms.',
-                      style: TextStyle(
-                        color: Colors.white.withOpacity(0.4),
-                        fontSize: 10,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          top: 8.0, left: 8.0, bottom: 8.0),
+                      child: Text(
+                        'By signing up you agree to our ',
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(0.4),
+                          fontSize: 10,
+                        ),
                       ),
                     ),
-                    onTap: () {},
-                  ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          top: 8.0, right: 8.0, bottom: 8.0),
+                      child: TouchableOpacity(
+                        onTap: () {
+                          //
+                        },
+                        child: Text(
+                          'Privacy Policy and Terms.',
+                          style: TextStyle(
+                              color: Colors.white.withOpacity(0.4),
+                              fontSize: 10,
+                              decoration: TextDecoration.underline),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          top: 20.0, left: 20.0, bottom: 20.0),
+                      child: Text(
+                        'Already have an account? ',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          top: 8.0, right: 8.0, bottom: 8.0),
+                      child: TouchableOpacity(
+                        onTap: () {
+                          Get.toNamed('/login');
+                        },
+                        child: Text(
+                          'Sign In',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              decoration: TextDecoration.underline),
+                        ),
+                      ),
+                    ),
+                  ],
                 )
               ],
             ),
