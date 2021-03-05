@@ -1,10 +1,12 @@
 import 'package:amr_mobile/bindings/homeBinding.dart';
+import 'package:amr_mobile/bindings/introBinding.dart';
 import 'package:amr_mobile/bindings/loginBinding.dart';
 import 'package:amr_mobile/bindings/otpBinding.dart';
 import 'package:amr_mobile/bindings/registerBinding.dart';
 import 'package:amr_mobile/bindings/splashBinding.dart';
 import 'package:amr_mobile/bindings/forgotPasswordBinding.dart';
 import 'package:amr_mobile/view/homeView.dart';
+import 'package:amr_mobile/view/introView.dart';
 import 'package:amr_mobile/view/loginView.dart';
 import 'package:amr_mobile/view/SplashScreen.dart';
 import 'package:amr_mobile/view/otpView.dart';
@@ -46,6 +48,11 @@ class Pages {
       name: Routes.OTP,
       page: () => Otp(),
       binding: OtpBinding(),
-    )
+    ),
+    GetPage(
+      name: Routes.INTRO,
+      page: () => Intro(),
+      binding: IntroBinding(),
+    ),
   ];
 }
