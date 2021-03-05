@@ -7,7 +7,7 @@ import 'package:get_storage/get_storage.dart';
 
 class AuthService extends GetxService {
   Amplify amplifyInstance = Amplify();
-  GetStorage storage = GetStorage();
+  GetStorage storage = Get.find();
   RxBool amplifyConfigured = false.obs;
 
   @override

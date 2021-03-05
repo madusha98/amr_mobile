@@ -38,6 +38,7 @@ dependencies:
   device_info:
   touchable_opacity: ^1.1.2
   otp_text_field: ^1.0.2
+  intro_slider: ^2.3.4
 
 dev_dependencies:
   flutter_test:

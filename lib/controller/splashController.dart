@@ -1,22 +1,30 @@
 import 'package:amr_mobile/routes/pages.dart';
 import 'package:amr_mobile/service/fcmService.dart';
+import 'package:amr_mobile/utils/constants.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class SplashController extends GetxController {
   var isLoading = false.obs;
-  GetStorage storage = GetStorage();
+  GetStorage storage = Get.find();
   final FCMService _fcmService = FCMService();
 
   @override
   void onInit() {
     super.onInit();
     isLoading.value = true;
-    storage.initStorage.then((value) {
-      print(value);
-      isLoading.value = false;
-      Get.offNamed(storage.hasData('token') ? Routes.HOME : Routes.LOGIN);
+    Future.delayed(const Duration(milliseconds: 500), () {
+      if (storage.hasData(StorageKeys.IS_FIRST_TIME)) {
+        isLoading.value = false;
+        Get.offNamed(
+          storage.hasData(StorageKeys.TOKEN) ? Routes.HOME : Routes.LOGIN,
+        );
+      } else {
+        isLoading.value = false;
+        Get.offNamed('./intro');
+      }
     });
+
     _fcmService.handleNotifications();
   }
 
