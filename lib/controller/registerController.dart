@@ -37,6 +37,16 @@ class RegisterController extends GetxController {
     return password.value == text;
   }
 
+  bool verifyEmail(String text) => RegExp(
+          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+      .hasMatch(text);
+
+  bool verifyNic(String text) =>
+      RegExp(r'^([0-9]{9}[x|X|v|V]|[0-9]{12})$').hasMatch(text);
+
+  bool verifyMobile(String text) =>
+      RegExp(r'^(?:7|0|(?:\+94))[0-9]{9,10}$').hasMatch(text);
+
   void confirmOtp() async {
     var res = await _authService.confirmSignUp(email.value, otp);
     if (res != null && res.isSignUpComplete) {

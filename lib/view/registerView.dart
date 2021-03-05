@@ -59,7 +59,11 @@ class Register extends GetView<RegisterController> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: OutLinedTextField(
-                      onChanged: (text) => controller.email.value = text,
+                      onChanged: (text) {
+                        controller.email.value = text;
+                        var validEmail = controller.verifyEmail(text);
+                        print(validEmail);
+                      },
                       label: 'Email',
                       keyboardType: TextInputType.emailAddress,
                     ),
@@ -69,6 +73,8 @@ class Register extends GetView<RegisterController> {
                     child: OutLinedTextField(
                       onChanged: (text) {
                         controller.phone.value = text;
+                        var validMobile = controller.verifyMobile(text);
+                        print(validMobile);
                       },
                       label: 'Mobile',
                       keyboardType: TextInputType.phone,
@@ -77,7 +83,11 @@ class Register extends GetView<RegisterController> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: OutLinedTextField(
-                      onChanged: (text) => controller.nic.value = text,
+                      onChanged: (text) {
+                        controller.nic.value = text;
+                        var validNic = controller.verifyNic(text);
+                        print(validNic);
+                      },
                       label: 'NIC',
                       keyboardType: TextInputType.name,
                     ),
