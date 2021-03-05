@@ -57,6 +57,7 @@ class Register extends GetView<RegisterController> {
                       onChanged: (text) => controller.name.value = text,
                       label: 'Your Name',
                       keyboardType: TextInputType.name,
+                      hasError: true,
                     ),
                   ),
                   Padding(
