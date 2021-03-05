@@ -30,7 +30,7 @@ dependencies:
   get: ^3.22.2
   flutter_login: ^1.0.14
   get_storage: ^1.3.2
-  firebase_analytics: ^7.0.1
+  firebase_analytics:
 
 dev_dependencies:
   flutter_test:
