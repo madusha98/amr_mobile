@@ -13,6 +13,30 @@ class Login extends GetView<LoginController> {
           FocusScope.of(context).requestFocus(FocusNode());
         },
         child: Scaffold(
+          extendBodyBehindAppBar: true,
+          appBar: AppBar(
+            leading: Container(
+              margin: const EdgeInsets.only(left: 0.0, top: 5.0),
+              child: IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () {
+                  Get.back();
+                },
+              ),
+            ),
+            actions: [
+              Container(
+                margin: const EdgeInsets.all(5.0),
+                color: Get.theme.primaryColor.withOpacity(0.4),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Image.asset('assets/logodarkbg.png'),
+                ),
+              )
+            ],
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+          ),
           body: SingleChildScrollView(
             child: Container(
               constraints: BoxConstraints(minHeight: Get.height),
