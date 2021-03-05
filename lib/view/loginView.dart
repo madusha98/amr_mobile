@@ -1,4 +1,6 @@
 import 'package:amr_mobile/routes/pages.dart';
+import 'package:amr_mobile/widgets/roundedRectangleButton.dart';
+import 'package:amr_mobile/widgets/outlineTextField.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:amr_mobile/controller/loginController.dart';
@@ -11,68 +13,86 @@ class Login extends GetView<LoginController> {
           FocusScope.of(context).requestFocus(FocusNode());
         },
         child: Scaffold(
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextField(
-                  onChanged: (text) => controller.email.value = text,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Email',
-                  ),
+          body: SingleChildScrollView(
+            child: Container(
+              constraints: BoxConstraints(minHeight: Get.height),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment(0, 0.0),
+                  colors: [Get.theme.primaryColor, Get.theme.accentColor],
+                  tileMode: TileMode.clamp,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextField(
-                  onChanged: (text) => controller.password.value = text,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Password',
-                  ),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TouchableOpacity(
-                      onTap: () {
-                        Get.toNamed('/forgotPassword');
-                      },
-                      child: Text(
-                        'Forgot your password?',
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              Row(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Container(
+                    height: Get.height / 4,
+                    child: Text(
+                      'Sign in to your account',
+                      style: TextStyle(
+                        fontSize: 24,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: RaisedButton(
-                      child: Text('Login'),
+                    child: OutLinedTextField(
+                      onChanged: (text) {
+                        controller.email.value = text;
+                      },
+                      label: 'Email',
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: OutLinedTextField(
+                      onChanged: (text) {
+                        controller.password.value = text;
+                      },
+                      label: 'Password',
+                      obscureText: true,
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TouchableOpacity(
+                          onTap: () {
+                            Get.toNamed('/forgotPassword');
+                          },
+                          child: Text(
+                            'Forgot your password?',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: RoundedRectangleButton(
+                      label: 'Sign In',
                       onPressed: controller.login,
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: RaisedButton(
-                      child: Text('Register'),
+                    child: RoundedRectangleButton(
+                      label: 'Register',
                       onPressed: () => Get.toNamed(Routes.REGISTER),
                     ),
                   ),
                 ],
               ),
-            ],
+            ),
           ),
         ),
       );
