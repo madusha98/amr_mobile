@@ -15,10 +15,13 @@ class Register extends GetView<RegisterController> {
           extendBodyBehindAppBar: true,
           appBar: AppBar(
             leading: Container(
-              color: Colors.red,
+              margin: const EdgeInsets.only(left: 5.0, top: 5.0),
+              decoration: BoxDecoration(
+                  color: Get.theme.primaryColor.withOpacity(0.4),
+                  borderRadius: BorderRadius.all(Radius.circular(25))),
               child: IconButton(
-                icon: Icon(Icons.ac_unit),
-                onPressed: () {},
+                icon: Icon(Icons.arrow_back),
+                onPressed: () {Get.back();},
               ),
             ),
             backgroundColor: Colors.transparent,
@@ -39,7 +42,7 @@ class Register extends GetView<RegisterController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 100, bottom: 50),
+                    padding: const EdgeInsets.only(top: 100, bottom: 40),
                     child: Text(
                       'Create an account.',
                       style: TextStyle(

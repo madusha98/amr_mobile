@@ -51,6 +51,8 @@ class _OutLinedTextFieldState extends State<OutLinedTextField> {
                   onChanged: widget.onChanged,
                   decoration: InputDecoration(
                     border: InputBorder.none,
+                    isDense: true, 
+                    contentPadding: EdgeInsets.all(8),
                     labelText: widget.label,
                     labelStyle: TextStyle(
                       color: Colors.white.withOpacity(0.5),
