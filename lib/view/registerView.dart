@@ -17,18 +17,29 @@ class Register extends GetView<RegisterController> {
             leading: Container(
               margin: const EdgeInsets.only(left: 5.0, top: 5.0),
               decoration: BoxDecoration(
-                  color: Get.theme.primaryColor.withOpacity(0.4),
+                  color: Get.theme.primaryColor.withOpacity(0.5),
                   borderRadius: BorderRadius.all(Radius.circular(25))),
               child: IconButton(
                 icon: Icon(Icons.arrow_back),
                 onPressed: () {Get.back();},
               ),
             ),
+            actions: [
+              Container(
+                margin: const EdgeInsets.all(5.0),
+                color: Get.theme.primaryColor.withOpacity(0.4),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Image.asset('assets/logodarkbg.png'),
+                ),
+              )
+            ],
             backgroundColor: Colors.transparent,
             elevation: 0,
           ),
           body: SingleChildScrollView(
             child: Container(
+              padding: const EdgeInsets.only(left:15.0, right: 15.0),
               constraints: BoxConstraints(minHeight: Get.height),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -52,7 +63,7 @@ class Register extends GetView<RegisterController> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(bottom:15.0),
                     child: OutLinedTextField(
                       onChanged: (text) => controller.name.value = text,
                       label: 'Your Name',
@@ -61,7 +72,7 @@ class Register extends GetView<RegisterController> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(bottom:15.0),
                     child: OutLinedTextField(
                       onChanged: (text) {
                         controller.email.value = text;
@@ -73,7 +84,7 @@ class Register extends GetView<RegisterController> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(bottom:15.0),
                     child: OutLinedTextField(
                       onChanged: (text) {
                         controller.phone.value = text;
@@ -85,7 +96,7 @@ class Register extends GetView<RegisterController> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(bottom:15.0),
                     child: OutLinedTextField(
                       onChanged: (text) {
                         controller.nic.value = text;
@@ -97,7 +108,7 @@ class Register extends GetView<RegisterController> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(bottom:15.0),
                     child: OutLinedTextField(
                       onChanged: (text) => controller.password.value = text,
                       label: 'Create a strong password',
@@ -106,7 +117,7 @@ class Register extends GetView<RegisterController> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(bottom:15.0),
                     child: OutLinedTextField(
                       onChanged: (text) {
                         controller.retypePassword.value = text;
@@ -119,7 +130,7 @@ class Register extends GetView<RegisterController> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(top:12.0),
                     child: RoundedRectangleButton(
                       label: 'Create an account',
                       onPressed: controller.register,
@@ -138,7 +149,7 @@ class Register extends GetView<RegisterController> {
                         child: Text(
                           'By signing up you agree to our ',
                           style: TextStyle(
-                            color: Colors.white.withOpacity(0.4),
+                            color: Colors.white.withOpacity(0.7),
                             fontSize: 10,
                           ),
                         ),
@@ -153,7 +164,7 @@ class Register extends GetView<RegisterController> {
                           child: Text(
                             'Privacy Policy and Terms.',
                             style: TextStyle(
-                                color: Colors.white.withOpacity(0.4),
+                                color: Colors.white.withOpacity(0.7),
                                 fontSize: 10,
                                 decoration: TextDecoration.underline),
                           ),

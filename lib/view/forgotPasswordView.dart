@@ -14,6 +14,29 @@ class ForgotPassword extends GetView<ForgotPasswordController> {
           FocusScope.of(context).requestFocus(FocusNode());
         },
         child: Scaffold(
+          extendBodyBehindAppBar: true,
+          appBar: AppBar(
+            leading: Container(
+              margin: const EdgeInsets.only(left: 0.0, top: 5.0),
+              
+              child: IconButton(
+                icon: Icon(Icons.close),
+                onPressed: () {Get.back();},
+              ),
+            ),
+            actions: [
+              Container(
+                margin: const EdgeInsets.all(5.0),
+                color: Get.theme.primaryColor.withOpacity(0.4),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Image.asset('assets/logodarkbg.png'),
+                ),
+              )
+            ],
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+          ),
           body: SingleChildScrollView(
             child: Container(
               constraints: BoxConstraints(minHeight: Get.height),
@@ -33,31 +56,16 @@ class ForgotPassword extends GetView<ForgotPasswordController> {
                       Container(
                         height: Get.height / 1.7,
                         padding: const EdgeInsets.only(
-                            left: 0.0, top: 45.0, right: 10.0),
+                            left: 15.0, top: 45.0, right: 15.0),
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 10.0),
+                            padding: const EdgeInsets.only(top:30.0,left: 0.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(bottom: 20.0),
-                                  child: TouchableOpacity(
-                                    onTap: () {
-                                      Get.toNamed('/login');
-                                    },
-                                    child: Icon(
-                                      Icons.close,
-                                      color: Colors.white,
-                                      size: 26.0,
-                                      semanticLabel:
-                                          'Text to announce in accessibility modes',
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.only(top:15.0, bottom: 15.0),
                                   child: Text(
                                     'Forgot password?',
                                     style: TextStyle(
@@ -69,7 +77,7 @@ class ForgotPassword extends GetView<ForgotPasswordController> {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(
-                                      left: 10.0, top: 10.0, bottom: 15.0),
+                                      left: 0.0, top: 10.0, bottom: 15.0),
                                   child: Text(
                                     'Enter your email below and we will send you a reset email.',
                                     style: TextStyle(
@@ -80,7 +88,7 @@ class ForgotPassword extends GetView<ForgotPasswordController> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: const EdgeInsets.only(bottom:15.0),
                                   child: OutLinedTextField(
                                     onChanged: (text) =>
                                         controller.email.value = text,
@@ -89,7 +97,7 @@ class ForgotPassword extends GetView<ForgotPasswordController> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: const EdgeInsets.all(0.0),
                                   child: RoundedRectangleButton(
                                       label: 'Submit',
                                       onPressed: controller.resetPassword),
