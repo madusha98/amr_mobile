@@ -127,4 +127,7 @@ class AuthService extends GetxService {
       return null;
     }
   }
+
+  Future<UpdatePasswordResult> createNewPassword(
+      String newpassword, String confirmpassword) async => null;
 }

@@ -1,3 +1,4 @@
+import 'package:amr_mobile/bindings/createNewPasswordBinding.dart';
 import 'package:amr_mobile/bindings/homeBinding.dart';
 import 'package:amr_mobile/bindings/introBinding.dart';
 import 'package:amr_mobile/bindings/loginBinding.dart';
@@ -12,6 +13,7 @@ import 'package:amr_mobile/view/SplashScreen.dart';
 import 'package:amr_mobile/view/otpView.dart';
 import 'package:amr_mobile/view/registerView.dart';
 import 'package:amr_mobile/view/forgotPasswordView.dart';
+import 'package:amr_mobile/view/createNewPasswordView.dart';
 import 'package:get/get.dart';
 
 part 'routes.dart';
@@ -53,6 +55,11 @@ class Pages {
       name: Routes.INTRO,
       page: () => Intro(),
       binding: IntroBinding(),
+    ),
+    GetPage(
+      name: Routes.CREATENEWPASSWORD,
+      page: () => CreateNewPassword(),
+      binding: CreateNewPasswordBinding(),
     ),
   ];
 }
