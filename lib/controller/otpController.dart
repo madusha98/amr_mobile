@@ -14,7 +14,19 @@ class OtpController extends GetxController {
 
   void confirmOtp(String text) async {
     print(otp.value);
-    var res = await _authService.confirmSignUp(Get.arguments['email'], text);
+    switch (Get.arguments['prevPage']) {
+      case Routes.REGISTER:
+        confirmSignUp(text);
+        break;
+      case Routes.FORGOTPASSWORD:
+        Get.toNamed(Routes.CREATENEWPASSWORD,
+            arguments: {'otp': text, 'email': Get.arguments['email']});
+        break;
+    }
+  }
+
+  void confirmSignUp(String otp) async {
+    var res = await _authService.confirmSignUp(Get.arguments['email'], otp);
     if (res != null && res.isSignUpComplete) {
       await login();
     }

@@ -14,6 +14,8 @@ class Otp extends GetView<OtpController> {
           FocusScope.of(context).requestFocus(FocusNode());
         },
         child: Scaffold(
+          extendBodyBehindAppBar: true,
+          appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
           body: SingleChildScrollView(
             child: Container(
               constraints: BoxConstraints(minHeight: Get.height),
@@ -33,7 +35,7 @@ class Otp extends GetView<OtpController> {
                       Container(
                         height: Get.height / 1.85,
                         padding: const EdgeInsets.only(
-                            left: 0.0, top: 45.0, right: 10.0),
+                            left: 0.0, top: 100.0, right: 10.0),
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: Padding(
@@ -41,23 +43,6 @@ class Otp extends GetView<OtpController> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(bottom: 20.0),
-                                  child: TouchableOpacity(
-                                    onTap: () {
-                                      //
-                                    },
-                                    child: Container(
-                                      transform: Matrix4.translationValues(
-                                          -5.0, 0.0, 0.0),
-                                      child: Icon(
-                                        Icons.close,
-                                        color: Colors.white,
-                                        size: 26.0,
-                                      ),
-                                    ),
-                                  ),
-                                ),
                                 Text(
                                   'Enter verification code',
                                   style: TextStyle(

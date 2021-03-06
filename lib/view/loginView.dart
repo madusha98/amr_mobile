@@ -38,84 +38,98 @@ class Login extends GetView<LoginController> {
             elevation: 0,
           ),
           body: SingleChildScrollView(
-            child: Container(
-              constraints: BoxConstraints(minHeight: Get.height),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment(0, 0.0),
-                  colors: [Get.theme.primaryColor, Get.theme.accentColor],
-                  tileMode: TileMode.clamp,
+            child: Stack(
+              children: [
+                Container(
+                  constraints: BoxConstraints(minHeight: Get.height),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment(0, 0.0),
+                      colors: [Get.theme.primaryColor, Get.theme.accentColor],
+                      tileMode: TileMode.clamp,
+                    ),
+                  ),
                 ),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: Get.height / 4,
-                    child: Text(
-                      'Sign in to your account',
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+                Container(
+                  height: Get.height,
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    image: DecorationImage(
+                      image: ExactAssetImage('assets/bg.png'),
+                      fit: BoxFit.cover,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: OutLinedTextField(
-                      onChanged: (text) {
-                        controller.email.value = text;
-                      },
-                      label: 'Email',
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: OutLinedTextField(
-                      onChanged: (text) {
-                        controller.password.value = text;
-                      },
-                      label: 'Password',
-                      obscureText: true,
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: TouchableOpacity(
-                          onTap: () {
-                            Get.toNamed('/forgotPassword');
-                          },
-                          child: Text(
-                            'Forgot your password?',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
+                      Container(
+                        height: Get.height / 4,
+                        child: Text(
+                          'Sign in to your account',
+                          style: TextStyle(
+                            fontSize: 24,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                      )
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: OutLinedTextField(
+                          onChanged: (text) {
+                            controller.email.value = text;
+                          },
+                          label: 'Email',
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: OutLinedTextField(
+                          onChanged: (text) {
+                            controller.password.value = text;
+                          },
+                          label: 'Password',
+                          obscureText: true,
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: TouchableOpacity(
+                              onTap: () {
+                                Get.toNamed('/forgotPassword');
+                              },
+                              child: Text(
+                                'Forgot your password?',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: RoundedRectangleButton(
+                          label: 'Sign In',
+                          onPressed: controller.login,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: RoundedRectangleButton(
+                          label: 'Register',
+                          onPressed: () => Get.toNamed(Routes.REGISTER),
+                        ),
+                      ),
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: RoundedRectangleButton(
-                      label: 'Sign In',
-                      onPressed: controller.login,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: RoundedRectangleButton(
-                      label: 'Register',
-                      onPressed: () => Get.toNamed(Routes.REGISTER),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),

@@ -1,7 +1,6 @@
 import 'package:amr_mobile/domain/User.dart';
 import 'package:amr_mobile/routes/pages.dart';
 import 'package:amr_mobile/service/authService.dart';
-import 'package:amr_mobile/widgets/otpBottomSheet.dart';
 import 'package:get/get.dart';
 
 class RegisterController extends GetxController {
@@ -25,8 +24,11 @@ class RegisterController extends GetxController {
     print(user.toAwsJson);
     var res = await _authService.signup(user);
     if (res != null) {
-      Get.toNamed(Routes.OTP,
-          arguments: {'email': email.value, 'password': password.value});
+      Get.toNamed(Routes.OTP, arguments: {
+        'email': email.value,
+        'password': password.value,
+        'prevPage': Routes.REGISTER
+      });
     }
   }
 
@@ -65,13 +67,5 @@ class RegisterController extends GetxController {
 
   void resendOtp() async {
     await _authService.resendCode(email.value);
-  }
-
-  void showOtpBottomSheet() {
-    Get.bottomSheet(OtpBottomSheet(
-      onChangedText: (text) => otp = text,
-      resendOtp: resendOtp,
-      confirmOtp: confirmOtp,
-    ));
   }
 }

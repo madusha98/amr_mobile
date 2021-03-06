@@ -97,12 +97,11 @@ class CreateNewPassword extends GetView<CreateNewPasswordController> {
                       obscureText: true,
                     ),
                   ),
-                
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: RoundedRectangleButton(
                       label: 'Sign In',
-                      onPressed: controller.createNewPassword,
+                      onPressed: controller.confirmPassword,
                     ),
                   ),
                 ],

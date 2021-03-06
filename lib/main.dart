@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       enableLog: true,
       logWriterCallback: Logger.write,
-      initialRoute: Routes.CREATENEWPASSWORD,
+      initialRoute: Routes.SPLASH,
       getPages: Pages.routes,
       navigatorObservers: [
         FirebaseAnalyticsObserver(analytics: analytics),
