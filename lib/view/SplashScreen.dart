@@ -1,62 +1,39 @@
 import 'package:amr_mobile/controller/splashController.dart';
+import 'package:amr_mobile/widgets/authContainer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Splash extends GetView<SplashController> {
   @override
-  Widget build(context) => Stack(
-        children: [
-          Scaffold(
-              body: Obx(
-            () => Stack(
+  Widget build(context) => AuthContainer(
+        appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
+        child: Container(
+          height: Get.height,
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  constraints: BoxConstraints(minHeight: Get.height),
+                  width: Get.width / 2.5,
+                  height: Get.width / 4,
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment(0, 0.0),
-                      colors: [Get.theme.primaryColor, Get.theme.accentColor],
-                      tileMode: TileMode.clamp,
-                    ),
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.transparent,
                     image: DecorationImage(
-                      image: ExactAssetImage('assets/bg.png'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  height: Get.height,
-                  width: Get.width,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: Get.width / 2.5,
-                        height: Get.width / 4,
-                        //color: Colors.red,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/logodarkbg.png'),
-                              fit: BoxFit.contain),
-                        ),
-                      ),
-                      controller.isLoading.value
-                          ? Container(
-                              height: 100,
-                              width: 100,
-                              // color: Colors.red,
-                              child: CircularProgressIndicator())
-                          : Container()
-                    ],
+                        image: AssetImage('assets/logodarkbg.png'),
+                        fit: BoxFit.contain),
                   ),
                 ),
+                controller.isLoading.value
+                    ? Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: CircularProgressIndicator(
+                          backgroundColor: Colors.white,
+                        ),
+                      )
+                    : Container()
               ],
             ),
-          )),
-        ],
+          ),
+        ),
       );
 }
