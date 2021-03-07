@@ -1,4 +1,5 @@
 import 'package:amr_mobile/controller/auth/registerController.dart';
+import 'package:amr_mobile/utils/constants.dart';
 import 'package:amr_mobile/widgets/authContainer.dart';
 import 'package:amr_mobile/widgets/roundedRectangleButton.dart';
 import 'package:amr_mobile/widgets/outlineTextField.dart';
@@ -10,22 +11,19 @@ class Register extends GetView<RegisterController> {
   @override
   Widget build(context) => AuthContainer(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.only(left: PADDING, right: PADDING),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 100, bottom: 40),
+                padding: const EdgeInsets.only(top: 85, bottom: 40),
                 child: Text(
-                  'Create an account.',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 30,
-                      fontWeight: FontWeight.w400),
+                  'Create an account',
+                  style: Get.textTheme.headline6,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 15.0),
+                padding: const EdgeInsets.only(bottom: PADDING),
                 child: OutLinedTextField(
                   onChanged: (text) => controller.name.value = text,
                   label: 'Your Name',
@@ -34,7 +32,7 @@ class Register extends GetView<RegisterController> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 15.0),
+                padding: const EdgeInsets.only(bottom: PADDING),
                 child: OutLinedTextField(
                   onChanged: (text) {
                     controller.email.value = text;
@@ -46,7 +44,7 @@ class Register extends GetView<RegisterController> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 15.0),
+                padding: const EdgeInsets.only(bottom: PADDING),
                 child: OutLinedTextField(
                   onChanged: (text) {
                     controller.phone.value = text;
@@ -58,7 +56,7 @@ class Register extends GetView<RegisterController> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 15.0),
+                padding: const EdgeInsets.only(bottom: PADDING),
                 child: OutLinedTextField(
                   onChanged: (text) {
                     controller.nic.value = text;
@@ -70,7 +68,7 @@ class Register extends GetView<RegisterController> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 15.0),
+                padding: const EdgeInsets.only(bottom: PADDING),
                 child: OutLinedTextField(
                   onChanged: (text) => controller.password.value = text,
                   label: 'Create a strong password',
@@ -79,7 +77,7 @@ class Register extends GetView<RegisterController> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 15.0),
+                padding: const EdgeInsets.only(bottom: PADDING),
                 child: OutLinedTextField(
                   onChanged: (text) {
                     controller.retypePassword.value = text;
@@ -92,15 +90,11 @@ class Register extends GetView<RegisterController> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 12.0),
+                padding: const EdgeInsets.only(top: PADDING, bottom: PADDING),
                 child: RoundedRectangleButton(
                   label: 'Create an account',
                   onPressed: controller.register,
                 ),
-                // child: ElevatedButton(
-                //   child: Text('Register'),
-                //   onPressed: controller.register,
-                // ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -145,6 +139,7 @@ class Register extends GetView<RegisterController> {
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 14,
+                        fontWeight: FontWeight.w500
                       ),
                     ),
                   ),
@@ -160,6 +155,7 @@ class Register extends GetView<RegisterController> {
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 14,
+                            fontWeight: FontWeight.w500,
                             decoration: TextDecoration.underline),
                       ),
                     ),

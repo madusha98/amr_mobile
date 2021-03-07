@@ -44,6 +44,6 @@ class IntroController extends GetxController {
 
   void onDonePressed() {
     storage.write(StorageKeys.IS_FIRST_TIME, 'true');
-    Get.offNamed(Routes.LOGIN);
+    Get.offNamed(Routes.WELCOME);
   }
 }

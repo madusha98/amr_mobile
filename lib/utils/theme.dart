@@ -9,6 +9,6 @@ var theme = ThemeData(
     fontFamily: 'Poppins',
     textTheme: TextTheme(
       headline5: TextStyle(fontSize: 36),
-      headline6: TextStyle(fontSize: 24),
+      headline6: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.w600),
       bodyText1: TextStyle(fontSize: 12),
     ));
