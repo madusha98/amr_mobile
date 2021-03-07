@@ -17,7 +17,7 @@ class SplashController extends GetxController {
       if (storage.hasData(StorageKeys.IS_FIRST_TIME)) {
         isLoading.value = false;
         Get.offNamed(
-          storage.hasData(StorageKeys.TOKEN) ? Routes.HOME : Routes.WELCOME,
+          storage.hasData(StorageKeys.TOKEN) ? Routes.HOME : Routes.LOGIN,
         );
       } else {
         isLoading.value = false;

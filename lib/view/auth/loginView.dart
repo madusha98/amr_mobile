@@ -53,7 +53,7 @@ class Login extends GetView<LoginController> {
                     padding: const EdgeInsets.only(bottom: 30.0),
                     child: TouchableOpacity(
                       onTap: () {
-                        Get.toNamed('/forgotPassword');
+                        Get.toNamed(Routes.FORGOTPASSWORD);
                       },
                       child: Text(
                         'Forgot your password?',
@@ -90,7 +90,7 @@ class Login extends GetView<LoginController> {
                     padding: const EdgeInsets.only(
                         top: 8.0, right: 8.0, bottom: 8.0),
                     child: TouchableOpacity(
-                      onTap: () => Get.offNamed(Routes.REGISTER),
+                      onTap: () => Get.toNamed(Routes.REGISTER),
                       child: Text(
                         'Create one',
                         style: TextStyle(

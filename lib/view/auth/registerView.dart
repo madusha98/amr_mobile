@@ -1,4 +1,5 @@
 import 'package:amr_mobile/controller/auth/registerController.dart';
+import 'package:amr_mobile/routes/pages.dart';
 import 'package:amr_mobile/utils/constants.dart';
 import 'package:amr_mobile/utils/utils.dart';
 import 'package:amr_mobile/widgets/authContainer.dart';
@@ -152,7 +153,7 @@ class Register extends GetView<RegisterController> {
                           top: 8.0, right: 8.0, bottom: 8.0),
                       child: TouchableOpacity(
                         onTap: () {
-                          Get.offNamed('/login');
+                          Get.offAllNamed(Routes.LOGIN);
                         },
                         child: Text(
                           'Sign In',
