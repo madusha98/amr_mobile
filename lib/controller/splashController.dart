@@ -13,7 +13,11 @@ class SplashController extends GetxController {
   void onInit() {
     super.onInit();
     isLoading.value = true;
+<<<<<<< HEAD
     Future.delayed(const Duration(milliseconds: 2000), () {
+=======
+    Future.delayed(const Duration(milliseconds: 100), () {
+>>>>>>> 5a8ea39d9affa6d9b78b6a3e78158dfae0809c49
       if (storage.hasData(StorageKeys.IS_FIRST_TIME)) {
         isLoading.value = false;
         Get.offNamed(
