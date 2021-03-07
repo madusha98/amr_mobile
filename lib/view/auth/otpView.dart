@@ -18,25 +18,21 @@ class Otp extends GetView<OtpController> {
             Column(
               children: [
                 Container(
-                  padding:
-                      const EdgeInsets.only(left: 0.0, top: 100.0, right: 10.0),
+                  padding: const EdgeInsets.only(left: 0.0, top: 100.0),
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
+                      padding:
+                          const EdgeInsets.only(left: PADDING, right: PADDING),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             'Enter verification code',
-                            style: TextStyle(
-                              fontSize: 22,
-                              color: TEXT_COLOR,
-                              fontWeight: FontWeight.w400,
-                            ),
+                            style: Get.textTheme.headline6,
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 10.0),
+                            padding: const EdgeInsets.only(top: PADDING),
                             child: Text(
                               'We sent you a verification code via SMS.',
                               style: TextStyle(
@@ -98,8 +94,7 @@ class Otp extends GetView<OtpController> {
                   child: Text(
                     'Didn\'t receive it?',
                     style: TextStyle(
-                      color: TEXT_COLOR,
-                    ),
+                        color: Colors.white, fontWeight: FontWeight.w500),
                   ),
                 ),
                 Padding(
@@ -112,7 +107,8 @@ class Otp extends GetView<OtpController> {
                     child: Text(
                       'Resend code',
                       style: TextStyle(
-                          color: TEXT_COLOR,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
                           decoration: TextDecoration.underline),
                     ),
                   ),

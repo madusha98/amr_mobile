@@ -11,20 +11,17 @@ import 'package:touchable_opacity/touchable_opacity.dart';
 class Register extends GetView<RegisterController> {
   @override
   Widget build(context) => AuthContainer(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Obx(
-            () => Column(
+        child: Obx(
+          () => Padding(
+            padding: const EdgeInsets.only(left: PADDING, right: PADDING),
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 100, bottom: 40),
+                  padding: const EdgeInsets.only(top: 85, bottom: 40),
                   child: Text(
-                    'Create an account.',
-                    style: TextStyle(
-                        color: TEXT_COLOR,
-                        fontSize: 30,
-                        fontWeight: FontWeight.w400),
+                    'Create an account',
+                    style: Get.textTheme.headline6,
                   ),
                 ),
                 Padding(
@@ -100,7 +97,7 @@ class Register extends GetView<RegisterController> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 15.0),
+                  padding: const EdgeInsets.only(bottom: PADDING),
                   child: OutLinedTextField(
                     onChanged: (text) {
                       controller.retypePassword.value = text;
@@ -113,15 +110,11 @@ class Register extends GetView<RegisterController> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 12.0),
+                  padding: const EdgeInsets.only(top: PADDING, bottom: PADDING),
                   child: RoundedRectangleButton(
                     label: 'Create an account',
                     onPressed: controller.register,
                   ),
-                  // child: ElevatedButton(
-                  //   child: Text('Register'),
-                  //   onPressed: controller.register,
-                  // ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -132,24 +125,8 @@ class Register extends GetView<RegisterController> {
                       child: Text(
                         'By signing up you agree to our ',
                         style: TextStyle(
-                          color: TEXT_COLOR.withOpacity(0.7),
+                          color: Colors.white.withOpacity(0.7),
                           fontSize: 10,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 8.0, right: 8.0, bottom: 8.0),
-                      child: TouchableOpacity(
-                        onTap: () {
-                          //
-                        },
-                        child: Text(
-                          'Privacy Policy and Terms.',
-                          style: TextStyle(
-                              color: TEXT_COLOR.withOpacity(0.7),
-                              fontSize: 10,
-                              decoration: TextDecoration.underline),
                         ),
                       ),
                     ),
@@ -164,9 +141,10 @@ class Register extends GetView<RegisterController> {
                       child: Text(
                         'Already have an account? ',
                         style: TextStyle(
-                          color: TEXT_COLOR,
-                          fontSize: 14,
-                        ),
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            decoration: TextDecoration.underline),
                       ),
                     ),
                     Padding(
@@ -174,7 +152,7 @@ class Register extends GetView<RegisterController> {
                           top: 8.0, right: 8.0, bottom: 8.0),
                       child: TouchableOpacity(
                         onTap: () {
-                          Get.offNamed('/login');
+                          Get.offAllNamed('/login');
                         },
                         child: Text(
                           'Sign In',

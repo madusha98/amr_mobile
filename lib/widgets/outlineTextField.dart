@@ -100,9 +100,11 @@ class _OutLinedTextFieldState extends State<OutLinedTextField> {
               margin: EdgeInsets.only(left: 2.0, right: 2),
               padding: EdgeInsets.all(5),
               decoration: BoxDecoration(
-                  color: Theme.of(context).errorColor,
-                  borderRadius:
-                      BorderRadius.vertical(bottom: Radius.circular(5))),
+                color: Theme.of(context).errorColor,
+                borderRadius: BorderRadius.vertical(
+                  bottom: Radius.circular(5),
+                ),
+              ),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
