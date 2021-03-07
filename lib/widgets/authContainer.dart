@@ -20,7 +20,7 @@ class AuthContainer extends StatelessWidget {
                   actions: [
                     Container(
                       margin: const EdgeInsets.all(5.0),
-                      color: Theme.of(context).primaryColor.withOpacity(0.4),
+                      //color: Theme.of(context).primaryColor.withOpacity(0.4),
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Image.asset('assets/logodarkbg.png'),
@@ -53,7 +53,7 @@ class AuthContainer extends StatelessWidget {
                     color: Colors.transparent,
                     image: DecorationImage(
                       image: ExactAssetImage('assets/bg.png'),
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                     ),
                   ),
                   child: SingleChildScrollView(child: child),
