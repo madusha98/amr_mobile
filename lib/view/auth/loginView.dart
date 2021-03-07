@@ -1,5 +1,6 @@
 import 'package:amr_mobile/controller/auth/loginController.dart';
 import 'package:amr_mobile/routes/pages.dart';
+import 'package:amr_mobile/utils/constants.dart';
 import 'package:amr_mobile/widgets/authContainer.dart';
 import 'package:amr_mobile/widgets/roundedRectangleButton.dart';
 import 'package:amr_mobile/widgets/outlineTextField.dart';
@@ -22,7 +23,7 @@ class Login extends GetView<LoginController> {
                   'Sign in to your account',
                   style: TextStyle(
                     fontSize: 24,
-                    color: Colors.white,
+                    color: TEXT_COLOR,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -59,7 +60,7 @@ class Login extends GetView<LoginController> {
                     child: Text(
                       'Forgot your password?',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: TEXT_COLOR,
                       ),
                     ),
                   ),

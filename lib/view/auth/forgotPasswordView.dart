@@ -1,4 +1,5 @@
 import 'package:amr_mobile/controller/auth/forgotPasswordController.dart';
+import 'package:amr_mobile/utils/constants.dart';
 import 'package:amr_mobile/widgets/authContainer.dart';
 import 'package:amr_mobile/widgets/outlineTextField.dart';
 import 'package:amr_mobile/widgets/roundedRectangleButton.dart';
@@ -32,7 +33,7 @@ class ForgotPassword extends GetView<ForgotPasswordController> {
                               'Forgot password?',
                               style: TextStyle(
                                 fontSize: 22,
-                                color: Colors.white,
+                                color: TEXT_COLOR,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
@@ -44,7 +45,7 @@ class ForgotPassword extends GetView<ForgotPasswordController> {
                               'Enter your email below and we will send you a reset email.',
                               style: TextStyle(
                                 fontSize: 15,
-                                color: Colors.white.withOpacity(0.5),
+                                color: TEXT_COLOR.withOpacity(0.5),
                                 fontWeight: FontWeight.w400,
                               ),
                             ),

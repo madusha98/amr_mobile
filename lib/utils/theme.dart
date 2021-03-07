@@ -1,9 +1,11 @@
+import 'package:amr_mobile/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 var theme = ThemeData(
     // Colors
-    primaryColor: Color.fromRGBO(21, 75, 189, 1),
-    accentColor: Color.fromRGBO(180, 71, 233, 1),
+    primaryColor: PRIMARY_COLOR,
+    accentColor: ACCENNT_COLOR,
+    errorColor: ERROR_COLOR,
 
     // Text
     fontFamily: 'Poppins',

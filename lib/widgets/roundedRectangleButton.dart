@@ -1,3 +1,4 @@
+import 'package:amr_mobile/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class RoundedRectangleButton extends StatelessWidget {
@@ -12,13 +13,17 @@ class RoundedRectangleButton extends StatelessWidget {
       height: 60,
       width: double.infinity,
       margin: EdgeInsets.only(left: 0, right: 0),
-      child: RaisedButton(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
+      child: ElevatedButton(
+        style: ButtonStyle(
+            foregroundColor: MaterialStateProperty.all<Color>(
+                Theme.of(context).primaryColor),
+            backgroundColor: MaterialStateProperty.all<Color>(TEXT_COLOR),
+            shape: MaterialStateProperty.all<OutlinedBorder>(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            )),
         onPressed: onPressed,
-        color: Colors.white,
-        textColor: Color.fromRGBO(21, 75, 189, 1),
         child: Text(label, style: TextStyle(fontSize: 17)),
       ));
 }

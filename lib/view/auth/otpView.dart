@@ -1,4 +1,5 @@
 import 'package:amr_mobile/controller/auth/otpController.dart';
+import 'package:amr_mobile/utils/constants.dart';
 import 'package:amr_mobile/widgets/authContainer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,7 @@ class Otp extends GetView<OtpController> {
                             'Enter verification code',
                             style: TextStyle(
                               fontSize: 22,
-                              color: Colors.white,
+                              color: TEXT_COLOR,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
@@ -40,7 +41,7 @@ class Otp extends GetView<OtpController> {
                               'We sent you a verification code via SMS.',
                               style: TextStyle(
                                 fontSize: 15,
-                                color: Colors.white.withOpacity(0.5),
+                                color: TEXT_COLOR.withOpacity(0.5),
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
@@ -56,12 +57,12 @@ class Otp extends GetView<OtpController> {
                                   inputDecorationTheme: InputDecorationTheme(
                                     focusedBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Colors.white,
+                                        color: TEXT_COLOR,
                                       ),
                                     ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Colors.white,
+                                        color: TEXT_COLOR,
                                       ),
                                     ),
                                   ),
@@ -71,7 +72,7 @@ class Otp extends GetView<OtpController> {
                                   width: MediaQuery.of(context).size.width,
                                   fieldWidth: 40,
                                   style: TextStyle(
-                                      fontSize: 24, color: Colors.white),
+                                      fontSize: 24, color: TEXT_COLOR),
                                   textFieldAlignment:
                                       MainAxisAlignment.spaceAround,
                                   fieldStyle: FieldStyle.underline,
@@ -97,7 +98,7 @@ class Otp extends GetView<OtpController> {
                   child: Text(
                     'Didn\'t receive it?',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: TEXT_COLOR,
                     ),
                   ),
                 ),
@@ -111,7 +112,7 @@ class Otp extends GetView<OtpController> {
                     child: Text(
                       'Resend code',
                       style: TextStyle(
-                          color: Colors.white,
+                          color: TEXT_COLOR,
                           decoration: TextDecoration.underline),
                     ),
                   ),

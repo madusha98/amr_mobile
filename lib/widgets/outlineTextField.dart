@@ -1,3 +1,4 @@
+import 'package:amr_mobile/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:touchable_opacity/touchable_opacity.dart';
 
@@ -8,16 +9,18 @@ class OutLinedTextField extends StatefulWidget {
   final TextInputType keyboardType;
   final bool hasError;
   final String errorLabel;
+  final String prefix;
 
-  const OutLinedTextField(
-      {Key key,
-      this.onChanged,
-      this.label,
-      this.obscureText = false,
-      this.keyboardType,
-      this.hasError = false,
-      this.errorLabel = 'This is an error'})
-      : super(key: key);
+  const OutLinedTextField({
+    Key key,
+    this.onChanged,
+    this.label,
+    this.obscureText = false,
+    this.keyboardType,
+    this.hasError = false,
+    this.errorLabel = 'This is an error',
+    this.prefix,
+  }) : super(key: key);
 
   @override
   _OutLinedTextFieldState createState() => _OutLinedTextFieldState();
@@ -43,7 +46,7 @@ class _OutLinedTextFieldState extends State<OutLinedTextField> {
         children: [
           Container(
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.white, width: 1.5),
+              border: Border.all(color: TEXT_COLOR, width: 1.5),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Padding(
@@ -61,14 +64,19 @@ class _OutLinedTextFieldState extends State<OutLinedTextField> {
                         contentPadding: EdgeInsets.all(8),
                         labelText: widget.label,
                         labelStyle: TextStyle(
-                          color: Colors.white.withOpacity(0.5),
+                          color: TEXT_COLOR.withOpacity(0.5),
+                        ),
+                        prefixText: widget.prefix,
+                        prefixStyle: TextStyle(
+                          fontSize: 17,
+                          color: TEXT_COLOR.withOpacity(0.5),
                         ),
                       ),
                       style: TextStyle(
-                        color: Colors.white,
+                        color: TEXT_COLOR,
                         fontSize: 17,
                       ),
-                      cursorColor: Colors.white,
+                      cursorColor: TEXT_COLOR,
                     ),
                   ),
                   widget.obscureText
@@ -77,7 +85,7 @@ class _OutLinedTextFieldState extends State<OutLinedTextField> {
                             !_obscureText
                                 ? Icons.visibility_outlined
                                 : Icons.visibility_off_outlined,
-                            color: Colors.white,
+                            color: TEXT_COLOR,
                           ),
                           activeOpacity: 0.4,
                           onTap: _toggle,
@@ -87,20 +95,25 @@ class _OutLinedTextFieldState extends State<OutLinedTextField> {
               ),
             ),
           ),
-          if (widget.hasError)Container(
-            margin: EdgeInsets.only(left:8.0),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                widget.errorLabel,
-                style: TextStyle(
-                    backgroundColor: Color.fromRGBO(163, 0, 0, 1),
-                    color: Colors.white,
-                    fontSize: 10,
-                    fontWeight: FontWeight.w400),
+          if (widget.hasError)
+            Container(
+              margin: EdgeInsets.only(left: 2.0, right: 2),
+              padding: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                  color: Theme.of(context).errorColor,
+                  borderRadius:
+                      BorderRadius.vertical(bottom: Radius.circular(5))),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  widget.errorLabel,
+                  style: TextStyle(
+                      color: TEXT_COLOR,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w400),
+                ),
               ),
             ),
-          ),
         ],
       );
 }

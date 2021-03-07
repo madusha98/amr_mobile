@@ -1,4 +1,5 @@
 import 'package:amr_mobile/controller/splashController.dart';
+import 'package:amr_mobile/utils/constants.dart';
 import 'package:amr_mobile/widgets/authContainer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -27,7 +28,7 @@ class Splash extends GetView<SplashController> {
                     ? Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: CircularProgressIndicator(
-                          backgroundColor: Colors.white,
+                          backgroundColor: TEXT_COLOR,
                         ),
                       )
                     : Container()

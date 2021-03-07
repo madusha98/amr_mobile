@@ -1,6 +1,7 @@
 import 'package:amr_mobile/domain/User.dart';
 import 'package:amr_mobile/routes/pages.dart';
 import 'package:amr_mobile/service/authService.dart';
+import 'package:amr_mobile/utils/utils.dart';
 import 'package:get/get.dart';
 
 class RegisterController extends GetxController {
@@ -11,6 +12,10 @@ class RegisterController extends GetxController {
   var phone = '+94716584458'.obs;
   var nic = '982000000V'.obs;
   var otp = '';
+
+  var emailError = ''.obs;
+  var mobileError = ''.obs;
+  var nicError = ''.obs;
 
   final AuthService _authService = Get.find();
 
@@ -38,16 +43,6 @@ class RegisterController extends GetxController {
     }
     return password.value == text;
   }
-
-  bool verifyEmail(String text) => RegExp(
-          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-      .hasMatch(text);
-
-  bool verifyNic(String text) =>
-      RegExp(r'^([0-9]{9}[x|X|v|V]|[0-9]{12})$').hasMatch(text);
-
-  bool verifyMobile(String text) =>
-      RegExp(r'^(?:7|0|(?:\+94))[0-9]{9,10}$').hasMatch(text);
 
   void confirmOtp() async {
     var res = await _authService.confirmSignUp(email.value, otp);

@@ -1,4 +1,5 @@
 import 'package:amr_mobile/controller/auth/createNewPasswordController.dart';
+import 'package:amr_mobile/utils/constants.dart';
 import 'package:amr_mobile/widgets/authContainer.dart';
 import 'package:amr_mobile/widgets/roundedRectangleButton.dart';
 import 'package:amr_mobile/widgets/outlineTextField.dart';
@@ -18,7 +19,7 @@ class CreateNewPassword extends GetView<CreateNewPasswordController> {
                 'Create a new password',
                 style: TextStyle(
                   fontSize: 24,
-                  color: Colors.white,
+                  color: TEXT_COLOR,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -32,7 +33,7 @@ class CreateNewPassword extends GetView<CreateNewPasswordController> {
                     child: Text(
                       'Choose a strong password',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: TEXT_COLOR,
                       ),
                     ),
                   ),
