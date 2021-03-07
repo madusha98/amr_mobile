@@ -17,11 +17,11 @@ class SplashController extends GetxController {
       if (storage.hasData(StorageKeys.IS_FIRST_TIME)) {
         isLoading.value = false;
         Get.offNamed(
-          storage.hasData(StorageKeys.TOKEN) ? Routes.HOME : Routes.LOGIN,
+          storage.hasData(StorageKeys.TOKEN) ? Routes.HOME : Routes.WELCOME,
         );
       } else {
         isLoading.value = false;
-        Get.offNamed('./intro');
+        Get.offNamed(Routes.INTRO);
       }
     });
 

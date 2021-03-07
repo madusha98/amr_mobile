@@ -90,7 +90,7 @@ class Login extends GetView<LoginController> {
                     padding: const EdgeInsets.only(
                         top: 8.0, right: 8.0, bottom: 8.0),
                     child: TouchableOpacity(
-                      onTap: () => Get.toNamed(Routes.REGISTER),
+                      onTap: () => Get.offNamed(Routes.REGISTER),
                       child: Text(
                         'Create one',
                         style: TextStyle(
