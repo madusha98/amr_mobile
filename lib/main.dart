@@ -3,6 +3,7 @@ import 'package:amr_mobile/service/authService.dart';
 import 'package:amr_mobile/service/httpService.dart';
 import 'package:amr_mobile/utils/logger.dart';
 import 'package:amr_mobile/utils/theme.dart';
+import 'package:amr_mobile/widgets/Nav.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       enableLog: true,
       logWriterCallback: Logger.write,
-      initialRoute: Routes.SPLASH,
+      //initialRoute: Routes.HOME,
+      home: Nav(),
       getPages: Pages.routes,
       navigatorObservers: [
         FirebaseAnalyticsObserver(analytics: analytics),

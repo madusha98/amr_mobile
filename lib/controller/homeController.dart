@@ -31,4 +31,8 @@ class HomeController extends GetxController {
     print(storage.read('token'));
     Get.offNamed(Routes.SPLASH);
   }
+
+  void doSomething() async {
+    
+    }
 }

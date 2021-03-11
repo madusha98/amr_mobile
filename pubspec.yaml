@@ -41,6 +41,7 @@ dependencies:
   intro_slider: ^2.3.4
   rflutter_alert: ^1.1.0
   path_provider: ^1.6.22
+  syncfusion_flutter_charts: ^18.4.47
 
 dev_dependencies:
   flutter_test:
