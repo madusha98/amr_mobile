@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:amr_mobile/domain/BillData.dart';
+import 'package:amr_mobile/routes/pages.dart';
 import 'package:amr_mobile/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -97,60 +98,70 @@ class Home extends GetView<HomeController> {
                 child: Padding(
                   padding: const EdgeInsets.only(
                       left: PADDING, right: PADDING, bottom: 10.0),
-                  child: Column(children: [
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Padding(
-                              padding: const EdgeInsets.only(top: 60.0),
-                              child: Container(
-                                height: Get.height * 0.62 - 135 - 51, //minus the height of buttons + bottom nav bar height
-                                child: 
-                                Column(
-                                  children: [
-                                    Expanded(
-                                      child: SfCartesianChart(
-                                          primaryXAxis: CategoryAxis(),
-                                          // Chart title
-                                          //title: ChartTitle(text: 'Half yearly sales analysis'),
-                                          // Enable legend
-                                          //legend: Legend(isVisible: true),
-                                          // Enable tooltip
-                                          tooltipBehavior: TooltipBehavior(enable: true),
-                                          series: <ChartSeries<BillData, String>>[
-                                            SplineSeries<BillData, String>(
-                                              splineType: SplineType.cardinal,
-                                                dataSource: data,
-                                                xValueMapper: (BillData billData, _) => billData.month,
-                                                yValueMapper: (BillData billData, _) => billData.value,
-                                                name: 'Bills',
-                                                color: Get.theme.accentColor,
-                                                // Enable data label
-                                                dataLabelSettings: DataLabelSettings( isVisible: true)
-                                                )
-                                          ]
-                                        ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            )
-                        ],
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Padding(
+                                padding: const EdgeInsets.only(top: 60.0),
+                                child: Container(
+                                  height: Get.height * 0.62 -
+                                      135 -
+                                      51, //minus the height of buttons + bottom nav bar height
+                                  child: Column(
+                                    children: [
+                                      Expanded(
+                                        child: SfCartesianChart(
+                                            primaryXAxis: CategoryAxis(),
+                                            // Chart title
+                                            //title: ChartTitle(text: 'Half yearly sales analysis'),
+                                            // Enable legend
+                                            //legend: Legend(isVisible: true),
+                                            // Enable tooltip
+                                            tooltipBehavior:
+                                                TooltipBehavior(enable: true),
+                                            series: <
+                                                ChartSeries<BillData, String>>[
+                                              SplineSeries<BillData, String>(
+                                                  splineType:
+                                                      SplineType.cardinal,
+                                                  dataSource: data,
+                                                  xValueMapper:
+                                                      (BillData billData, _) =>
+                                                          billData.month,
+                                                  yValueMapper:
+                                                      (BillData billData, _) =>
+                                                          billData.value,
+                                                  name: 'Bills',
+                                                  color: Get.theme.accentColor,
+                                                  // Enable data label
+                                                  dataLabelSettings:
+                                                      DataLabelSettings(
+                                                          isVisible: true))
+                                            ]),
+                                      ),
+                                    ],
+                                  ),
+                                ))
+                          ],
+                        ),
                       ),
-                    ),
-                    Column(
-                      children: [
+                      Column(children: [
                         Container(
                             height: 55,
                             width: double.infinity,
                             margin: EdgeInsets.only(bottom: PADDING),
                             child: ElevatedButton(
                               style: ButtonStyle(
-                                  foregroundColor: MaterialStateProperty.all<Color>(
-                                      Colors.white),
-                                  backgroundColor: MaterialStateProperty.all<Color>(
-                                      Get.theme.primaryColor),
-                                  shape: MaterialStateProperty.all<OutlinedBorder>(
+                                  foregroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.white),
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Get.theme.primaryColor),
+                                  shape:
+                                      MaterialStateProperty.all<OutlinedBorder>(
                                     RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(8),
                                     ),
@@ -160,7 +171,8 @@ class Home extends GetView<HomeController> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.only(right: 8.0),
+                                      padding:
+                                          const EdgeInsets.only(right: 8.0),
                                       child: Icon(
                                         Icons.camera_alt,
                                         color: Colors.white,
@@ -170,42 +182,42 @@ class Home extends GetView<HomeController> {
                                     Text('Monthly Scan',
                                         style: TextStyle(fontSize: 17)),
                                   ]),
-                            )
-                            ),
-                            Container(
-                        height: 55,
-                        width: double.infinity,
-                        margin: EdgeInsets.only(left: 0, right: 0),
-                        child: OutlineButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          onPressed: () {},
-                          borderSide: BorderSide(
-                              color: Get.theme.primaryColor,
-                              width: 2,
-                              style: BorderStyle.solid),
-                          textColor: Get.theme.primaryColor,
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 8.0),
-                                  child: Icon(
-                                    Icons.camera_alt,
-                                    color: Get.theme.primaryColor,
-                                    size: 20.0,
-                                  ),
-                                ),
-                                Text('Quick Scan',
-                                    style: TextStyle(fontSize: 17)),
-                              ]),
-                        ))
-                  ]
+                            )),
+                        Container(
+                            height: 55,
+                            width: double.infinity,
+                            margin: EdgeInsets.only(left: 0, right: 0),
+                            child: OutlineButton(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              onPressed: () {
+                                Get.toNamed(Routes.SUCCESS);
+                              },
+                              borderSide: BorderSide(
+                                  color: Get.theme.primaryColor,
+                                  width: 2,
+                                  style: BorderStyle.solid),
+                              textColor: Get.theme.primaryColor,
+                              child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(right: 8.0),
+                                      child: Icon(
+                                        Icons.camera_alt,
+                                        color: Get.theme.primaryColor,
+                                        size: 20.0,
+                                      ),
+                                    ),
+                                    Text('Quick Scan',
+                                        style: TextStyle(fontSize: 17)),
+                                  ]),
+                            ))
+                      ]),
+                    ],
                   ),
-                      ],
-                    ),
-                    
                 ),
               )),
           Positioned(
