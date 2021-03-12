@@ -8,35 +8,54 @@ import 'package:amr_mobile/controller/homeController.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Home extends GetView<HomeController> {
-  List<BillData> data = [
-    BillData({'Jan', 35}),
-    BillData({'Feb', 28}),
-    BillData({'Mar', 34}),
-    BillData({'Apr', 32}),
-    BillData({'May', 40})
-  ];
 
-  List<double> chartData = <double>[10, 6, 8, -5, 11, 5, -2, 7, -3, 6, 8, 10];
+  SfCartesianChart _getDefaultSplineChart() => SfCartesianChart(
+        plotAreaBorderWidth: 0,
+        //title: ChartTitle(text: 'Average high/low temperature of London'),
+        //legend: Legend(isVisible: true),
+        primaryXAxis: CategoryAxis(
+            majorGridLines: MajorGridLines(width: 0),
+            labelPlacement: LabelPlacement.onTicks),
+        primaryYAxis: NumericAxis(
+            //minimum: 10000,
+            //maximum: 1000,
+            axisLine: AxisLine(width: 0),
+            edgeLabelPlacement: EdgeLabelPlacement.shift,
+            labelFormat: 'LKR {value}',
+            majorTickLines: MajorTickLines(size: 0)),
+        series: _getDefaultSplineSeries(),
+        tooltipBehavior: TooltipBehavior(enable: true),
+      );
+
+  List<SplineSeries<BillData, String>> _getDefaultSplineSeries() {
+    final chartData = <BillData>[
+      BillData(
+          month: 'Oct', billValue: 2496,),
+      BillData(
+          month: 'Nov', billValue: 3152,),
+      BillData(
+          month: 'Dec', billValue: 2148,),
+      BillData(
+          month: 'Jan', billValue: 1463.50,),
+      BillData(
+          month: 'Feb', billValue: 1789,),
+      BillData(
+          month: 'Mar', billValue: 3326,),
+    ];
+    return <SplineSeries<BillData, String>>[
+      SplineSeries<BillData, String>(
+        dataSource: chartData,
+        xValueMapper: (BillData billData, _) => billData.month,
+        yValueMapper: (BillData billData, _) => billData.billValue,
+        color: Get.theme.accentColor,
+        markerSettings: MarkerSettings(isVisible: true),
+        name: 'Bill Value',
+      ),
+    ];
+  }
 
   @override
   Widget build(context) =>
-      // Scaffold(
-      //       appBar: AppBar(
-      //         title: Hero(tag: 'title', child: Text('AMR')),
-      //       ),
-      //       body: Center(
-      //         child: Column(
-      //           mainAxisAlignment: MainAxisAlignment.center,
-      //           children: [
-      //             Obx(() => controller.loading.value
-      //                 ? CircularProgressIndicator()
-      //                 : Text(controller.testMsg.value)),
-      //             RaisedButton(child: Text('Logout'), onPressed: controller.logout),
-      //           ],
-      //         ),
-      //       ),
-      //     );
-
       Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
@@ -104,46 +123,20 @@ class Home extends GetView<HomeController> {
                         child: Column(
                           children: [
                             Padding(
-                                padding: const EdgeInsets.only(top: 60.0),
-                                child: Container(
-                                  height: Get.height * 0.62 -
-                                      135 -
-                                      51, //minus the height of buttons + bottom nav bar height
-                                  child: Column(
-                                    children: [
-                                      Expanded(
-                                        child: SfCartesianChart(
-                                            primaryXAxis: CategoryAxis(),
-                                            // Chart title
-                                            //title: ChartTitle(text: 'Half yearly sales analysis'),
-                                            // Enable legend
-                                            //legend: Legend(isVisible: true),
-                                            // Enable tooltip
-                                            tooltipBehavior:
-                                                TooltipBehavior(enable: true),
-                                            series: <
-                                                ChartSeries<BillData, String>>[
-                                              SplineSeries<BillData, String>(
-                                                  splineType:
-                                                      SplineType.cardinal,
-                                                  dataSource: data,
-                                                  xValueMapper:
-                                                      (BillData billData, _) =>
-                                                          billData.month,
-                                                  yValueMapper:
-                                                      (BillData billData, _) =>
-                                                          billData.value,
-                                                  name: 'Bills',
-                                                  color: Get.theme.accentColor,
-                                                  // Enable data label
-                                                  dataLabelSettings:
-                                                      DataLabelSettings(
-                                                          isVisible: true))
-                                            ]),
-                                      ),
-                                    ],
-                                  ),
-                                ))
+                              padding: const EdgeInsets.only(top: 60.0),
+                              child: Container(
+                                height: Get.height * 0.62 -
+                                    135 -
+                                    51, //minus the height of buttons + bottom nav bar height
+                                child: Column(
+                                  children: [
+                                    Expanded(
+                                      child: _getDefaultSplineChart(),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            )
                           ],
                         ),
                       ),
@@ -166,7 +159,9 @@ class Home extends GetView<HomeController> {
                                       borderRadius: BorderRadius.circular(8),
                                     ),
                                   )),
-                              onPressed: () {},
+                              onPressed: () {
+                                //Get.toNamed(Routes.SCAN);
+                              },
                               child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
