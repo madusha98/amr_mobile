@@ -7,6 +7,7 @@ import 'package:amr_mobile/bindings/auth/welcomeBinding.dart';
 import 'package:amr_mobile/bindings/homeBinding.dart';
 import 'package:amr_mobile/bindings/introBinding.dart';
 import 'package:amr_mobile/bindings/splashBinding.dart';
+import 'package:amr_mobile/bindings/successBinding.dart';
 import 'package:amr_mobile/view/SplashScreen.dart';
 import 'package:amr_mobile/view/auth/createNewPasswordView.dart';
 import 'package:amr_mobile/view/auth/forgotPasswordView.dart';
@@ -16,6 +17,7 @@ import 'package:amr_mobile/view/auth/registerView.dart';
 import 'package:amr_mobile/view/auth/welcomeView.dart';
 import 'package:amr_mobile/view/homeView.dart';
 import 'package:amr_mobile/view/introView.dart';
+import 'package:amr_mobile/view/successView.dart';
 import 'package:get/get.dart';
 
 part 'routes.dart';
@@ -68,5 +70,10 @@ class Pages {
       page: () => Welcome(),
       binding: WelcomeBinding(),
     ),
+    GetPage(
+      name: Routes.SUCCESS,
+      page: () => Success(),
+      binding: SuccessBinding(),
+    )
   ];
 }
