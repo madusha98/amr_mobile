@@ -11,10 +11,10 @@ const amplifyconfig = ''' {
                 },
                 "CognitoUserPool": {
                     "Default": {
-                        "PoolId": "us-east-1_X8rQ1Si4k",
-                        "AppClientId": "7kt85r7i122tuie5n2ndp1dquv",
-                        "AppClientSecret": "3cpgvvt41h8m2rlqhvhbkkcqomkrh0epbamd5raqt9vinnautvf",
-                        "Region": "us-east-1"
+                        "PoolId": "ap-southeast-1_jfumrxMqV",
+                        "AppClientId": "1qqq93osgjnebiiteh46odgffb",
+                        "AppClientSecret": "",
+                        "Region": "ap-southeast-1"
                     }
                 },
                 "Auth": {
