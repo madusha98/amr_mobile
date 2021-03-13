@@ -7,6 +7,7 @@ import 'package:amr_mobile/bindings/auth/welcomeBinding.dart';
 import 'package:amr_mobile/bindings/homeBinding.dart';
 import 'package:amr_mobile/bindings/introBinding.dart';
 import 'package:amr_mobile/bindings/scanBinding.dart';
+import 'package:amr_mobile/bindings/scanResultBinding.dart';
 import 'package:amr_mobile/bindings/splashBinding.dart';
 import 'package:amr_mobile/bindings/successBinding.dart';
 import 'package:amr_mobile/view/SplashScreen.dart';
@@ -19,6 +20,7 @@ import 'package:amr_mobile/view/auth/welcomeView.dart';
 import 'package:amr_mobile/view/homeView.dart';
 import 'package:amr_mobile/view/introView.dart';
 import 'package:amr_mobile/view/scanView.dart';
+import 'package:amr_mobile/view/scanResultView.dart';
 import 'package:amr_mobile/view/successView.dart';
 import 'package:get/get.dart';
 
@@ -81,6 +83,11 @@ class Pages {
       name: Routes.SCAN,
       page: () => ScanView(),
       binding: ScanBinding(),
-    )
+    ),
+    GetPage(
+      name: Routes.SCANRESULT,
+      page: () => ScanResult(),
+      binding: ScanResultBinding(),
+    ),
   ];
 }

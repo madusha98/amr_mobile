@@ -13,4 +13,5 @@ abstract class Routes {
   static const WELCOME = '/welcome';
   static const SUCCESS = '/success';
   static const SCAN = '/scan';
+  static const SCANRESULT = '/scanResult';
 }

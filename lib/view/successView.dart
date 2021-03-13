@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:amr_mobile/controller/successController.dart';
+import 'package:amr_mobile/routes/pages.dart';
 import 'package:amr_mobile/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,7 +9,10 @@ class Success extends GetView<SuccessController> {
   @override
   Widget build(context) => Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
+        appBar: AppBar(iconTheme: IconThemeData(
+              color: Get.theme.primaryColor, //change your color here
+            ),
+          backgroundColor: Colors.transparent, elevation: 0),
         backgroundColor: BACKGROUND_COLOR,
         body: Padding(
           padding: const EdgeInsets.only(
@@ -78,7 +82,9 @@ class Success extends GetView<SuccessController> {
                               borderRadius: BorderRadius.circular(8),
                             ),
                           )),
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed(Routes.SCANRESULT);
+                      },
                       child:
                           Text('Go to Payment', style: TextStyle(fontSize: 17)),
                     )),
