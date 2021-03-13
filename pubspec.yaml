@@ -42,11 +42,15 @@ dependencies:
   rflutter_alert: ^1.1.0
   path_provider: ^1.6.22
   syncfusion_flutter_charts: ^18.4.47
+<<<<<<< Updated upstream
   tflite: ^1.1.1
   image_picker: ^0.6.1+8
   image: ^2.1.4
   camera: ^0.5.8+5
 
+=======
+  flutter_spinkit: ^5.0.0
+>>>>>>> Stashed changes
 dev_dependencies:
   flutter_test:
     sdk: flutter

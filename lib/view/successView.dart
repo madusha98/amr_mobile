@@ -96,7 +96,9 @@ class Success extends GetView<SuccessController> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        // Get.toNamed(Routes.HOME);
+                      },
                       borderSide: BorderSide(
                           color: Get.theme.primaryColor,
                           width: 2,
