@@ -22,43 +22,41 @@ class _NavState extends State<Nav> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
-      bottomNavigationBar: SizedBox(height: 51,
-              child: BottomNavigationBar(
-          backgroundColor: Color.fromRGBO(249,249,249, 1),
-          selectedItemColor: Theme.of(context).accentColor,
-          unselectedItemColor: Color.fromRGBO(153,153,153, 1),
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home_outlined,
-              ),
-              label:
-                'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.history,
-              ),
-              label: 'History',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person_outline,
-              ),
-              label: 'Profile',
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          onTap: _onItemTap,
-          selectedFontSize: 11.0,
-          unselectedFontSize: 11.0,
+  Widget build(BuildContext context) => Scaffold(
+        body: Center(
+          child: _widgetOptions.elementAt(_selectedIndex),
         ),
-      ),
-    );
-  }
+        bottomNavigationBar: SizedBox(
+          height: 51,
+          child: BottomNavigationBar(
+            backgroundColor: Color.fromRGBO(249, 249, 249, 1),
+            selectedItemColor: Theme.of(context).accentColor,
+            unselectedItemColor: Color.fromRGBO(153, 153, 153, 1),
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.home_outlined,
+                ),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.history,
+                ),
+                label: 'History',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.person_outline,
+                ),
+                label: 'Profile',
+              ),
+            ],
+            currentIndex: _selectedIndex,
+            onTap: _onItemTap,
+            selectedFontSize: 11.0,
+            unselectedFontSize: 11.0,
+          ),
+        ),
+      );
 }
