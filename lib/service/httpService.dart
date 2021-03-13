@@ -18,7 +18,10 @@ class HttpService extends GetConnect {
   }
 
   Future<dynamic> postRequest(path, body, {token = ''}) {
-    var headers = {'Authorization': 'Bearer ' + token};
-    return post(path, body, headers: headers);
+    var headers = {
+      // 'Authorization': 'Bearer ' + token,
+      // 'Content-Type': 'image/jpg'
+    };
+    return post(path, body);
   }
 }

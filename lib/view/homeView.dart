@@ -8,7 +8,6 @@ import 'package:amr_mobile/controller/homeController.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Home extends GetView<HomeController> {
-
   SfCartesianChart _getDefaultSplineChart() => SfCartesianChart(
         plotAreaBorderWidth: 0,
         //title: ChartTitle(text: 'Average high/low temperature of London'),
@@ -30,17 +29,29 @@ class Home extends GetView<HomeController> {
   List<SplineSeries<BillData, String>> _getDefaultSplineSeries() {
     final chartData = <BillData>[
       BillData(
-          month: 'Oct', billValue: 2496,),
+        month: 'Oct',
+        billValue: 2496,
+      ),
       BillData(
-          month: 'Nov', billValue: 3152,),
+        month: 'Nov',
+        billValue: 3152,
+      ),
       BillData(
-          month: 'Dec', billValue: 2148,),
+        month: 'Dec',
+        billValue: 2148,
+      ),
       BillData(
-          month: 'Jan', billValue: 1463.50,),
+        month: 'Jan',
+        billValue: 1463.50,
+      ),
       BillData(
-          month: 'Feb', billValue: 1789,),
+        month: 'Feb',
+        billValue: 1789,
+      ),
       BillData(
-          month: 'Mar', billValue: 3326,),
+        month: 'Mar',
+        billValue: 3326,
+      ),
     ];
     return <SplineSeries<BillData, String>>[
       SplineSeries<BillData, String>(
@@ -55,8 +66,7 @@ class Home extends GetView<HomeController> {
   }
 
   @override
-  Widget build(context) =>
-      Scaffold(
+  Widget build(context) => Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           actions: [
@@ -160,7 +170,7 @@ class Home extends GetView<HomeController> {
                                     ),
                                   )),
                               onPressed: () {
-                                //Get.toNamed(Routes.SCAN);
+                                Get.toNamed(Routes.SCAN);
                               },
                               child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,

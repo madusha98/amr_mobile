@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:amr_mobile/routes/pages.dart';
 import 'package:amr_mobile/service/tfLiteService.dart';
 import 'package:flutter/services.dart';
 import 'package:path/path.dart' as Path;
@@ -58,7 +59,7 @@ class ScanController extends GetxController {
   }
 
   // load tflite model
-  Future<bool> loadModel() async {
+  loadModel() async {
     Tflite.close();
     try {
       String res;
@@ -71,7 +72,6 @@ class ScanController extends GetxController {
       return true;
     } on PlatformException catch (e) {
       print('Failed to load the model' + e.toString());
-      return false;
     }
   }
 
@@ -129,9 +129,12 @@ class ScanController extends GetxController {
       print(recognitions);
       if (recognitions.isNotEmpty) {
         print(recognitions);
-        tfLiteService.cropImage(image, recognitions[0]);
-
+        var resImage = await tfLiteService.cropImage(image, recognitions[0]);
         busy.value = false;
+        Get.toNamed(
+          Routes.SCANRESULT,
+          arguments: {'image': resImage},
+        );
       }
     } else {
       recognition = null;

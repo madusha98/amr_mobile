@@ -16,28 +16,28 @@ class ScanView extends GetView<ScanController> {
         left: 0,
         bottom: 0,
         right: 0,
-        child: controller.cameraController.value != null
-            ? Container(
-                height: MediaQuery.of(context).size.height - 100,
-                width: MediaQuery.of(context).size.width,
-                child: CameraPreview(controller.cameraController),
-              )
-            : Text('Loading...'),
+        child: Obx(
+          () => controller.busy.value != null
+              ? Container(
+                  height: MediaQuery.of(context).size.height - 100,
+                  width: MediaQuery.of(context).size.width,
+                  child: CameraPreview(controller.cameraController),
+                )
+              : Text('Loading...'),
+        ),
       ),
     );
 
-    if (controller.busy.value) {
-      stackChildren.add(Center(
-        child: CircularProgressIndicator(),
-      ));
-    }
+    // if (controller.busy.value) {
+    //   stackChildren.add(Center(
+    //     child: CircularProgressIndicator(),
+    //   ));
+    // }
 
     return Scaffold(
       appBar: AppBar(),
-      body: Obx(
-        () => Stack(
-          children: stackChildren,
-        ),
+      body: Stack(
+        children: stackChildren,
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.image),

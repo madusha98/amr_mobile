@@ -60,7 +60,7 @@ class TFLiteService {
     return null;
   }
 
-  void cropImage(File image, recognition) async {
+  Future<File> cropImage(File image, recognition) async {
     var decoded = imglib.decodeImage(File(image.path).readAsBytesSync());
     var width = decoded.width;
     var height = decoded.height;
@@ -74,7 +74,7 @@ class TFLiteService {
         (await getExternalStorageDirectory()).path, '${DateTime.now()}.png');
     var pngEncoder = imglib.PngEncoder(level: 0, filter: 0);
     var file = File(path)..writeAsBytesSync(pngEncoder.encodeImage(cropped));
-
+    return file;
     // imglib.PngEncoder pngEncoder = new imglib.PngEncoder(level: 0, filter: 0);
     //   return pngEncoder.encodeImage(cropped);
   }
