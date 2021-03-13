@@ -10,6 +10,7 @@ import 'package:amr_mobile/bindings/scanBinding.dart';
 import 'package:amr_mobile/bindings/scanResultBinding.dart';
 import 'package:amr_mobile/bindings/splashBinding.dart';
 import 'package:amr_mobile/bindings/successBinding.dart';
+import 'package:amr_mobile/bindings/generateBinding.dart';
 import 'package:amr_mobile/view/SplashScreen.dart';
 import 'package:amr_mobile/view/auth/createNewPasswordView.dart';
 import 'package:amr_mobile/view/auth/forgotPasswordView.dart';
@@ -22,6 +23,7 @@ import 'package:amr_mobile/view/introView.dart';
 import 'package:amr_mobile/view/scanView.dart';
 import 'package:amr_mobile/view/scanResultView.dart';
 import 'package:amr_mobile/view/successView.dart';
+import 'package:amr_mobile/view/generateView.dart';
 import 'package:get/get.dart';
 
 part 'routes.dart';
@@ -80,6 +82,7 @@ class Pages {
       binding: SuccessBinding(),
     ),
     GetPage(
+<<<<<<< Updated upstream
       name: Routes.SCAN,
       page: () => ScanView(),
       binding: ScanBinding(),
@@ -89,5 +92,11 @@ class Pages {
       page: () => ScanResult(),
       binding: ScanResultBinding(),
     ),
+=======
+      name: Routes.GENERATE,
+      page: () => Generate(),
+      binding: GenerateBinding(),
+    )
+>>>>>>> Stashed changes
   ];
 }
