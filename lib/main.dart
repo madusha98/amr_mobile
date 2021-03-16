@@ -4,7 +4,7 @@ import 'package:amr_mobile/service/httpService.dart';
 import 'package:amr_mobile/service/tfLiteService.dart';
 import 'package:amr_mobile/utils/logger.dart';
 import 'package:amr_mobile/utils/theme.dart';
-import 'package:amr_mobile/widgets/Nav.dart';
+import 'package:amr_mobile/view/home/bottomNav.dart';
 import 'package:camera/camera.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
@@ -45,8 +45,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       enableLog: true,
       logWriterCallback: Logger.write,
-      // initialRoute: Routes.LOGIN,
-      home: Nav(),
+      initialRoute: Routes.SPLASH,
+      // home: Nav(),
       getPages: Pages.routes,
       navigatorObservers: [
         FirebaseAnalyticsObserver(analytics: analytics),

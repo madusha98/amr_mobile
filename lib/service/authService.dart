@@ -1,12 +1,12 @@
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
-import 'package:amplify_core/amplify_core.dart';
 import 'package:amr_mobile/amplifyconfiguration.dart';
 import 'package:amr_mobile/domain/User.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:amplify_flutter/amplify.dart';
 
 class AuthService extends GetxService {
-  Amplify amplifyInstance = Amplify();
+  // Amplify amplifyInstance = Amplify();
   GetStorage storage = Get.find();
   RxBool amplifyConfigured = false.obs;
 
@@ -18,9 +18,9 @@ class AuthService extends GetxService {
 
   void configureAmplify() async {
     var authPlugin = AmplifyAuthCognito();
-    amplifyInstance.addPlugin(authPlugins: [authPlugin]);
+    Amplify.addPlugin(authPlugin);
     try {
-      await amplifyInstance.configure(amplifyconfig);
+      await Amplify.configure(amplifyconfig);
       amplifyConfigured.value = true;
     } catch (e) {
       print(e);
@@ -34,7 +34,7 @@ class AuthService extends GetxService {
         password: password,
       );
       return res.isSignedIn;
-    } on AuthError catch (e) {
+    } catch (e) {
       print(e);
       Get.snackbar('Error', e.cause);
       return false;
@@ -59,7 +59,7 @@ class AuthService extends GetxService {
       storage.write('token', res.userPoolTokens.idToken);
       print('id token ' + res.userPoolTokens.idToken);
       return true;
-    } on AuthError catch (e) {
+    } catch (e) {
       print(e);
       Get.snackbar('Error', e.cause);
       return false;
@@ -74,7 +74,7 @@ class AuthService extends GetxService {
           options: CognitoSignUpOptions(userAttributes: user.toAwsJson));
       print(res);
       return res;
-    } on AuthError catch (e) {
+    } catch (e) {
       print(e);
       Get.snackbar('Error', e.cause);
     }
@@ -121,7 +121,7 @@ class AuthService extends GetxService {
           username: email, newPassword: password, confirmationCode: otp);
       Get.snackbar('', 'Password reset successfull!');
       return res;
-    } on AuthError catch (e) {
+    } catch (e) {
       print(e);
       Get.snackbar('Error', 'Something went wrong');
       return null;
@@ -129,5 +129,6 @@ class AuthService extends GetxService {
   }
 
   Future<UpdatePasswordResult> createNewPassword(
-      String newpassword, String confirmpassword) async => null;
+          String newpassword, String confirmpassword) async =>
+      null;
 }

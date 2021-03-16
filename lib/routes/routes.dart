@@ -12,10 +12,7 @@ abstract class Routes {
   static const CREATENEWPASSWORD = '/createnewpassword';
   static const WELCOME = '/welcome';
   static const SUCCESS = '/success';
-<<<<<<< Updated upstream
   static const SCAN = '/scan';
   static const SCANRESULT = '/scanResult';
-=======
   static const GENERATE = '/generate';
->>>>>>> Stashed changes
 }

@@ -1,4 +1,4 @@
-import 'package:amr_mobile/controller/homeController.dart';
+import 'package:amr_mobile/controller/home/homeController.dart';
 import 'package:get/get.dart';
 
 class HomeBinding extends Bindings {

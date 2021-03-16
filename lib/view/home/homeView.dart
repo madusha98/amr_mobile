@@ -4,7 +4,7 @@ import 'package:amr_mobile/routes/pages.dart';
 import 'package:amr_mobile/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:amr_mobile/controller/homeController.dart';
+import 'package:amr_mobile/controller/home/homeController.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Home extends GetView<HomeController> {
