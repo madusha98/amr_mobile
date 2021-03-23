@@ -1,5 +1,5 @@
 import 'dart:ui';
-import 'package:amr_mobile/controller/home/billPaymentController.dart';
+import 'package:amr_mobile/controller/scanBillPayController.dart';
 import 'package:amr_mobile/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:touchable_opacity/touchable_opacity.dart';
 import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 
-class BillPayment extends GetView<BillPaymentController> {
+class ScanBillPay extends GetView<ScanBillPayController> {
   @override
   Widget build(context) => GestureDetector(
         onTap: () {
