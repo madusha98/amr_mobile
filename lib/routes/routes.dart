@@ -15,4 +15,5 @@ abstract class Routes {
   static const SCAN = '/scan';
   static const SCANRESULT = '/scanResult';
   static const GENERATE = '/generate';
+  static const BILLPAYMENT = '/billPayment';
 }

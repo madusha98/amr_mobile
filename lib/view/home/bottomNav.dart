@@ -1,4 +1,5 @@
 import 'package:amr_mobile/controller/home/bottomNavController.dart';
+import 'package:amr_mobile/view/home/billPaymentView.dart';
 import 'package:amr_mobile/view/home/homeView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -21,6 +22,7 @@ class BottomNav extends GetView<BottomNavController> {
                     },
                   ),
                 ),
+                BillPayment(),
                 Text('3'),
               ],
             ),
@@ -45,6 +47,12 @@ class BottomNav extends GetView<BottomNavController> {
                     Icons.history,
                   ),
                   label: 'History',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.credit_card,
+                  ),
+                  label: 'Payment',
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(
