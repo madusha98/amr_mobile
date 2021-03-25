@@ -69,6 +69,10 @@ class Home extends GetView<HomeController> {
   Widget build(context) => Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.power_settings_new),
+            onPressed: controller.logout,
+          ),
           actions: [
             Container(
               margin: const EdgeInsets.all(5.0),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 const baseUrl =
-    'https://vrw55e9e41.execute-api.ap-southeast-1.amazonaws.com/production/';
+    'https://v36cu19x54.execute-api.ap-southeast-1.amazonaws.com/production/';
 
 const PADDING = 15.0;
 

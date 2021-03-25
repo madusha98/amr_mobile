@@ -28,6 +28,7 @@ class AuthService extends GetxService {
   }
 
   Future<bool> login(String email, String password) async {
+    await logout();
     try {
       var res = await Amplify.Auth.signIn(
         username: email,
@@ -36,7 +37,7 @@ class AuthService extends GetxService {
       return res.isSignedIn;
     } catch (e) {
       print(e);
-      Get.snackbar('Error', e.cause);
+      Get.snackbar('Error', e.message);
       return false;
     }
   }
@@ -58,10 +59,12 @@ class AuthService extends GetxService {
           options: CognitoSessionOptions(getAWSCredentials: true));
       storage.write('token', res.userPoolTokens.idToken);
       print('id token ' + res.userPoolTokens.idToken);
+      print('access ' + res.userPoolTokens.accessToken);
+
       return true;
     } catch (e) {
       print(e);
-      Get.snackbar('Error', e.cause);
+      Get.snackbar('Error', e.message);
       return false;
     }
   }
@@ -76,7 +79,7 @@ class AuthService extends GetxService {
       return res;
     } catch (e) {
       print(e);
-      Get.snackbar('Error', e.cause);
+      Get.snackbar('Error', e.message);
     }
   }
 

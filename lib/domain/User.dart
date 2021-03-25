@@ -13,7 +13,7 @@ class User {
     this.nic,
   });
 
-  Map<String, dynamic> get toAwsJson => {
+  Map<String, String> get toAwsJson => {
         'name': name,
         'phone_number': phone,
         'email': email,
