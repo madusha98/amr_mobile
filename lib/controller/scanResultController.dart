@@ -3,12 +3,7 @@ import 'package:get/get.dart';
 
 class ScanResultController extends GetxController {
   var loading = true.obs;
-  var result = [];
-  var digit1 = ''.obs;
-  var digit2 = ''.obs;
-  var digit3 = ''.obs;
-  var digit4 = ''.obs;
-  var digit5 = ''.obs;
+  var digits = [].obs;
   var image;
 
   final HttpService _httpProvider = Get.find();
@@ -30,12 +25,7 @@ class ScanResultController extends GetxController {
     loading.value = false;
     try {
       var val = res.body['value'];
-      result = val.split('');
-      digit1.value = result[0];
-      digit2.value = result[1];
-      digit3.value = result[2];
-      digit4.value = result[3];
-      digit5.value = result[4];
+      digits.value = val.split('');
     } catch (e) {
       print(e);
     }

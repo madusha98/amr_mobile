@@ -23,26 +23,38 @@ class ScanView extends GetView<ScanController> {
                   width: MediaQuery.of(context).size.width,
                   child: CameraPreview(controller.cameraController),
                 )
-              : Text('Loading...'),
+              : Center(child: Text('Loading...')),
         ),
       ),
     );
 
-    // if (controller.busy.value) {
-    //   stackChildren.add(Center(
-    //     child: CircularProgressIndicator(),
-    //   ));
-    // }
-
     return Scaffold(
       appBar: AppBar(),
       body: Stack(
-        children: stackChildren,
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.image),
-        tooltip: 'Pick Image from gallery',
-        onPressed: controller.start,
+        children: [
+          Positioned(
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+            child: Obx(
+              () => controller.busy.value != null
+                  ? Container(
+                      height: MediaQuery.of(context).size.height - 100,
+                      width: MediaQuery.of(context).size.width,
+                      child: CameraPreview(controller.cameraController),
+                    )
+                  : Center(child: Text('Loading...')),
+            ),
+          ),
+          Obx(
+            () => controller.busy.value
+                ? Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : Container(),
+          )
+        ],
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:amr_mobile/controller/scanResultController.dart';
+import 'package:amr_mobile/routes/pages.dart';
 import 'package:amr_mobile/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -63,201 +64,54 @@ class ScanResult extends GetView<ScanResultController> {
                                             tileMode: TileMode.clamp,
                                           ),
                                         ),
-                                        child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    right: 8.0),
-                                                child: Container(
-                                                  height: 50,
-                                                  width: 40,
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10),
-                                                    gradient: LinearGradient(
-                                                      begin:
-                                                          Alignment.topCenter,
-                                                      end: Alignment(0, 0.0),
-                                                      colors: [
-                                                        Colors.white
-                                                            .withOpacity(0.7),
-                                                        Colors.white
-                                                      ],
-                                                      tileMode: TileMode.clamp,
+                                        child: Obx(
+                                          () => Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                for (var digit
+                                                    in controller.digits)
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            right: 8.0),
+                                                    child: Container(
+                                                      height: 50,
+                                                      width: 40,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(10),
+                                                        gradient:
+                                                            LinearGradient(
+                                                          begin: Alignment
+                                                              .topCenter,
+                                                          end:
+                                                              Alignment(0, 0.0),
+                                                          colors: [
+                                                            Colors.white
+                                                                .withOpacity(
+                                                                    0.7),
+                                                            Colors.white
+                                                          ],
+                                                          tileMode:
+                                                              TileMode.clamp,
+                                                        ),
+                                                      ),
+                                                      child: Center(
+                                                        child: Text(digit,
+                                                            style: TextStyle(
+                                                                fontSize: 32,
+                                                                color: Colors
+                                                                    .black,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500)),
+                                                      ),
                                                     ),
                                                   ),
-                                                  child: Center(
-                                                    child: Obx(
-                                                      () => Text(
-                                                          controller
-                                                              .digit1.value,
-                                                          style: TextStyle(
-                                                              fontSize: 32,
-                                                              color:
-                                                                  Colors.black,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500)),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    right: 8.0),
-                                                child: Container(
-                                                  height: 50,
-                                                  width: 40,
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10),
-                                                    gradient: LinearGradient(
-                                                      begin:
-                                                          Alignment.topCenter,
-                                                      end: Alignment(0, 0.0),
-                                                      colors: [
-                                                        Colors.white
-                                                            .withOpacity(0.7),
-                                                        Colors.white
-                                                      ],
-                                                      tileMode: TileMode.clamp,
-                                                    ),
-                                                  ),
-                                                  child: Center(
-                                                    child: Obx(
-                                                      () => Text(
-                                                          controller
-                                                              .digit2.value,
-                                                          style: TextStyle(
-                                                              fontSize: 32,
-                                                              color:
-                                                                  Colors.black,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500)),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    right: 8.0),
-                                                child: Container(
-                                                  height: 50,
-                                                  width: 40,
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10),
-                                                    gradient: LinearGradient(
-                                                      begin:
-                                                          Alignment.topCenter,
-                                                      end: Alignment(0, 0.0),
-                                                      colors: [
-                                                        Colors.white
-                                                            .withOpacity(0.7),
-                                                        Colors.white
-                                                      ],
-                                                      tileMode: TileMode.clamp,
-                                                    ),
-                                                  ),
-                                                  child: Center(
-                                                    child: Obx(
-                                                      () => Text(
-                                                          controller
-                                                              .digit3.value,
-                                                          style: TextStyle(
-                                                              fontSize: 32,
-                                                              color:
-                                                                  Colors.black,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500)),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    right: 8.0),
-                                                child: Container(
-                                                  height: 50,
-                                                  width: 40,
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10),
-                                                    gradient: LinearGradient(
-                                                      begin:
-                                                          Alignment.topCenter,
-                                                      end: Alignment(0, 0.0),
-                                                      colors: [
-                                                        Colors.white
-                                                            .withOpacity(0.7),
-                                                        Colors.white
-                                                      ],
-                                                      tileMode: TileMode.clamp,
-                                                    ),
-                                                  ),
-                                                  child: Center(
-                                                    child: Obx(
-                                                      () => Text(
-                                                          controller
-                                                              .digit4.value,
-                                                          style: TextStyle(
-                                                              fontSize: 32,
-                                                              color:
-                                                                  Colors.black,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500)),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    right: 8.0),
-                                                child: Container(
-                                                  height: 50,
-                                                  width: 40,
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10),
-                                                    gradient: LinearGradient(
-                                                      begin:
-                                                          Alignment.topCenter,
-                                                      end: Alignment(0, 0.0),
-                                                      colors: [
-                                                        Colors.white
-                                                            .withOpacity(0.7),
-                                                        Colors.white
-                                                      ],
-                                                      tileMode: TileMode.clamp,
-                                                    ),
-                                                  ),
-                                                  child: Center(
-                                                    child: Obx(
-                                                      () => Text(
-                                                          controller
-                                                              .digit5.value,
-                                                          style: TextStyle(
-                                                              fontSize: 32,
-                                                              color:
-                                                                  Colors.black,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500)),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ]),
+                                              ]),
+                                        ),
                                       ),
                                     ),
                                     Padding(
@@ -292,7 +146,9 @@ class ScanResult extends GetView<ScanResultController> {
                                       borderRadius: BorderRadius.circular(8),
                                     ),
                                   )),
-                              onPressed: () {},
+                              onPressed: () {
+                                Get.toNamed(Routes.SUCCESS);
+                              },
                               child: Text('Confirm',
                                   style: TextStyle(fontSize: 17)),
                             )),
@@ -304,7 +160,9 @@ class ScanResult extends GetView<ScanResultController> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Get.offNamed(Routes.SCAN);
+                              },
                               borderSide: BorderSide(
                                   color: Get.theme.primaryColor,
                                   width: 2,

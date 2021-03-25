@@ -32,10 +32,12 @@ class ScanController extends GetxController {
 
     busy.value = true;
 
-    startUp();
+    await startUp();
     loadModel().then(
       (val) {
-        busy.value = false;
+        Future.delayed(Duration(milliseconds: 500)).then((value) {
+          busy.value = false;
+        });
       },
     );
   }
@@ -59,7 +61,7 @@ class ScanController extends GetxController {
   }
 
   // load tflite model
-  loadModel() async {
+  Future<bool> loadModel() async {
     Tflite.close();
     try {
       String res;
@@ -72,6 +74,7 @@ class ScanController extends GetxController {
       return true;
     } on PlatformException catch (e) {
       print('Failed to load the model' + e.toString());
+      return false;
     }
   }
 
@@ -131,7 +134,7 @@ class ScanController extends GetxController {
         print(recognitions);
         var resImage = await tfLiteService.cropImage(image, recognitions[0]);
         busy.value = false;
-        Get.toNamed(
+        Get.offNamed(
           Routes.SCANRESULT,
           arguments: {'image': resImage},
         );
