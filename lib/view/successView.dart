@@ -100,6 +100,7 @@ class Success extends GetView<SuccessController> {
                       ),
                       onPressed: () {
                         // Get.toNamed(Routes.HOME);
+                        Get.offAllNamed(Routes.HOME);
                       },
                       borderSide: BorderSide(
                           color: Get.theme.primaryColor,
