@@ -1,5 +1,5 @@
 import 'dart:ui';
-import 'package:amr_mobile/controller/home/billPaymentController.dart';
+import 'package:amr_mobile/controller/billPaymentController.dart';
 import 'package:amr_mobile/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

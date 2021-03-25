@@ -1,5 +1,5 @@
 import 'package:amr_mobile/controller/home/bottomNavController.dart';
-import 'package:amr_mobile/view/home/billPaymentView.dart';
+import 'package:amr_mobile/view/billPaymentView.dart';
 import 'package:amr_mobile/view/home/homeView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
