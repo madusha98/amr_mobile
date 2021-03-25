@@ -9,10 +9,12 @@ class Success extends GetView<SuccessController> {
   @override
   Widget build(context) => Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: AppBar(iconTheme: IconThemeData(
+        appBar: AppBar(
+            iconTheme: IconThemeData(
               color: Get.theme.primaryColor, //change your color here
             ),
-          backgroundColor: Colors.transparent, elevation: 0),
+            backgroundColor: Colors.transparent,
+            elevation: 0),
         backgroundColor: BACKGROUND_COLOR,
         body: Padding(
           padding: const EdgeInsets.only(
@@ -83,7 +85,7 @@ class Success extends GetView<SuccessController> {
                             ),
                           )),
                       onPressed: () {
-                        Get.toNamed(Routes.SCANRESULT);
+                        Get.toNamed(Routes.SCANBILLPAY);
                       },
                       child:
                           Text('Go to Payment', style: TextStyle(fontSize: 17)),
