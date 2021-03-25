@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       enableLog: true,
       logWriterCallback: Logger.write,
-      initialRoute: Routes.SPLASH,
+      initialRoute: Routes.HOME,
       // home: Nav(),
       getPages: Pages.routes,
       navigatorObservers: [

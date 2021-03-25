@@ -4,11 +4,9 @@ import 'package:amr_mobile/bindings/auth/loginBinding.dart';
 import 'package:amr_mobile/bindings/auth/otpBinding.dart';
 import 'package:amr_mobile/bindings/auth/registerBinding.dart';
 import 'package:amr_mobile/bindings/auth/welcomeBinding.dart';
-import 'package:amr_mobile/bindings/home/billPaymentBinding.dart';
 import 'package:amr_mobile/bindings/home/bottomNavBinding.dart';
 import 'package:amr_mobile/bindings/home/homeBinding.dart';
 import 'package:amr_mobile/bindings/introBinding.dart';
-import 'package:amr_mobile/bindings/scanBillPayBinding.dart';
 import 'package:amr_mobile/bindings/scanBinding.dart';
 import 'package:amr_mobile/bindings/scanResultBinding.dart';
 import 'package:amr_mobile/bindings/splashBinding.dart';
@@ -21,12 +19,10 @@ import 'package:amr_mobile/view/auth/loginView.dart';
 import 'package:amr_mobile/view/auth/otpView.dart';
 import 'package:amr_mobile/view/auth/registerView.dart';
 import 'package:amr_mobile/view/auth/welcomeView.dart';
-import 'package:amr_mobile/view/home/billPaymentView.dart';
 import 'package:amr_mobile/view/home/bottomNav.dart';
 import 'package:amr_mobile/view/introView.dart';
 import 'package:amr_mobile/view/scanView.dart';
 import 'package:amr_mobile/view/scanResultView.dart';
-import 'package:amr_mobile/view/scanBillPayView.dart';
 import 'package:amr_mobile/view/successView.dart';
 import 'package:amr_mobile/view/generateView.dart';
 import 'package:get/get.dart';
@@ -104,11 +100,6 @@ class Pages {
       name: Routes.BILLPAYMENT,
       page: () => BottomNav(),
       binding: BottomNavBinding(),
-    ),
-    GetPage(
-      name: Routes.SCANBILLPAY,
-      page: () => ScanBillPay(),
-      binding: ScanBillPayBinding(),
     ),
   ];
 }

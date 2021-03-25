@@ -85,7 +85,7 @@ class Success extends GetView<SuccessController> {
                             ),
                           )),
                       onPressed: () {
-                        Get.toNamed(Routes.SCANBILLPAY);
+                        Get.toNamed(Routes.BILLPAYMENT);
                       },
                       child:
                           Text('Go to Payment', style: TextStyle(fontSize: 17)),
