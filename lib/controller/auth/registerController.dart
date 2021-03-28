@@ -1,6 +1,7 @@
 import 'package:amr_mobile/domain/User.dart';
 import 'package:amr_mobile/routes/pages.dart';
 import 'package:amr_mobile/service/authService.dart';
+import 'package:amr_mobile/service/fcmService.dart';
 import 'package:amr_mobile/utils/utils.dart';
 import 'package:get/get.dart';
 
@@ -18,6 +19,7 @@ class RegisterController extends GetxController {
   var nicError = ''.obs;
 
   final AuthService _authService = Get.find();
+  final FCMService _fcmService = Get.find();
 
   void register() async {
     var user = User(
@@ -55,6 +57,7 @@ class RegisterController extends GetxController {
     var loggedIn = await _authService.login(email.value, password.value);
     if (loggedIn) {
       _authService.fetchSession().then((value) {
+        _fcmService.updateToken();
         Get.offAllNamed(Routes.SPLASH);
       });
     }

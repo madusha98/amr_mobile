@@ -1,5 +1,6 @@
 import 'package:amr_mobile/routes/pages.dart';
 import 'package:amr_mobile/service/authService.dart';
+import 'package:amr_mobile/service/fcmService.dart';
 import 'package:amr_mobile/service/httpService.dart';
 import 'package:amr_mobile/service/tfLiteService.dart';
 import 'package:amr_mobile/utils/logger.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
     Get.put(GetStorage());
     Get.put(HttpService());
     Get.put(AuthService());
+    Get.put(FCMService());
     Get.put(TFLiteService(camera));
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,

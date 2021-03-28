@@ -1,11 +1,15 @@
+import 'package:amplify_flutter/amplify.dart';
 import 'package:amr_mobile/service/httpService.dart';
+import 'package:amr_mobile/utils/constants.dart';
 import 'package:amr_mobile/utils/deviceInfo.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class FCMService {
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
   final HttpService _httpProvider = Get.find();
+  final GetStorage storage = Get.find();
 
   static Future<dynamic> myBackgroundMessageHandler(
       Map<String, dynamic> message) async {
@@ -25,12 +29,15 @@ class FCMService {
   void handleNotifications() {
     // Get token
     _firebaseMessaging.getToken().then((token) {
-      updateToken(token);
+      storePushToken(token);
     });
 
     // Listen to refresh token
     _firebaseMessaging.onTokenRefresh.listen((refreshToken) {
-      updateToken(refreshToken);
+      if (storage.read(StorageKeys.PUSH_TOKEN) != refreshToken) {
+        storePushToken(refreshToken);
+        updateToken();
+      }
     });
 
     _firebaseMessaging.configure(
@@ -47,11 +54,24 @@ class FCMService {
     );
   }
 
-  void updateToken(token) async {
-    var deviceId = await getDeviceID();
-    var body = <String, dynamic>{'deviceId': deviceId, 'pushToken': token};
-    var res = await _httpProvider.postRequest('/fcm/updatePushToken', body);
-    if (res != null) {}
-    print(res.body['data']);
+  void storePushToken(token) {
+    storage.write(StorageKeys.PUSH_TOKEN, token);
+  }
+
+  void updateToken() async {
+    if (storage.hasData(StorageKeys.TOKEN)) {
+      var user = await Amplify.Auth.getCurrentUser();
+      print(user);
+      var token = storage.read(StorageKeys.PUSH_TOKEN);
+      var deviceId = await getDeviceID();
+      var body = <String, dynamic>{
+        'deviceId': deviceId,
+        'pushToken': token,
+        'userId': user.userId
+      };
+      var res = await _httpProvider.postRequest('/fcm/updatePushToken', body);
+      if (res != null) {}
+      print(res.body['data']);
+    }
   }
 }

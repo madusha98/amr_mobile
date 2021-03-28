@@ -9,6 +9,7 @@ const PADDING = 15.0;
 class StorageKeys {
   static final String TOKEN = 'token';
   static final String IS_FIRST_TIME = 'isFirstTime';
+  static final String PUSH_TOKEN = 'pushToken';
 }
 
 // Colors
