@@ -4,6 +4,7 @@ import 'package:amr_mobile/bindings/auth/loginBinding.dart';
 import 'package:amr_mobile/bindings/auth/otpBinding.dart';
 import 'package:amr_mobile/bindings/auth/registerBinding.dart';
 import 'package:amr_mobile/bindings/auth/welcomeBinding.dart';
+import 'package:amr_mobile/bindings/billPaymentBinding.dart';
 import 'package:amr_mobile/bindings/home/bottomNavBinding.dart';
 import 'package:amr_mobile/bindings/home/homeBinding.dart';
 import 'package:amr_mobile/bindings/introBinding.dart';
@@ -40,7 +41,7 @@ class Pages {
     GetPage(
         name: Routes.HOME,
         page: () => BottomNav(),
-        bindings: [BottomNavBinding(), HomeBinding()]),
+        bindings: [BottomNavBinding(), HomeBinding(), BillPaymentBinding()]),
     GetPage(
       name: Routes.LOGIN,
       page: () => Login(),

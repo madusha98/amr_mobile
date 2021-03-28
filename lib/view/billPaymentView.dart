@@ -221,7 +221,9 @@ class BillPayment extends GetView<BillPaymentController> {
                             ),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          controller.pay();
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
