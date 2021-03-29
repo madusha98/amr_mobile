@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 class LoginController extends GetxController {
   var email = ''.obs;
   var password = ''.obs;
+  var loading = false.obs;
 
   final AuthService _authService = Get.find();
   final FCMService _fcmService = Get.find();
@@ -16,6 +17,7 @@ class LoginController extends GetxController {
   }
 
   void login() async {
+    loading.value = true;
     var loggedIn = await _authService.login(email.value, password.value);
     if (loggedIn) {
       _authService.fetchSession().then((value) {
@@ -23,5 +25,6 @@ class LoginController extends GetxController {
         Get.offNamed(Routes.SPLASH);
       });
     }
+    loading.value = false;
   }
 }
