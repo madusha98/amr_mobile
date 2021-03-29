@@ -147,7 +147,11 @@ class ScanResult extends GetView<ScanResultController> {
                                     ),
                                   )),
                               onPressed: () {
-                                Get.toNamed(Routes.SUCCESS);
+                                Get.toNamed(Routes.SUCCESS, arguments: {
+                                  'NoOfUnits': '300',
+                                  'FromDate': '2021-03-01',
+                                  'ToDate': '2021-03-30'
+                                });
                               },
                               child: Text('Confirm',
                                   style: TextStyle(fontSize: 17)),

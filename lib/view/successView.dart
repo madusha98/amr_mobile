@@ -56,13 +56,15 @@ class Success extends GetView<SuccessController> {
                             ),
                             Padding(
                               padding: const EdgeInsets.only(top: PADDING / 2),
-                              child: Text(
-                                'LKR 2,867.60',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 20),
+                              child: Obx(
+                                () => Text(
+                                  'LKR ' + controller.amount.value,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 20),
+                                ),
                               ),
                             ),
                           ],
