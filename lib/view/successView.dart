@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:amr_mobile/controller/home/bottomNavController.dart';
 import 'package:amr_mobile/controller/successController.dart';
 import 'package:amr_mobile/routes/pages.dart';
 import 'package:amr_mobile/utils/constants.dart';
@@ -85,7 +86,7 @@ class Success extends GetView<SuccessController> {
                             ),
                           )),
                       onPressed: () {
-                        Get.toNamed(Routes.BILLPAYMENT);
+                        controller.gotoBillPayments();
                       },
                       child:
                           Text('Go to Payment', style: TextStyle(fontSize: 17)),
