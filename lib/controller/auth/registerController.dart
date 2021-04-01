@@ -18,10 +18,13 @@ class RegisterController extends GetxController {
   var mobileError = ''.obs;
   var nicError = ''.obs;
 
+  var loading = false.obs;
+
   final AuthService _authService = Get.find();
   final FCMService _fcmService = Get.find();
 
   void register() async {
+    loading.value = true;
     var user = User(
         email: email.value,
         password: password.value,
@@ -30,6 +33,7 @@ class RegisterController extends GetxController {
         nic: nic.value);
     print(user.toAwsJson);
     var res = await _authService.signup(user);
+    loading.value = false;
     if (res != null) {
       Get.toNamed(Routes.OTP, arguments: {
         'email': email.value,

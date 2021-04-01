@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 class Splash extends GetView<SplashController> {
   @override
   Widget build(context) => AuthContainer(
+        loading: false,
         appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
         child: Container(
           height: Get.height,

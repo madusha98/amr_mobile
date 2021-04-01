@@ -1,11 +1,14 @@
 import 'package:amr_mobile/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:loading_overlay/loading_overlay.dart';
 
 class AuthContainer extends StatelessWidget {
   final Widget child;
   final AppBar appBar;
+  final bool loading;
 
-  const AuthContainer({Key key, this.child, this.appBar}) : super(key: key);
+  const AuthContainer({Key key, this.child, this.appBar, this.loading})
+      : super(key: key);
   @override
   Widget build(BuildContext context) => WillPopScope(
         onWillPop: () => backHandler(context),
@@ -30,35 +33,39 @@ class AuthContainer extends StatelessWidget {
                   backgroundColor: Colors.transparent,
                   elevation: 0,
                 ),
-            body: Stack(
-              children: [
-                Container(
-                  constraints: BoxConstraints(
-                      minHeight: MediaQuery.of(context).size.height),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment(0, 0.0),
-                      colors: [
-                        Theme.of(context).primaryColor,
-                        Theme.of(context).accentColor
-                      ],
-                      tileMode: TileMode.clamp,
+            body: LoadingOverlay(
+              isLoading: loading,
+              color: Colors.black,
+              child: Stack(
+                children: [
+                  Container(
+                    constraints: BoxConstraints(
+                        minHeight: MediaQuery.of(context).size.height),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment(0, 0.0),
+                        colors: [
+                          Theme.of(context).primaryColor,
+                          Theme.of(context).accentColor
+                        ],
+                        tileMode: TileMode.clamp,
+                      ),
                     ),
                   ),
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height,
-                  decoration: BoxDecoration(
-                    color: Colors.transparent,
-                    image: DecorationImage(
-                      image: ExactAssetImage('assets/bg.png'),
-                      fit: BoxFit.fill,
+                  Container(
+                    height: MediaQuery.of(context).size.height,
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      image: DecorationImage(
+                        image: ExactAssetImage('assets/bg.png'),
+                        fit: BoxFit.fill,
+                      ),
                     ),
+                    child: SingleChildScrollView(child: child),
                   ),
-                  child: SingleChildScrollView(child: child),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

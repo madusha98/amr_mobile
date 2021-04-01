@@ -6,10 +6,12 @@ class ForgotPasswordController extends GetxController {
   var email = ''.obs;
   var otp = '';
   var newPassword = '';
+  var loading = false.obs;
 
   final AuthService _authService = Get.find();
 
   void resetPassword() async {
+    loading.value = true;
     try {
       var res = await _authService.forgotPassword(email.value);
       if (res != null) {
@@ -21,5 +23,6 @@ class ForgotPasswordController extends GetxController {
     } catch (e) {
       print(e);
     }
+    loading.value = false;
   }
 }

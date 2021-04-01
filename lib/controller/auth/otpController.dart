@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 class OtpController extends GetxController {
   var otp = ''.obs;
+  var loading = false.obs;
 
   final AuthService _authService = Get.find();
 
@@ -26,13 +27,16 @@ class OtpController extends GetxController {
   }
 
   void confirmSignUp(String otp) async {
+    loading.value = true;
     var res = await _authService.confirmSignUp(Get.arguments['email'], otp);
+    loading.value = false;
     if (res != null && res.isSignUpComplete) {
       await login();
     }
   }
 
   void login() async {
+    loading.value = true;
     var loggedIn = await _authService.login(
         Get.arguments['email'], Get.arguments['password']);
     if (loggedIn) {
@@ -40,5 +44,6 @@ class OtpController extends GetxController {
         Get.offAllNamed(Routes.SPLASH);
       });
     }
+    loading.value = false;
   }
 }

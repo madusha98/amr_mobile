@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 class Welcome extends GetView<WelcomeController> {
   @override
   Widget build(context) => AuthContainer(
+        loading: false,
         appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
         child: Padding(
           padding: const EdgeInsets.only(left: PADDING, right: PADDING),

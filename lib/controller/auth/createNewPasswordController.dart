@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 class CreateNewPasswordController extends GetxController {
   var newpassword = ''.obs;
   var confirmpassword = ''.obs;
+  var loading = false.obs;
 
   final AuthService _authService = Get.find();
 
@@ -16,6 +17,7 @@ class CreateNewPasswordController extends GetxController {
   }
 
   void createNewPassword() async {
+    loading.value = true;
     try {
       var res = await _authService.createNewPassword(
           newpassword.value, confirmpassword.value);
@@ -25,9 +27,11 @@ class CreateNewPasswordController extends GetxController {
     } catch (e) {
       print(e);
     }
+    loading.value = false;
   }
 
   void confirmPassword() async {
+    loading.value = true;
     try {
       var res = await _authService.confirmPassword(
           Get.arguments['email'], confirmpassword.value, Get.arguments['otp']);
@@ -38,5 +42,6 @@ class CreateNewPasswordController extends GetxController {
     } catch (e) {
       print(e);
     }
+    loading.value = false;
   }
 }
