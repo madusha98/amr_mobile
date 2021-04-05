@@ -19,6 +19,7 @@ class ScanController extends GetxController {
   var extractText = '';
   var busy = false.obs;
   var modelLoaded = false.obs;
+  var cameraInitilized = false.obs;
   List recognitions;
   bool available = true;
   var recognition;
@@ -56,6 +57,7 @@ class ScanController extends GetxController {
       ResolutionPreset.veryHigh,
     );
     cameraController.initialize().then((value) {
+      cameraInitilized.value = true;
       startStreaming();
     });
   }
@@ -163,13 +165,5 @@ class ScanController extends GetxController {
     loadModel().then((val) {
       busy.value = false;
     });
-  }
-
-  Future<void> selectFromImagePicker() async {
-    await loadModel();
-    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
-    if (image == null) return;
-    busy.value = true;
-    runModelOnImage(image);
   }
 }

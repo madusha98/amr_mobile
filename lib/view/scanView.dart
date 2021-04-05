@@ -38,13 +38,14 @@ class ScanView extends GetView<ScanController> {
             bottom: 0,
             right: 0,
             child: Obx(
-              () => controller.busy.value != null
+              () => controller.busy.value != null &&
+                      controller.cameraInitilized.value
                   ? Container(
                       height: MediaQuery.of(context).size.height - 100,
                       width: MediaQuery.of(context).size.width,
                       child: CameraPreview(controller.cameraController),
                     )
-                  : Center(child: Text('Loading...')),
+                  : Center(child: CircularProgressIndicator()),
             ),
           ),
           Obx(
