@@ -71,7 +71,26 @@ class Home extends GetView<HomeController> {
         appBar: AppBar(
           leading: IconButton(
             icon: Icon(Icons.power_settings_new),
-            onPressed: controller.logout,
+            onPressed: () => showDialog(
+                context: context,
+                builder: (ctx) => AlertDialog(
+                  title: Text('Logout', style: TextStyle(color: Colors.black, fontSize: 18),),
+                  content: Text('Are you sure you want to logout?'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(ctx).pop();
+                      },
+                      child: Text('Cancel', style: TextStyle(color: Colors.grey)),
+                    ),
+                    TextButton(
+                      onPressed: controller.logout,
+                      child: Text( 'Yes', style: (TextStyle(color: Get.theme.accentColor, fontWeight: FontWeight.w500)),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
           ),
           actions: [
             Container(
@@ -230,7 +249,7 @@ class Home extends GetView<HomeController> {
                 ),
               )),
           Positioned(
-              top: Get.height * 0.28 - 51,
+              top: Get.height * 0.26 - 51,
               child: Container(
                 height: 90,
                 width: MediaQuery.of(context).size.width - PADDING * 2,
