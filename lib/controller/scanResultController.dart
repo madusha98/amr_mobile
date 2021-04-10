@@ -21,7 +21,9 @@ class ScanResultController extends GetxController {
       'image': await MultipartFile(image,
           filename: 'test.jpg', contentType: 'image/jpg'),
     });
-    var res = await _httpProvider.postRequest('meter_reader/read_digits', form);
+    final params = {'accId': 'abc'};
+    var res = await _httpProvider.postRequest('meter_reader/read_digits', form,
+        params: params);
     loading.value = false;
     try {
       var val = res.body['value'];
