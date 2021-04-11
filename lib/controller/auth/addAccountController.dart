@@ -8,6 +8,14 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class AddAccountController extends GetxController {
+
+  var accountNo = ''.obs;
+  var accountName = ''.obs;
+  var serviceProvider = ''.obs;
+
+  var accountNoError = ''.obs;
+  var accountNameError = ''.obs;
+
   var loading = false.obs;
 
   final HttpService _httpProvider = Get.find();
@@ -31,7 +39,7 @@ class AddAccountController extends GetxController {
     var body = ElectricityAccount(
         userId: user.userId,
         accId: '1234',
-        accNo: '1234',
+        accNo: accountNo.value,
         location: '${position.latitude},${position.longitude}',
         outstanding: '');
 

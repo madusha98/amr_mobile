@@ -28,7 +28,7 @@ class Register extends GetView<RegisterController> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 15.0),
+                    padding: const EdgeInsets.only(bottom: PADDING),
                     child: OutLinedTextField(
                       onChanged: (text) => controller.name.value = text,
                       label: 'Your Name',
@@ -36,7 +36,7 @@ class Register extends GetView<RegisterController> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 15.0),
+                    padding: const EdgeInsets.only(bottom: PADDING),
                     child: OutLinedTextField(
                       onChanged: (text) {
                         controller.email.value = text;
@@ -54,7 +54,7 @@ class Register extends GetView<RegisterController> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 15.0),
+                    padding: const EdgeInsets.only(bottom: PADDING),
                     child: OutLinedTextField(
                       onChanged: (text) {
                         text = '+94' + text;
@@ -74,7 +74,7 @@ class Register extends GetView<RegisterController> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 15.0),
+                    padding: const EdgeInsets.only(bottom: PADDING),
                     child: OutLinedTextField(
                       onChanged: (text) {
                         controller.nic.value = text;
@@ -92,7 +92,7 @@ class Register extends GetView<RegisterController> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 15.0),
+                    padding: const EdgeInsets.only(bottom: PADDING),
                     child: OutLinedTextField(
                       onChanged: (text) => controller.password.value = text,
                       label: 'Create a strong password',
