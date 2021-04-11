@@ -1,4 +1,4 @@
-import 'package:amr_mobile/domain/User.dart';
+import 'package:amr_mobile/domain/Request/User.dart';
 import 'package:amr_mobile/routes/pages.dart';
 import 'package:amr_mobile/service/authService.dart';
 import 'package:amr_mobile/service/fcmService.dart';

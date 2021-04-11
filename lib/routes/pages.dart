@@ -1,3 +1,4 @@
+import 'package:amr_mobile/bindings/auth/addAccountBinding.dart';
 import 'package:amr_mobile/bindings/auth/createNewPasswordBinding.dart';
 import 'package:amr_mobile/bindings/auth/forgotPasswordBinding.dart';
 import 'package:amr_mobile/bindings/auth/loginBinding.dart';
@@ -14,6 +15,7 @@ import 'package:amr_mobile/bindings/splashBinding.dart';
 import 'package:amr_mobile/bindings/successBinding.dart';
 import 'package:amr_mobile/bindings/generateBinding.dart';
 import 'package:amr_mobile/view/SplashScreen.dart';
+import 'package:amr_mobile/view/auth/addAccountView.dart';
 import 'package:amr_mobile/view/auth/createNewPasswordView.dart';
 import 'package:amr_mobile/view/auth/forgotPasswordView.dart';
 import 'package:amr_mobile/view/auth/loginView.dart';
@@ -101,6 +103,11 @@ class Pages {
       name: Routes.BILLPAYMENT,
       page: () => BottomNav(),
       binding: BottomNavBinding(),
+    ),
+    GetPage(
+      name: Routes.ADDACCOUNT,
+      page: () => AddAccounnt(),
+      binding: AddAccountBinding(),
     ),
   ];
 }
