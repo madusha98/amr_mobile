@@ -39,8 +39,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(GetStorage());
-    Get.put(HttpService());
     Get.put(AuthService());
+    Get.put(HttpService());
     Get.put(FCMService());
     Get.put(TFLiteService(camera));
     return GetMaterialApp(

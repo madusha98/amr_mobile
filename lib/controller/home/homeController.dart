@@ -1,6 +1,7 @@
 import 'package:amr_mobile/routes/pages.dart';
 import 'package:amr_mobile/service/authService.dart';
 import 'package:amr_mobile/service/httpService.dart';
+import 'package:amr_mobile/utils/constants.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -27,12 +28,8 @@ class HomeController extends GetxController {
 
   void logout() {
     _authService.logout();
-    storage.remove('token');
-    print(storage.read('token'));
+    storage.remove(StorageKeys.TOKEN);
+    storage.remove(StorageKeys.ACCOUNT_ADDED);
     Get.offNamed(Routes.SPLASH);
   }
-
-  void doSomething() async {
-    
-    }
 }

@@ -1,6 +1,6 @@
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amr_mobile/amplifyconfiguration.dart';
-import 'package:amr_mobile/domain/User.dart';
+import 'package:amr_mobile/domain/Request/User.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:amplify_flutter/amplify.dart';
@@ -134,4 +134,14 @@ class AuthService extends GetxService {
   Future<UpdatePasswordResult> createNewPassword(
           String newpassword, String confirmpassword) async =>
       null;
+
+  Future<AuthUser> getUserDetails() async {
+    try {
+      var res = await Amplify.Auth.getCurrentUser();
+      return res;
+    } catch (e) {
+      print(e);
+      return null;
+    }
+  }
 }

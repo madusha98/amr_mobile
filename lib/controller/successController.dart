@@ -8,6 +8,7 @@ class SuccessController extends GetxController {
   var amount = '2000'.obs;
 
   void gotoBillPayments() {
+    // ignore: omit_local_variable_types
     BottomNavController bottomNavController = Get.find();
     bottomNavController.navigateToTab(2);
   }
@@ -19,7 +20,7 @@ class SuccessController extends GetxController {
   }
 
   Future<void> calculateBill(data) async {
-    var res = await _httpProvider.postRequest('billValue/getBillValue', data);
+    var res = await _httpProvider.postRequest('bill/getBillValue', data);
     if (res != null) {
       print(res.body['data']);
     }

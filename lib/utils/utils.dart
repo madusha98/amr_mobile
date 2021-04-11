@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:amr_mobile/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:get/get.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 bool verifyEmail(String text) => RegExp(
@@ -51,4 +53,59 @@ Future<bool> backHandler(context) async {
     ],
   ).show();
   return res;
+}
+
+Widget errorDialog(message) => AlertDialog(
+      title: Text('Error'),
+      titleTextStyle: TextStyle(color: Colors.black, fontSize: 20),
+      content: Text(message),
+      actions: [
+        TextButton(
+            onPressed: () {
+              Get.back();
+            },
+            child: Text('Close'))
+      ],
+    );
+
+Widget twoButtonDialog(title, message, button1Label, button1Action,
+        button2Label, button2Action) =>
+    AlertDialog(
+      title: Text(title),
+      titleTextStyle: TextStyle(color: Colors.black, fontSize: 20),
+      content: Text(message),
+      actions: [
+        TextButton(
+          onPressed: button1Action,
+          child: Text(button1Label),
+        ),
+        TextButton(
+          onPressed: button2Action,
+          child: Text(button2Label),
+        )
+      ],
+    );
+
+Future<Position> getPosition() async {
+  bool serviceEnabled;
+  LocationPermission permission;
+
+  serviceEnabled = await Geolocator.isLocationServiceEnabled();
+  if (!serviceEnabled) {
+    return Future.error('Location services are disabled.');
+  }
+
+  permission = await Geolocator.checkPermission();
+  if (permission == LocationPermission.denied) {
+    permission = await Geolocator.requestPermission();
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
+
+    if (permission == LocationPermission.denied) {
+      return Future.error('Location permissions are denied');
+    }
+  }
+  return await Geolocator.getCurrentPosition();
 }

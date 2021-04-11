@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+// const baseUrl =
+//     'https://v36cu19x54.execute-api.ap-southeast-1.amazonaws.com/production/';
 const baseUrl =
-    'https://v36cu19x54.execute-api.ap-southeast-1.amazonaws.com/production/';
+    'https://voy7gyvr16.execute-api.ap-southeast-1.amazonaws.com/dev/';
 // const baseUrl = 'http://192.168.43.204:3000/dev/';
 
 const PADDING = 15.0;
@@ -10,6 +12,7 @@ class StorageKeys {
   static final String TOKEN = 'token';
   static final String IS_FIRST_TIME = 'isFirstTime';
   static final String PUSH_TOKEN = 'pushToken';
+  static final String ACCOUNT_ADDED = 'accountAdded';
 }
 
 // Colors
