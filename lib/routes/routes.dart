@@ -17,4 +17,5 @@ abstract class Routes {
   static const GENERATE = '/generate';
   static const BILLPAYMENT = '/billPayment';
   static const ADDACCOUNT = '/addaccount';
+  static const HISTORY = '/history';
 }

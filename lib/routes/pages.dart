@@ -109,5 +109,10 @@ class Pages {
       page: () => AddAccounnt(),
       binding: AddAccountBinding(),
     ),
+    GetPage(
+      name: Routes.HISTORY,
+      page: () => BottomNav(),
+      binding: BottomNavBinding(),
+    ),
   ];
 }

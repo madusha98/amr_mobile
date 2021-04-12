@@ -1,5 +1,6 @@
 import 'package:amr_mobile/controller/home/bottomNavController.dart';
 import 'package:amr_mobile/view/billPaymentView.dart';
+import 'package:amr_mobile/view/home/historyView.dart';
 import 'package:amr_mobile/view/home/homeView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -14,14 +15,7 @@ class BottomNav extends GetView<BottomNavController> {
               index: controller.tabIndex.value,
               children: [
                 Home(),
-                Center(
-                  child: ElevatedButton(
-                    child: Text('Go to home'),
-                    onPressed: () {
-                      controller.changeTabIndex(0);
-                    },
-                  ),
-                ),
+                History(),
                 BillPayment(),
                 Text('3'),
               ],
