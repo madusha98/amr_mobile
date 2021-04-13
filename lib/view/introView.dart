@@ -7,6 +7,7 @@ class Intro extends GetView<IntroController> {
   @override
   Widget build(context) => Scaffold(
         body: IntroSlider(
+          colorActiveDot: Colors.white,
           slides: controller.slides,
           onDonePress: controller.onDonePressed,
         ),
