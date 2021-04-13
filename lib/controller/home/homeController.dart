@@ -30,6 +30,6 @@ class HomeController extends GetxController {
     _authService.logout();
     storage.remove(StorageKeys.TOKEN);
     storage.remove(StorageKeys.ACCOUNT_ADDED);
-    Get.offNamed(Routes.SPLASH);
+    Get.offAllNamed(Routes.SPLASH);
   }
 }

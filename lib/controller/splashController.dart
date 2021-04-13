@@ -51,7 +51,7 @@ class SplashController extends GetxController {
     if (accountAlreadyadded) {
       Get.dialog(twoButtonDialog(
         'Message',
-        'You already have an electricity account associated with current user. Do you want to continue using it?',        
+        'You already have an electricity account associated with current user. Do you want to continue using it?',
         'No',
         () {
           Get.offAllNamed(Routes.ADDACCOUNT);
@@ -62,6 +62,8 @@ class SplashController extends GetxController {
           Get.offAllNamed(Routes.HOME);
         },
       ));
+    } else {
+      Get.offAllNamed(Routes.ADDACCOUNT);
     }
   }
 

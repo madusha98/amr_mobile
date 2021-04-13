@@ -67,8 +67,8 @@ class AddAccounnt extends GetView<AddAccountController> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(
-                                      bottom: PADDING),
+                                  padding:
+                                      const EdgeInsets.only(bottom: PADDING),
                                   child: OutLinedTextField(
                                     onChanged: (text) {
                                       if (text == '') {
@@ -80,10 +80,11 @@ class AddAccounnt extends GetView<AddAccountController> {
                                       controller.accountName.value = text;
                                     },
                                     label: 'Account Name ex. (My Home)',
-                                    keyboardType: TextInputType.number,
+                                    keyboardType: TextInputType.name,
                                     hasError:
                                         controller.accountNameError.value != '',
-                                    errorLabel: controller.accountNameError.value,
+                                    errorLabel:
+                                        controller.accountNameError.value,
                                   ),
                                 ),
                                 Padding(
@@ -91,8 +92,8 @@ class AddAccounnt extends GetView<AddAccountController> {
                                   child: RoundedRectangleButton(
                                     label: 'Add Account',
                                     onPressed: () {
-                                      controller.addAccount();
-                                      // Get.offNamed(Routes.HOME);
+                                      Get.toNamed(Routes.SCAN,
+                                          arguments: {'addAccount': true});
                                     },
                                   ),
                                 )

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:amr_mobile/controller/auth/addAccountController.dart';
 import 'package:amr_mobile/routes/pages.dart';
 import 'package:amr_mobile/service/tfLiteService.dart';
 import 'package:flutter/services.dart';
@@ -136,10 +137,18 @@ class ScanController extends GetxController {
         print(recognitions);
         var resImage = await tfLiteService.cropImage(image, recognitions[0]);
         busy.value = false;
-        Get.offNamed(
-          Routes.SCANRESULT,
-          arguments: {'image': resImage},
-        );
+
+        if (Get.arguments['addAccount']) {
+          // ignore: omit_local_variable_types
+          AddAccountController addAccountController = Get.find();
+          addAccountController.addAccount();
+          Get.back();
+        } else {
+          Get.offNamed(
+            Routes.SCANRESULT,
+            arguments: {'image': resImage},
+          );
+        }
       }
     } else {
       recognition = null;

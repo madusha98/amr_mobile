@@ -60,14 +60,14 @@ class ScanView extends GetView<ScanController> {
             padding: const EdgeInsets.only(
                 left: PADDING, top: PADDING * 3, right: PADDING),
             child: Container(
-              height: 80.0,
               width: Get.width - PADDING * 2,
               color: Colors.transparent,
               child: Container(
                   decoration: BoxDecoration(
                       color: Get.theme.primaryColor,
                       borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                  child: Center(
+                  child: Padding(
+                    padding: EdgeInsets.all(PADDING),
                     child: Text(
                       'Please hold the camera towards your meter and keep the counter inside the green box steadily.It will scan automatically.',
                       style: TextStyle(color: Colors.white, fontSize: 13),
