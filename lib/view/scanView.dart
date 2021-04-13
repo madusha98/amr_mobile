@@ -1,4 +1,5 @@
 import 'package:amr_mobile/controller/scanController.dart';
+import 'package:amr_mobile/utils/constants.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -29,7 +30,7 @@ class ScanView extends GetView<ScanController> {
     );
 
     return Scaffold(
-      appBar: AppBar(),
+      // appBar: AppBar(),
       body: Stack(
         children: [
           Positioned(
@@ -54,9 +55,43 @@ class ScanView extends GetView<ScanController> {
                     child: CircularProgressIndicator(),
                   )
                 : Container(),
-          )
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+                left: PADDING, top: PADDING * 3, right: PADDING),
+            child: Container(
+              height: 80.0,
+              width: Get.width - PADDING * 2,
+              color: Colors.transparent,
+              child: Container(
+                  decoration: BoxDecoration(
+                      color: Get.theme.primaryColor,
+                      borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                  child: Center(
+                    child: Text(
+                      'Please hold the camera towards your meter and keep the counter inside the green box steadily.It will scan automatically.',
+                      style: TextStyle(color: Colors.white, fontSize: 13),
+                      textAlign: TextAlign.center,
+                    ),
+                  )),
+            ),
+          ),
+          Center(
+              child: Image.asset(
+            'assets/scanIndicator.png',
+            height: 200.0,
+            fit: BoxFit.cover,
+          ))
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Get.back();
+        },
+        child: const Icon(Icons.close),
+        backgroundColor: Get.theme.accentColor,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

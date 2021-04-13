@@ -50,16 +50,16 @@ class SplashController extends GetxController {
     });
     if (accountAlreadyadded) {
       Get.dialog(twoButtonDialog(
-        'Warning',
-        'You already have an Electricity account associated with current user. Do you want to continue using it?',
+        'Message',
+        'You already have an electricity account associated with current user. Do you want to continue using it?',        
+        'No',
+        () {
+          Get.offAllNamed(Routes.ADDACCOUNT);
+        },
         'Yes',
         () {
           storage.write(StorageKeys.ACCOUNT_ADDED, 'true');
           Get.offAllNamed(Routes.HOME);
-        },
-        'No',
-        () {
-          Get.offAllNamed(Routes.ADDACCOUNT);
         },
       ));
     }
