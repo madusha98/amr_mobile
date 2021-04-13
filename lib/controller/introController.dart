@@ -11,33 +11,84 @@ class IntroController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
     slides.add(
       Slide(
-        title: 'ERASER',
-        description:
-            'Allow miles wound place the leave had. To sitting subject no improve studied limited',
-        //pathImage: 'images/photo_eraser.png',
-        backgroundColor: Color(0xfff5a623),
+        title: 'Getting Started',
+        styleTitle: TextStyle(
+            color: Colors.white, fontSize: 24.0, fontWeight: FontWeight.w600),
+        styleDescription: TextStyle(color: Colors.white, fontSize: 14.0),
+        centerWidget: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: PADDING, right: PADDING, bottom: PADDING*2),
+              child: Text('A very smart way to scan your electricity meter.',
+                  style: TextStyle(color: Colors.white, fontSize: 13),
+                  textAlign: TextAlign.center),
+            ),
+            Image.asset(
+              'assets/slider1.png',
+              height: 350.0,
+              fit: BoxFit.cover,
+            ),
+          ],
+        ),
+        colorBegin: Get.theme.primaryColor,
+        colorEnd: Get.theme.accentColor,
+        directionColorBegin: Alignment.topRight,
+        directionColorEnd: Alignment.bottomLeft,
       ),
     );
     slides.add(
       Slide(
-        title: 'PENCIL',
-        description:
-            'Ye indulgence unreserved connection alteration appearance',
-        //pathImage: 'images/photo_pencil.png',
-        backgroundColor: Color(0xff203152),
+        centerWidget: Container(
+          transform: Matrix4.translationValues(0.0, -100.0, 0.0),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: PADDING, right: PADDING, bottom: PADDING*2),
+                child: Text('No more late bills,\nNo more inaccurate bills,\nScan & View the Bill Instantly',
+                    style: TextStyle(color: Colors.white, fontSize: 14),
+                    textAlign: TextAlign.center),
+              ),
+              Image.asset(
+                'assets/slider2.png',
+                height: 380.0,
+                fit: BoxFit.cover,
+              ),
+            ],
+          ),
+        ),
+        colorBegin: Get.theme.primaryColor,
+        colorEnd: Get.theme.accentColor,
+        directionColorBegin: Alignment.topRight,
+        directionColorEnd: Alignment.bottomLeft,
       ),
     );
     slides.add(
       Slide(
-        title: 'RULER',
-        description:
-            'Much evil soon high in hope do view. Out may few northward believing attempted. Yet timed being songs marry one defer men our. Although finished blessing do of',
-        //pathImage: 'images/photo_ruler.png',
-        backgroundColor: Color(0xff9932CC),
+        centerWidget: Container(
+          transform: Matrix4.translationValues(0.0, -100.0, 0.0),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: PADDING, right: PADDING, bottom: PADDING*2),
+                child: Text('Manage your past bills,\nPay your bills\n& receive notifications for next scan.',
+                    style: TextStyle(color: Colors.white, fontSize: 14),
+                    textAlign: TextAlign.center),
+              ),
+              Image.asset(
+                'assets/slider3.png',
+                height: 400.0,
+                fit: BoxFit.cover,
+              ),
+            ],
+          ),
+        ),
+        colorBegin: Get.theme.primaryColor,
+        colorEnd: Get.theme.accentColor,
+        directionColorBegin: Alignment.topRight,
+        directionColorEnd: Alignment.bottomLeft,
       ),
     );
   }
