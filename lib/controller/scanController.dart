@@ -138,16 +138,19 @@ class ScanController extends GetxController {
         var resImage = await tfLiteService.cropImage(image, recognitions[0]);
         busy.value = false;
 
-        if (Get.arguments['addAccount']) {
-          // ignore: omit_local_variable_types
-          AddAccountController addAccountController = Get.find();
-          addAccountController.addAccount();
-          Get.back();
-        } else {
-          Get.offNamed(
-            Routes.SCANRESULT,
-            arguments: {'image': resImage},
-          );
+        switch (Get.arguments['prevRoute']) {
+          case Routes.ADDACCOUNT:
+            // ignore: omit_local_variable_types
+            AddAccountController addAccountController = Get.find();
+            addAccountController.addAccount();
+            Get.back();
+            break;
+
+          default:
+            Get.offNamed(
+              Routes.SCANRESULT,
+              arguments: {'image': resImage},
+            );
         }
       }
     } else {

@@ -92,8 +92,9 @@ class AddAccounnt extends GetView<AddAccountController> {
                                   child: RoundedRectangleButton(
                                     label: 'Add Account',
                                     onPressed: () {
-                                      Get.toNamed(Routes.SCAN,
-                                          arguments: {'addAccount': true});
+                                      Get.toNamed(Routes.SCAN, arguments: {
+                                        'prevRoute': Routes.ADDACCOUNT
+                                      });
                                     },
                                   ),
                                 )

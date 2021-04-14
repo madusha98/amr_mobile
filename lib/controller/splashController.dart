@@ -23,7 +23,7 @@ class SplashController extends GetxController {
 
   void checkLoginStatus() async {
     isLoading.value = true;
-    Future.delayed(const Duration(milliseconds: 100), () {
+    Future.delayed(const Duration(milliseconds: 500), () {
       if (storage.hasData(StorageKeys.IS_FIRST_TIME)) {
         isLoading.value = false;
         if (storage.hasData(StorageKeys.TOKEN)) {

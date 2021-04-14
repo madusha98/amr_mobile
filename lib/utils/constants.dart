@@ -13,7 +13,23 @@ class StorageKeys {
   static final String IS_FIRST_TIME = 'isFirstTime';
   static final String PUSH_TOKEN = 'pushToken';
   static final String ACCOUNT_ADDED = 'accountAdded';
+  static final String ACCOUNT_ID = 'accountID';
 }
+
+const MONTH_NAMES = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec'
+];
 
 // Colors
 const PRIMARY_COLOR = Color.fromRGBO(21, 75, 189, 1);

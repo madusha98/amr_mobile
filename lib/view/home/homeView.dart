@@ -2,9 +2,11 @@ import 'dart:ui';
 import 'package:amr_mobile/domain/BillData.dart';
 import 'package:amr_mobile/routes/pages.dart';
 import 'package:amr_mobile/utils/constants.dart';
+import 'package:amr_mobile/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:amr_mobile/controller/home/homeController.dart';
+import 'package:loading_overlay/loading_overlay.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Home extends GetView<HomeController> {
@@ -112,150 +114,154 @@ class Home extends GetView<HomeController> {
           elevation: 0,
         ),
         backgroundColor: BACKGROUND_COLOR,
-        body: Stack(children: [
-          Positioned(
-            top: 0,
-            right: 0,
-            left: 0,
-            child: Container(
-              height: Get.height * 0.28 + 22,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment(0, 0.75),
-                  colors: [Get.theme.primaryColor, Get.theme.accentColor],
-                  tileMode: TileMode.clamp,
+        body: Stack(
+          children: [
+            Positioned(
+              top: 0,
+              right: 0,
+              left: 0,
+              child: Container(
+                height: Get.height * 0.28 + 22,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment(0, 0.75),
+                    colors: [Get.theme.primaryColor, Get.theme.accentColor],
+                    tileMode: TileMode.clamp,
+                  ),
                 ),
-              ),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: PADDING),
-                  child: Container(
-                    transform: Matrix4.translationValues(0.0, -7.5, 0.0),
-                    child: Text(
-                      'Hi Michael,',
-                      style: Get.textTheme.headline6,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: PADDING),
+                    child: Container(
+                      transform: Matrix4.translationValues(0.0, -7.5, 0.0),
+                      child: Obx(
+                        () => Text(
+                          'Hi ${controller.name},',
+                          style: Get.textTheme.headline6,
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-          Positioned(
-              bottom: 0,
-              right: 0,
-              left: 0,
-              child: Container(
-                height: Get.height * 0.72 - 51,
-                decoration: BoxDecoration(
-                  color: BACKGROUND_COLOR,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20)),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      left: PADDING, right: PADDING, bottom: 10.0),
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 60.0),
-                              child: Container(
-                                height: Get.height * 0.62 -
-                                    135 -
-                                    51, //minus the height of buttons + bottom nav bar height
-                                child: Column(
-                                  children: [
-                                    Expanded(
-                                      child: _getDefaultSplineChart(),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Column(children: [
-                        Container(
-                            height: 55,
-                            width: double.infinity,
-                            margin: EdgeInsets.only(bottom: PADDING),
-                            child: ElevatedButton(
-                              style: ButtonStyle(
-                                  foregroundColor:
-                                      MaterialStateProperty.all<Color>(
-                                          Colors.white),
-                                  backgroundColor:
-                                      MaterialStateProperty.all<Color>(
-                                          Get.theme.primaryColor),
-                                  shape:
-                                      MaterialStateProperty.all<OutlinedBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                  )),
-                              onPressed: () {
-                                Get.toNamed(Routes.SCAN);
-                              },
-                              child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(right: 8.0),
-                                      child: Icon(
-                                        Icons.camera_alt,
-                                        color: Colors.white,
-                                        size: 20.0,
-                                      ),
-                                    ),
-                                    Text('Monthly Scan',
-                                        style: TextStyle(fontSize: 17)),
-                                  ]),
-                            )),
-                        Container(
-                            height: 55,
-                            width: double.infinity,
-                            margin: EdgeInsets.only(left: 0, right: 0),
-                            child: OutlineButton(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              onPressed: () {
-                                Get.toNamed(Routes.SUCCESS);
-                              },
-                              borderSide: BorderSide(
-                                  color: Get.theme.primaryColor,
-                                  width: 2,
-                                  style: BorderStyle.solid),
-                              textColor: Get.theme.primaryColor,
-                              child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(right: 8.0),
-                                      child: Icon(
-                                        Icons.camera_alt,
-                                        color: Get.theme.primaryColor,
-                                        size: 20.0,
-                                      ),
-                                    ),
-                                    Text('Quick Scan',
-                                        style: TextStyle(fontSize: 17)),
-                                  ]),
-                            ))
-                      ]),
-                    ],
+            Positioned(
+                bottom: 0,
+                right: 0,
+                left: 0,
+                child: Container(
+                  height: Get.height * 0.72 - 51,
+                  decoration: BoxDecoration(
+                    color: BACKGROUND_COLOR,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20)),
                   ),
-                ),
-              )),
-          Positioned(
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        left: PADDING, right: PADDING, bottom: 10.0),
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 60.0),
+                                child: Container(
+                                  height: Get.height * 0.62 -
+                                      135 -
+                                      51, //minus the height of buttons + bottom nav bar height
+                                  child: Column(
+                                    children: [
+                                      Expanded(
+                                        child: _getDefaultSplineChart(),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Column(children: [
+                          Container(
+                              height: 55,
+                              width: double.infinity,
+                              margin: EdgeInsets.only(bottom: PADDING),
+                              child: ElevatedButton(
+                                style: ButtonStyle(
+                                    foregroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.white),
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Get.theme.primaryColor),
+                                    shape: MaterialStateProperty.all<
+                                        OutlinedBorder>(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                    )),
+                                onPressed: () {
+                                  Get.toNamed(Routes.SCAN,
+                                      arguments: {'prevRoute': ''});
+                                },
+                                child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 8.0),
+                                        child: Icon(
+                                          Icons.camera_alt,
+                                          color: Colors.white,
+                                          size: 20.0,
+                                        ),
+                                      ),
+                                      Text('Monthly Scan',
+                                          style: TextStyle(fontSize: 17)),
+                                    ]),
+                              )),
+                          Container(
+                              height: 55,
+                              width: double.infinity,
+                              margin: EdgeInsets.only(left: 0, right: 0),
+                              child: OutlineButton(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                onPressed: () {
+                                  Get.toNamed(Routes.SUCCESS);
+                                },
+                                borderSide: BorderSide(
+                                    color: Get.theme.primaryColor,
+                                    width: 2,
+                                    style: BorderStyle.solid),
+                                textColor: Get.theme.primaryColor,
+                                child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 8.0),
+                                        child: Icon(
+                                          Icons.camera_alt,
+                                          color: Get.theme.primaryColor,
+                                          size: 20.0,
+                                        ),
+                                      ),
+                                      Text('Quick Scan',
+                                          style: TextStyle(fontSize: 17)),
+                                    ]),
+                              ))
+                        ]),
+                      ],
+                    ),
+                  ),
+                )),
+            Positioned(
               top: Get.height * 0.26 - 51,
               child: Container(
                 height: 90,
@@ -270,95 +276,116 @@ class Home extends GetView<HomeController> {
                           spreadRadius: 3,
                           blurRadius: 20)
                     ]),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 11.0),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Column(
+                child: Obx(
+                  () => LoadingOverlay(
+                    isLoading: controller.loading.value,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 11.0),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Text(
-                              'Last Scanned',
-                              style: TextStyle(
-                                  fontSize: 11,
-                                  color: Color.fromRGBO(165, 165, 165, 1)),
+                            Column(
+                              children: [
+                                Text(
+                                  'Last Scanned',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      color: Color.fromRGBO(165, 165, 165, 1)),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 8.0),
+                                  child: Text(
+                                    controller.lastScanned != null
+                                        ? MONTH_NAMES[
+                                            controller.lastScanned.value.month -
+                                                1]
+                                        : '',
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        color: Get.theme.primaryColor
+                                            .withOpacity(0.5)),
+                                  ),
+                                ),
+                                Text(
+                                  controller.lastScanned != null
+                                      ? '${controller.lastScanned.value.day} ${getDayOfMonthSuffix(controller.lastScanned.value.day)}'
+                                      : '',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500,
+                                      color: Get.theme.primaryColor),
+                                ),
+                              ],
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 8.0),
-                              child: Text(
-                                'Apr',
-                                style: TextStyle(
-                                    fontSize: 12,
-                                    color: Get.theme.primaryColor
-                                        .withOpacity(0.5)),
-                              ),
+                            Column(
+                              children: [
+                                Text(
+                                  'Total Outstanding',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      color: Color.fromRGBO(165, 165, 165, 1)),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 8.0),
+                                  child: Text(
+                                    'LKR',
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        color: Get.theme.primaryColor
+                                            .withOpacity(0.5)),
+                                  ),
+                                ),
+                                Text(
+                                  controller.account != null
+                                      ? controller.account.value.outstanding
+                                      : '',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500,
+                                      color: Get.theme.primaryColor),
+                                ),
+                              ],
                             ),
-                            Text(
-                              '30th',
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
-                                  color: Get.theme.primaryColor),
+                            Column(
+                              children: [
+                                Text(
+                                  'Next Scan Due',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      color: Color.fromRGBO(165, 165, 165, 1)),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 8.0),
+                                  child: Text(
+                                    controller.nextScanDue != null
+                                        ? MONTH_NAMES[
+                                            controller.nextScanDue.value.month -
+                                                1]
+                                        : '',
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        color: Get.theme.primaryColor
+                                            .withOpacity(0.5)),
+                                  ),
+                                ),
+                                Text(
+                                  controller.lastScanned != null
+                                      ? '${controller.nextScanDue.value.day} ${getDayOfMonthSuffix(controller.nextScanDue.value.day)}'
+                                      : '',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500,
+                                      color: Get.theme.primaryColor),
+                                ),
+                              ],
                             )
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Text(
-                              'Last Bill Value',
-                              style: TextStyle(
-                                  fontSize: 11,
-                                  color: Color.fromRGBO(165, 165, 165, 1)),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 8.0),
-                              child: Text(
-                                'LKR',
-                                style: TextStyle(
-                                    fontSize: 12,
-                                    color: Get.theme.primaryColor
-                                        .withOpacity(0.5)),
-                              ),
-                            ),
-                            Text(
-                              '3,467.00',
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
-                                  color: Get.theme.primaryColor),
-                            )
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Text(
-                              'Next Scan Due',
-                              style: TextStyle(
-                                  fontSize: 11,
-                                  color: Color.fromRGBO(165, 165, 165, 1)),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 8.0),
-                              child: Text(
-                                'May',
-                                style: TextStyle(
-                                    fontSize: 12,
-                                    color: Get.theme.primaryColor
-                                        .withOpacity(0.5)),
-                              ),
-                            ),
-                            Text(
-                              '31st',
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
-                                  color: Get.theme.primaryColor),
-                            )
-                          ],
-                        )
-                      ]),
+                          ]),
+                    ),
+                  ),
                 ),
-              ))
-        ]),
+              ),
+            ),
+          ],
+        ),
       );
 }

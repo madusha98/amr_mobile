@@ -1,29 +1,51 @@
+import 'package:amr_mobile/domain/ElectricityAccount.dart';
 import 'package:amr_mobile/routes/pages.dart';
 import 'package:amr_mobile/service/authService.dart';
 import 'package:amr_mobile/service/httpService.dart';
 import 'package:amr_mobile/utils/constants.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:jiffy/jiffy.dart';
 
 class HomeController extends GetxController {
   GetStorage storage = Get.find();
-  var testMsg = ''.obs;
   var loading = false.obs;
+  var name = ''.obs;
+  Rx<ElectricityAccount> account;
+  Rx<DateTime> lastScanned;
+  Rx<DateTime> nextScanDue;
 
   final HttpService _httpProvider = Get.find();
   final AuthService _authService = Get.find();
 
   @override
   void onInit() async {
-    loading.value = true;
-    // var res = await _httpProvider.getRequest('/test', '');
-    // if (res != null) {
-    //   testMsg.value = res.body['message'];
-    // }
-    // print(res);
-    loading.value = false;
-
     super.onInit();
+    getUserDetails();
+  }
+
+  void getUserDetails() async {
+    var user = await _authService.getUserDetails();
+    var userattributes = await _authService.getUserAttributes();
+    var nameAttribute = userattributes
+        .firstWhere((element) => element.userAttributeKey == 'name');
+    name.value = nameAttribute.value;
+
+    loading.value = true;
+    var res = await _httpProvider.getRequest('/account/getAccountDetails',
+        params: {'userId': user.userId});
+    if (res != null) {
+      account = ElectricityAccount.fromJson(res.body[0]).obs;
+      calculateDates();
+    }
+    loading.value = false;
+  }
+
+  void calculateDates() {
+    lastScanned =
+        DateTime.fromMillisecondsSinceEpoch(account.value.lastReadDate * 1000)
+            .obs;
+    nextScanDue = Jiffy(lastScanned.value).add(months: 1).dateTime.obs;
   }
 
   void logout() {
