@@ -20,100 +20,112 @@ class Success extends GetView<SuccessController> {
         body: Padding(
           padding: const EdgeInsets.only(
               left: PADDING, right: PADDING, bottom: 40.0),
-          child: Column(
-            children: [
-              Expanded(
-                child: Padding(
-                    padding: const EdgeInsets.only(top: 60.0, bottom: 30.0),
-                    child: Container(
-                        height: Get.height -
-                            135 -
-                            51 -
-                            60, //minus the height of buttons + bottom nav bar height + top padding
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/success.png',
-                              height: 100.0,
-                              fit: BoxFit.cover,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  top: PADDING * 2, bottom: PADDING),
-                              child: Text(
-                                'Success!',
-                                style: Get.textTheme.headline6.apply(
-                                    color: Get.theme.primaryColor
-                                        .withOpacity(0.8)),
-                              ),
-                            ),
-                            Text(
-                              'Your electricity bill value for the\nperiod 01/01/2021 - 28/02/2021 is',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.black.withOpacity(0.5),
-                                  fontSize: 14),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: PADDING / 2),
-                              child: Obx(
-                                () => Text(
-                                  'LKR ' + controller.amount.value,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 20),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ))),
-              ),
-              Column(children: [
-                Container(
-                    height: 55,
-                    width: double.infinity,
-                    margin: EdgeInsets.only(bottom: PADDING),
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                          foregroundColor:
-                              MaterialStateProperty.all<Color>(Colors.white),
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Get.theme.primaryColor),
-                          shape: MaterialStateProperty.all<OutlinedBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          )),
-                      onPressed: () {
-                        controller.gotoBillPayments();
-                      },
-                      child:
-                          Text('Go to Payment', style: TextStyle(fontSize: 17)),
-                    )),
-                Container(
-                    height: 55,
-                    width: double.infinity,
-                    margin: EdgeInsets.only(left: 0, right: 0),
-                    child: OutlineButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
+          child: Obx(
+            () => controller.loading.value
+                ? Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : Column(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                            padding:
+                                const EdgeInsets.only(top: 60.0, bottom: 30.0),
+                            child: Container(
+                                height: Get.height -
+                                    135 -
+                                    51 -
+                                    60, //minus the height of buttons + bottom nav bar height + top padding
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      'assets/success.png',
+                                      height: 100.0,
+                                      fit: BoxFit.cover,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: PADDING * 2, bottom: PADDING),
+                                      child: Text(
+                                        'Success!',
+                                        style: Get.textTheme.headline6.apply(
+                                            color: Get.theme.primaryColor
+                                                .withOpacity(0.8)),
+                                      ),
+                                    ),
+                                    Text(
+                                      'Your electricity bill value for the\nperiod ${controller.fromdate.value.replaceAll('-', '/')} - ${controller.todate.value.replaceAll('-', '/')} is',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.black.withOpacity(0.5),
+                                          fontSize: 14),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: PADDING / 2),
+                                      child: Obx(
+                                        () => Text(
+                                          'LKR ' + controller.amount.value,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 20),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ))),
                       ),
-                      onPressed: () {
-                        // Get.toNamed(Routes.HOME);
-                        Get.offAllNamed(Routes.HOME);
-                      },
-                      borderSide: BorderSide(
-                          color: Get.theme.primaryColor,
-                          width: 2,
-                          style: BorderStyle.solid),
-                      textColor: Get.theme.primaryColor,
-                      child: Text('Close', style: TextStyle(fontSize: 17)),
-                    ))
-              ]),
-            ],
+                      Column(children: [
+                        Container(
+                            height: 55,
+                            width: double.infinity,
+                            margin: EdgeInsets.only(bottom: PADDING),
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                  foregroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.white),
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Get.theme.primaryColor),
+                                  shape:
+                                      MaterialStateProperty.all<OutlinedBorder>(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                  )),
+                              onPressed: () {
+                                controller.gotoBillPayments();
+                              },
+                              child: Text('Go to Payment',
+                                  style: TextStyle(fontSize: 17)),
+                            )),
+                        Container(
+                            height: 55,
+                            width: double.infinity,
+                            margin: EdgeInsets.only(left: 0, right: 0),
+                            child: OutlineButton(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              onPressed: () {
+                                // Get.toNamed(Routes.HOME);
+                                Get.offAllNamed(Routes.HOME);
+                              },
+                              borderSide: BorderSide(
+                                  color: Get.theme.primaryColor,
+                                  width: 2,
+                                  style: BorderStyle.solid),
+                              textColor: Get.theme.primaryColor,
+                              child:
+                                  Text('Close', style: TextStyle(fontSize: 17)),
+                            ))
+                      ]),
+                    ],
+                  ),
           ),
         ),
       );

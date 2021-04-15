@@ -92,6 +92,7 @@ Future<Position> getPosition() async {
 
   serviceEnabled = await Geolocator.isLocationServiceEnabled();
   if (!serviceEnabled) {
+    Geolocator.openLocationSettings();
     return Future.error('Location services are disabled.');
   }
 
@@ -107,7 +108,14 @@ Future<Position> getPosition() async {
       return Future.error('Location permissions are denied');
     }
   }
-  return await Geolocator.getCurrentPosition();
+  var stopwatch = Stopwatch()..start();
+  var position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.best,
+      // timeLimit: Duration(seconds: 30),
+      forceAndroidLocationManager: true);
+  print('getCurrentPosition() executed in ${stopwatch.elapsed}');
+  stopwatch.stop();
+  return position;
 }
 
 String getDayOfMonthSuffix(int dayNum) {

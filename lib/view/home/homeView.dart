@@ -232,8 +232,8 @@ class Home extends GetView<HomeController> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
                                 ),
-                                onPressed: () {
-                                  Get.toNamed(Routes.SUCCESS);
+                                onPressed: () async {
+                                  // Get.toNamed(Routes.SUCCESS);
                                 },
                                 borderSide: BorderSide(
                                     color: Get.theme.primaryColor,
@@ -277,111 +277,115 @@ class Home extends GetView<HomeController> {
                           blurRadius: 20)
                     ]),
                 child: Obx(
-                  () => LoadingOverlay(
-                    isLoading: controller.loading.value,
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 11.0),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Column(
+                  () => controller.loading.value
+                      ? Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      : Padding(
+                          padding: const EdgeInsets.only(top: 11.0),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                Text(
-                                  'Last Scanned',
-                                  style: TextStyle(
-                                      fontSize: 11,
-                                      color: Color.fromRGBO(165, 165, 165, 1)),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 8.0),
-                                  child: Text(
-                                    controller.lastScanned != null
-                                        ? MONTH_NAMES[
-                                            controller.lastScanned.value.month -
+                                Column(
+                                  children: [
+                                    Text(
+                                      'Last Scanned',
+                                      style: TextStyle(
+                                          fontSize: 11,
+                                          color:
+                                              Color.fromRGBO(165, 165, 165, 1)),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8.0),
+                                      child: Text(
+                                        controller.lastScanned != null
+                                            ? MONTH_NAMES[controller
+                                                    .lastScanned.value.month -
                                                 1]
-                                        : '',
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        color: Get.theme.primaryColor
-                                            .withOpacity(0.5)),
-                                  ),
+                                            : '',
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: Get.theme.primaryColor
+                                                .withOpacity(0.5)),
+                                      ),
+                                    ),
+                                    Text(
+                                      controller.lastScanned != null
+                                          ? '${controller.lastScanned.value.day} ${getDayOfMonthSuffix(controller.lastScanned.value.day)}'
+                                          : '',
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500,
+                                          color: Get.theme.primaryColor),
+                                    ),
+                                  ],
                                 ),
-                                Text(
-                                  controller.lastScanned != null
-                                      ? '${controller.lastScanned.value.day} ${getDayOfMonthSuffix(controller.lastScanned.value.day)}'
-                                      : '',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500,
-                                      color: Get.theme.primaryColor),
+                                Column(
+                                  children: [
+                                    Text(
+                                      'Total Outstanding',
+                                      style: TextStyle(
+                                          fontSize: 11,
+                                          color:
+                                              Color.fromRGBO(165, 165, 165, 1)),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8.0),
+                                      child: Text(
+                                        'LKR',
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: Get.theme.primaryColor
+                                                .withOpacity(0.5)),
+                                      ),
+                                    ),
+                                    Text(
+                                      controller.account != null
+                                          ? controller.account.value.outstanding
+                                          : '',
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500,
+                                          color: Get.theme.primaryColor),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                Text(
-                                  'Total Outstanding',
-                                  style: TextStyle(
-                                      fontSize: 11,
-                                      color: Color.fromRGBO(165, 165, 165, 1)),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 8.0),
-                                  child: Text(
-                                    'LKR',
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        color: Get.theme.primaryColor
-                                            .withOpacity(0.5)),
-                                  ),
-                                ),
-                                Text(
-                                  controller.account != null
-                                      ? controller.account.value.outstanding
-                                      : '',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500,
-                                      color: Get.theme.primaryColor),
-                                ),
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                Text(
-                                  'Next Scan Due',
-                                  style: TextStyle(
-                                      fontSize: 11,
-                                      color: Color.fromRGBO(165, 165, 165, 1)),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 8.0),
-                                  child: Text(
-                                    controller.nextScanDue != null
-                                        ? MONTH_NAMES[
-                                            controller.nextScanDue.value.month -
+                                Column(
+                                  children: [
+                                    Text(
+                                      'Next Scan Due',
+                                      style: TextStyle(
+                                          fontSize: 11,
+                                          color:
+                                              Color.fromRGBO(165, 165, 165, 1)),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8.0),
+                                      child: Text(
+                                        controller.nextScanDue != null
+                                            ? MONTH_NAMES[controller
+                                                    .nextScanDue.value.month -
                                                 1]
-                                        : '',
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        color: Get.theme.primaryColor
-                                            .withOpacity(0.5)),
-                                  ),
-                                ),
-                                Text(
-                                  controller.lastScanned != null
-                                      ? '${controller.nextScanDue.value.day} ${getDayOfMonthSuffix(controller.nextScanDue.value.day)}'
-                                      : '',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500,
-                                      color: Get.theme.primaryColor),
-                                ),
-                              ],
-                            )
-                          ]),
-                    ),
-                  ),
+                                            : '',
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: Get.theme.primaryColor
+                                                .withOpacity(0.5)),
+                                      ),
+                                    ),
+                                    Text(
+                                      controller.lastScanned != null
+                                          ? '${controller.nextScanDue.value.day} ${getDayOfMonthSuffix(controller.nextScanDue.value.day)}'
+                                          : '',
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500,
+                                          color: Get.theme.primaryColor),
+                                    ),
+                                  ],
+                                )
+                              ]),
+                        ),
                 ),
               ),
             ),

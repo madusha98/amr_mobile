@@ -5,7 +5,10 @@ import 'package:get/get.dart';
 class SuccessController extends GetxController {
   final HttpService _httpProvider = Get.find();
 
-  var amount = '2000'.obs;
+  var amount = ''.obs;
+  var fromdate = ''.obs;
+  var todate = ''.obs;
+  var loading = false.obs;
 
   void gotoBillPayments() {
     // ignore: omit_local_variable_types
@@ -20,9 +23,20 @@ class SuccessController extends GetxController {
   }
 
   Future<void> calculateBill(data) async {
+    loading.value = true;
     var res = await _httpProvider.postRequest('bill/getBillValue', data);
-    if (res != null) {
-      print(res.body['data']);
+    try {
+      if (res != null && res.statusCode == 200) {
+        amount.value = res.body['Total'];
+        fromdate.value = res.body['fromDate'];
+        todate.value = res.body['toDate'];
+      } else {
+        print(res.bodyString);
+      }
+      loading.value = false;
+    } catch (e) {
+      print(e);
+      loading.value = false;
     }
   }
 }

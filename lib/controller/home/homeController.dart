@@ -25,13 +25,13 @@ class HomeController extends GetxController {
   }
 
   void getUserDetails() async {
+    loading.value = true;
     var user = await _authService.getUserDetails();
     var userattributes = await _authService.getUserAttributes();
     var nameAttribute = userattributes
         .firstWhere((element) => element.userAttributeKey == 'name');
     name.value = nameAttribute.value;
 
-    loading.value = true;
     var res = await _httpProvider.getRequest('/account/getAccountDetails',
         params: {'userId': user.userId});
     if (res != null) {
