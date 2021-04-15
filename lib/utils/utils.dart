@@ -112,7 +112,7 @@ Future<Position> getPosition() async {
   var position = await Geolocator.getCurrentPosition(
       desiredAccuracy: LocationAccuracy.best,
       // timeLimit: Duration(seconds: 30),
-      forceAndroidLocationManager: true);
+      forceAndroidLocationManager: false);
   print('getCurrentPosition() executed in ${stopwatch.elapsed}');
   stopwatch.stop();
   return position;

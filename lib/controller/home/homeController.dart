@@ -43,8 +43,7 @@ class HomeController extends GetxController {
 
   void calculateDates() {
     lastScanned =
-        DateTime.fromMillisecondsSinceEpoch(account.value.lastReadDate * 1000)
-            .obs;
+        DateTime.fromMillisecondsSinceEpoch(account.value.lastReadDate).obs;
     nextScanDue = Jiffy(lastScanned.value).add(months: 1).dateTime.obs;
   }
 

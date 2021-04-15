@@ -25,7 +25,10 @@ class ElectricityAccount {
         'userId': userId,
         'accNo': accNo,
         'location': location,
-        'accName': accName
+        'accName': accName,
+        'lastReading': lastReading,
+        'lastReadDate': lastReadDate.toString(),
+        'outstanding': outstanding
       };
 
   factory ElectricityAccount.fromJson(dynamic json) => ElectricityAccount(

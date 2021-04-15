@@ -10,17 +10,19 @@ class OutLinedTextField extends StatefulWidget {
   final bool hasError;
   final String errorLabel;
   final String prefix;
+  final int maxLength;
 
-  const OutLinedTextField({
-    Key key,
-    this.onChanged,
-    this.label,
-    this.obscureText = false,
-    this.keyboardType,
-    this.hasError = false,
-    this.errorLabel = 'This is an error',
-    this.prefix,
-  }) : super(key: key);
+  const OutLinedTextField(
+      {Key key,
+      this.onChanged,
+      this.label,
+      this.obscureText = false,
+      this.keyboardType,
+      this.hasError = false,
+      this.errorLabel = 'This is an error',
+      this.prefix,
+      this.maxLength})
+      : super(key: key);
 
   @override
   _OutLinedTextFieldState createState() => _OutLinedTextFieldState();
@@ -55,10 +57,12 @@ class _OutLinedTextFieldState extends State<OutLinedTextField> {
                 children: [
                   Expanded(
                     child: TextField(
+                      maxLength: widget.maxLength,
                       keyboardType: widget.keyboardType,
                       obscureText: _obscureText,
                       onChanged: widget.onChanged,
                       decoration: InputDecoration(
+                        counterText: '',
                         border: InputBorder.none,
                         isDense: true,
                         contentPadding: EdgeInsets.all(8),

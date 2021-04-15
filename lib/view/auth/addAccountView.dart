@@ -8,6 +8,7 @@ import 'package:amr_mobile/widgets/roundedRectangleButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:touchable_opacity/touchable_opacity.dart';
 
 class AddAccounnt extends GetView<AddAccountController> {
   @override
@@ -81,6 +82,87 @@ class AddAccounnt extends GetView<AddAccountController> {
                                     },
                                     label: 'Account Name ex. (My Home)',
                                     keyboardType: TextInputType.name,
+                                    hasError:
+                                        controller.accountNameError.value != '',
+                                    errorLabel:
+                                        controller.accountNameError.value,
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(bottom: PADDING),
+                                  child: OutLinedTextField(
+                                    maxLength: 5,
+                                    onChanged: (text) {
+                                      controller.lastReading.value = text;
+                                    },
+                                    label: 'Last Month Meter Reading',
+                                    keyboardType: TextInputType.number,
+                                    hasError:
+                                        controller.accountNameError.value != '',
+                                    errorLabel:
+                                        controller.accountNameError.value,
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(bottom: PADDING),
+                                  child: Container(
+                                    height: 60,
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: TEXT_COLOR, width: 1.5),
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 10, right: 10),
+                                      child: Row(children: [
+                                        Expanded(
+                                          child: TouchableOpacity(
+                                            onTap: () {
+                                              controller.selectDate(context);
+                                            },
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Row(
+                                                children: [
+                                                  Text(
+                                                    'Last bill date : ',
+                                                    style: TextStyle(
+                                                      fontSize: 17,
+                                                      color: TEXT_COLOR
+                                                          .withOpacity(0.5),
+                                                    ),
+                                                  ),
+                                                  Obx(
+                                                    () => Text(
+                                                      controller
+                                                          .lastScanDate.value,
+                                                      style: TextStyle(
+                                                          fontSize: 17,
+                                                          color: TEXT_COLOR),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        )
+                                      ]),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(bottom: PADDING),
+                                  child: OutLinedTextField(
+                                    onChanged: (text) {
+                                      controller.outstanding.value = text;
+                                    },
+                                    label: 'Total Outstanding',
+                                    keyboardType: TextInputType.number,
                                     hasError:
                                         controller.accountNameError.value != '',
                                     errorLabel:
