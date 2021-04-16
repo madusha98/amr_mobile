@@ -63,7 +63,7 @@ class ScanResultController extends GetxController {
 
   void confirmReading() {
     var lastReadDate = DateTime.fromMillisecondsSinceEpoch(
-        responseData['lastReadDate'].toInt() * 1000);
+        responseData['lastReadDate'].toInt());
     var lastReadDateString = lastReadDate.toString().split(' ')[0];
     var currentDate = DateTime.now();
     var currentDateString = currentDate.toString().split(' ')[0];

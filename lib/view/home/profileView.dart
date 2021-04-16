@@ -44,15 +44,15 @@ class Profile extends GetView<ProfileController> {
                         child: Text('Cancel',
                             style: TextStyle(color: Colors.grey)),
                       ),
-                      // TextButton(
-                      //   onPressed: controller.logout,
-                      //   child: Text(
-                      //     'Yes',
-                      //     style: (TextStyle(
-                      //         color: Get.theme.accentColor,
-                      //         fontWeight: FontWeight.w500)),
-                      //   ),
-                      // ),
+                      TextButton(
+                        onPressed: controller.logout,
+                        child: Text(
+                          'Yes',
+                          style: (TextStyle(
+                              color: Get.theme.accentColor,
+                              fontWeight: FontWeight.w500)),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -120,8 +120,8 @@ class Profile extends GetView<ProfileController> {
                   padding: const EdgeInsets.only(right: PADDING, left: PADDING),
                   child: TextField(
                     readOnly: true,
-                    // controller:
-                    //     TextEditingController(text: '${controller.name}'),
+                    controller:
+                        TextEditingController(text: '${controller.name}'),
                     decoration: const InputDecoration(
                       isDense: true,
                       border: OutlineInputBorder(
