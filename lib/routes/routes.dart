@@ -18,4 +18,5 @@ abstract class Routes {
   static const BILLPAYMENT = '/billPayment';
   static const ADDACCOUNT = '/addaccount';
   static const HISTORY = '/history';
+  static const PROFILE = '/profile';
 }

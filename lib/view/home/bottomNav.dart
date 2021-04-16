@@ -2,6 +2,7 @@ import 'package:amr_mobile/controller/home/bottomNavController.dart';
 import 'package:amr_mobile/view/billPaymentView.dart';
 import 'package:amr_mobile/view/home/historyView.dart';
 import 'package:amr_mobile/view/home/homeView.dart';
+import 'package:amr_mobile/view/home/profileView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -17,7 +18,7 @@ class BottomNav extends GetView<BottomNavController> {
                 Home(),
                 History(),
                 BillPayment(),
-                Text('3'),
+                Profile(),
               ],
             ),
           ),

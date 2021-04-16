@@ -8,6 +8,7 @@ import 'package:amr_mobile/bindings/auth/welcomeBinding.dart';
 import 'package:amr_mobile/bindings/billPaymentBinding.dart';
 import 'package:amr_mobile/bindings/home/bottomNavBinding.dart';
 import 'package:amr_mobile/bindings/home/homeBinding.dart';
+import 'package:amr_mobile/bindings/home/profileBinding.dart';
 import 'package:amr_mobile/bindings/introBinding.dart';
 import 'package:amr_mobile/bindings/scanBinding.dart';
 import 'package:amr_mobile/bindings/scanResultBinding.dart';
@@ -113,6 +114,11 @@ class Pages {
       name: Routes.HISTORY,
       page: () => BottomNav(),
       binding: BottomNavBinding(),
+    ),
+    GetPage(
+      name: Routes.PROFILE,
+      page: () => BottomNav(),
+      bindings: [BottomNavBinding(), ProfileBinding()],
     ),
   ];
 }

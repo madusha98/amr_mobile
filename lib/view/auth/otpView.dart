@@ -36,7 +36,7 @@ class Otp extends GetView<OtpController> {
                             Padding(
                               padding: const EdgeInsets.only(top: PADDING),
                               child: Text(
-                                'We sent you a verification code via SMS.',
+                                'We sent you a verification code via email.',
                                 style: TextStyle(
                                   fontSize: 15,
                                   color: TEXT_COLOR.withOpacity(0.5),
