@@ -153,6 +153,8 @@ class Profile extends GetView<ProfileController> {
                   padding: const EdgeInsets.only(right: PADDING, left: PADDING),
                   child: TextField(
                     readOnly: true,
+                    controller:
+                        TextEditingController(text: '${controller.email}'),
                     decoration: const InputDecoration(
                       isDense: true,
                       border: OutlineInputBorder(
@@ -184,6 +186,8 @@ class Profile extends GetView<ProfileController> {
                   padding: const EdgeInsets.only(right: PADDING, left: PADDING),
                   child: TextField(
                     readOnly: true,
+                    controller:
+                        TextEditingController(text: '${controller.mobile}'),
                     decoration: const InputDecoration(
                       isDense: true,
                       border: OutlineInputBorder(
@@ -215,6 +219,8 @@ class Profile extends GetView<ProfileController> {
                   padding: const EdgeInsets.only(right: PADDING, left: PADDING),
                   child: TextField(
                     readOnly: true,
+                    controller:
+                        TextEditingController(text: '${controller.nic}'),
                     decoration: const InputDecoration(
                       isDense: true,
                       border: OutlineInputBorder(
@@ -246,6 +252,10 @@ class Profile extends GetView<ProfileController> {
                   padding: const EdgeInsets.only(right: PADDING, left: PADDING),
                   child: TextField(
                     readOnly: true,
+                    controller: TextEditingController(
+                        text: controller.account != null
+                            ? controller.account.value.accNo
+                            : ''),
                     decoration: const InputDecoration(
                       isDense: true,
                       border: OutlineInputBorder(
