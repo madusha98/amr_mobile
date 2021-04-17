@@ -29,7 +29,12 @@ class FCMService {
   void handleNotifications() {
     // Get token
     _firebaseMessaging.getToken().then((token) {
-      storePushToken(token);
+      if (token != null) {
+        storePushToken(token);
+      } else {
+        storePushToken('noGMS');
+        print('This devices doesn\' have google services');
+      }
     });
 
     // Listen to refresh token
@@ -61,17 +66,18 @@ class FCMService {
   void updateToken() async {
     if (storage.hasData(StorageKeys.TOKEN)) {
       var user = await Amplify.Auth.getCurrentUser();
-      print(user);
       var token = storage.read(StorageKeys.PUSH_TOKEN);
-      var deviceId = await getDeviceID();
-      var body = <String, dynamic>{
-        'deviceId': deviceId,
-        'pushToken': token,
-        'userId': user.userId
-      };
-      var res = await _httpProvider.postRequest('/fcm/updatePushToken', body);
-      if (res != null) {}
-      print(res.body['data']);
+      if (token != 'noGMS') {
+        var deviceId = await getDeviceID();
+        var body = <String, dynamic>{
+          'deviceId': deviceId,
+          'pushToken': token,
+          'userId': user.userId
+        };
+        var res = await _httpProvider.postRequest('/fcm/updatePushToken', body);
+        if (res != null) {}
+        print(res.body['data']);
+      }
     }
   }
 }
