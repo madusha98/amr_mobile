@@ -75,6 +75,13 @@ class Success extends GetView<SuccessController> {
                                         ),
                                       ),
                                     ),
+                                    Text(
+                                      '\n(No of kWh units consumed:  ${controller.noOfUnits.value})',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.black.withOpacity(0.5),
+                                          fontSize: 14),
+                                    ),
                                   ],
                                 ))),
                       ),

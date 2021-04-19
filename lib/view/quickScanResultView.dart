@@ -54,7 +54,14 @@ class QuickScanResults extends GetView<QuickScanResultsController> {
                                   ),
                                 ),
                                 Text(
-                                  'Your electricity usage for the\nperiod ${controller.fromdate.value.replaceAll('-', '/')} - ${controller.todate.value.replaceAll('-', '/')} is',
+                                  'You have consumed ${controller.noOfUnits.value} kWh Units for the\nperiod ${controller.fromdate.value.replaceAll('-', '/')} - ${controller.currentDate.value}.',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.black.withOpacity(0.5),
+                                      fontSize: 14),
+                                ),
+                                Text(
+                                  '\nWith this usage pattern,\nthe estimated bill value for this month would be around,',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       color: Colors.black.withOpacity(0.5),
@@ -65,7 +72,7 @@ class QuickScanResults extends GetView<QuickScanResultsController> {
                                       const EdgeInsets.only(top: PADDING / 2),
                                   child: Obx(
                                     () => Text(
-                                      '${controller.noOfUnits.value} Units',
+                                      '${controller.amount.value} LKR',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           color: Colors.black,
@@ -73,13 +80,6 @@ class QuickScanResults extends GetView<QuickScanResultsController> {
                                           fontSize: 20),
                                     ),
                                   ),
-                                ),
-                                Text(
-                                  'With the current rate your will at the end of the month would be ${controller.amount.value}',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.black.withOpacity(0.5),
-                                      fontSize: 14),
                                 ),
                               ],
                             ),
