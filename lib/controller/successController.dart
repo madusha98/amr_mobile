@@ -10,6 +10,7 @@ class SuccessController extends GetxController {
   var fromdate = ''.obs;
   var todate = ''.obs;
   var loading = false.obs;
+  var noOfUnits = ''.obs;
 
   BillPaymentController billPaymentController = Get.find();
   BottomNavController bottomNavController = Get.find();
@@ -23,6 +24,7 @@ class SuccessController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    noOfUnits.value = Get.arguments['NoOfUnits'].toString();
     calculateBill(Get.arguments);
   }
 

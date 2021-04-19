@@ -9,13 +9,16 @@ class QuickScanResultsController extends GetxController {
   var todate = ''.obs;
   var noOfUnits = ''.obs;
   var amount = ''.obs;
+  var currentDate = ''.obs;
 
   final HomeController _homeController = Get.find();
+  var now = DateTime.now();
 
   @override
   void onInit() {
     super.onInit();
     noOfUnits.value = Get.arguments['NoOfUnits'].toString();
+    currentDate.value = '${now.year}/${now.month}/${now.day}';
     calculateBill(Get.arguments);
   }
 
