@@ -19,4 +19,5 @@ abstract class Routes {
   static const ADDACCOUNT = '/addaccount';
   static const HISTORY = '/history';
   static const PROFILE = '/profile';
+  static const QUICKSCANRESULT = '/quickScanResult';
 }

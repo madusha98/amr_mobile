@@ -37,7 +37,8 @@ class ScanResultController extends GetxController {
     });
     final params = {
       'accId': _homeController.account.value.accId,
-      'location': '${position.latitude},${position.longitude}'
+      'location': '${position.latitude},${position.longitude}',
+      'quick': Get.arguments['quickScan'] ? '1' : '0'
     };
 
     var res = await _httpProvider.postRequest('meter_reader/read_digits', form,
@@ -61,19 +62,35 @@ class ScanResultController extends GetxController {
     }
   }
 
+  void rescan() {
+    Get.offNamed(Routes.SCAN, arguments: {
+      'prevRoute': Get.arguments['quickScan'] ? 'quickScan' : ''
+    });
+  }
+
   void confirmReading() {
     var lastReadDate = DateTime.fromMillisecondsSinceEpoch(
         responseData['lastReadDate'].toInt());
     var lastReadDateString = lastReadDate.toString().split(' ')[0];
     var currentDate = DateTime.now();
     var currentDateString = currentDate.toString().split(' ')[0];
-
-    Get.toNamed(Routes.SUCCESS, arguments: {
-      'NoOfUnits': responseData['noOfUnits'],
-      'FromDate': lastReadDateString,
-      'ToDate': currentDateString,
-      'readingId': responseData['readingId'],
-      'accId': _homeController.account.value.accId,
-    });
+    if (Get.arguments['quickScan']) {
+      Get.toNamed(Routes.QUICKSCANRESULT, arguments: {
+        'NoOfUnits': responseData['noOfUnits'],
+        'FromDate': lastReadDateString,
+        'ToDate': currentDateString,
+        'accId': _homeController.account.value.accId,
+        'lastReadDate': lastReadDate
+      });
+    } else {
+      Get.toNamed(Routes.SUCCESS, arguments: {
+        'NoOfUnits': responseData['noOfUnits'],
+        'FromDate': lastReadDateString,
+        'ToDate': currentDateString,
+        'readingId': responseData['readingId'],
+        'accId': _homeController.account.value.accId,
+        'quick': '0'
+      });
+    }
   }
 }

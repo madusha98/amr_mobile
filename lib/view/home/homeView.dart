@@ -232,8 +232,9 @@ class Home extends GetView<HomeController> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
                                 ),
-                                onPressed: () async {
-                                  // Get.toNamed(Routes.SUCCESS);
+                                onPressed: () {
+                                  Get.toNamed(Routes.SCAN,
+                                      arguments: {'prevRoute': 'quickScan'});
                                 },
                                 borderSide: BorderSide(
                                     color: Get.theme.primaryColor,

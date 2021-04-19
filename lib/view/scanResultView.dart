@@ -180,8 +180,7 @@ class ScanResult extends GetView<ScanResultController> {
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               onPressed: () {
-                                Get.offNamed(Routes.SCAN,
-                                    arguments: {'prevRoute': ''});
+                                  controller.rescan();
                               },
                               borderSide: BorderSide(
                                   color: Get.theme.primaryColor,

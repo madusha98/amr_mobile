@@ -149,7 +149,10 @@ class ScanController extends GetxController {
           default:
             Get.offNamed(
               Routes.SCANRESULT,
-              arguments: {'image': resImage},
+              arguments: {
+                'image': resImage,
+                'quickScan': Get.arguments['prevRoute'] == 'quickScan'
+              },
             );
         }
       }

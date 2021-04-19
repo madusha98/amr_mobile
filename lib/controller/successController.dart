@@ -1,3 +1,4 @@
+import 'package:amr_mobile/controller/billPaymentController.dart';
 import 'package:amr_mobile/controller/home/bottomNavController.dart';
 import 'package:amr_mobile/service/httpService.dart';
 import 'package:get/get.dart';
@@ -10,9 +11,12 @@ class SuccessController extends GetxController {
   var todate = ''.obs;
   var loading = false.obs;
 
+  BillPaymentController billPaymentController = Get.find();
+  BottomNavController bottomNavController = Get.find();
+
   void gotoBillPayments() {
-    // ignore: omit_local_variable_types
-    BottomNavController bottomNavController = Get.find();
+    // billPaymentController.paymentAmount.value = amount.value;
+    billPaymentController.amountTextField.value.text = amount.value;
     bottomNavController.navigateToTab(2);
   }
 

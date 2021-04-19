@@ -11,6 +11,7 @@ import 'package:amr_mobile/bindings/home/historyBinding.dart';
 import 'package:amr_mobile/bindings/home/homeBinding.dart';
 import 'package:amr_mobile/bindings/home/profileBinding.dart';
 import 'package:amr_mobile/bindings/introBinding.dart';
+import 'package:amr_mobile/bindings/quickScanResultBinding.dart';
 import 'package:amr_mobile/bindings/scanBinding.dart';
 import 'package:amr_mobile/bindings/scanResultBinding.dart';
 import 'package:amr_mobile/bindings/splashBinding.dart';
@@ -26,6 +27,7 @@ import 'package:amr_mobile/view/auth/registerView.dart';
 import 'package:amr_mobile/view/auth/welcomeView.dart';
 import 'package:amr_mobile/view/home/bottomNav.dart';
 import 'package:amr_mobile/view/introView.dart';
+import 'package:amr_mobile/view/quickScanResultView.dart';
 import 'package:amr_mobile/view/scanView.dart';
 import 'package:amr_mobile/view/scanResultView.dart';
 import 'package:amr_mobile/view/successView.dart';
@@ -109,5 +111,10 @@ class Pages {
       page: () => AddAccounnt(),
       binding: AddAccountBinding(),
     ),
+    GetPage(
+      name: Routes.QUICKSCANRESULT,
+      page: () => QuickScanResults(),
+      binding: QuickScanResultBinding(),
+    )
   ];
 }

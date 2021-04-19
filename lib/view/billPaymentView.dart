@@ -51,28 +51,31 @@ class BillPayment extends GetView<BillPaymentController> {
                 Padding(
                   padding: const EdgeInsets.only(
                       left: PADDING, top: 5.0, right: PADDING),
-                  child: TextField(
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 28.0, color: Colors.black),
-                    inputFormatters: [
-                      CurrencyTextInputFormatter(
-                        symbol: '',
-                      )
-                    ],
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Colors.black.withOpacity(0.5)),
-                      ),
-                      border: UnderlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Colors.black.withOpacity(0.2)),
-                      ),
-                      hintText: '0.00',
-                      hintStyle: TextStyle(
-                        fontSize: 28,
-                        color: Colors.black.withOpacity(0.5),
+                  child: Obx(
+                    () => TextField(
+                      controller: controller.amountTextField.value,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 28.0, color: Colors.black),
+                      inputFormatters: [
+                        CurrencyTextInputFormatter(
+                          symbol: '',
+                        )
+                      ],
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.black.withOpacity(0.5)),
+                        ),
+                        border: UnderlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.black.withOpacity(0.2)),
+                        ),
+                        hintText: '0.00',
+                        hintStyle: TextStyle(
+                          fontSize: 28,
+                          color: Colors.black.withOpacity(0.5),
+                        ),
                       ),
                     ),
                   ),

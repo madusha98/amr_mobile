@@ -1,16 +1,19 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:payhere_mobilesdk_flutter/payhere_mobilesdk_flutter.dart';
 
 class BillPaymentController extends GetxController {
+  var amountTextField = TextEditingController().obs;
+
   void pay() {
     var paymentObject = {
-      'sandbox': true, // true if using Sandbox Merchant ID
-      'merchant_id': '1216984', // Replace your Merchant ID
-      'merchant_secret': 'xyz', // See step 4e
+      'sandbox': true,
+      'merchant_id': '1216984',
+      'merchant_secret': 'xyz',
       'notify_url': 'http://sample.com/notify',
       'order_id': 'ItemNo12345',
       'items': 'Hello from Flutter!',
-      'amount': '50.00',
+      'amount': amountTextField.value.text,
       'currency': 'LKR',
       'first_name': 'Saman',
       'last_name': 'Perera',
