@@ -75,3 +75,42 @@ const amplifyconfig = ''' {
         }
     }
 }''';
+
+// QA
+
+// const amplifyconfig = ''' {
+//     "UserAgent": "aws-amplify-cli/2.0",
+//     "Version": "1.0",
+//     "auth": {
+//         "plugins": {
+//             "awsCognitoAuthPlugin": {
+//                 "UserAgent": "aws-amplify-cli/0.1.0",
+//                 "Version": "0.1.0",
+//                 "IdentityManager": {
+//                     "Default": {}
+//                 },
+//                 "CredentialsProvider": {
+//                   "CognitoIdentity": {
+//                       "Default": {
+//                           "PoolId": "ap-southeast-1:7a563124-3245-46d2-9b59-e9f4c68aa513",
+//                           "Region": "ap-southeast-1"
+//                       }
+//                   }
+//               },
+//                 "CognitoUserPool": {
+//                     "Default": {
+//                         "PoolId": "ap-southeast-1_7DekKmSFr",
+//                         "AppClientId": "2mbtiefg8cftcb8onv1pcv8u02",
+//                         "AppClientSecret": "",
+//                         "Region": "ap-southeast-1"
+//                     }
+//                 },
+//                 "Auth": {
+//                     "Default": {
+//                         "authenticationFlowType": "USER_SRP_AUTH"
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }''';

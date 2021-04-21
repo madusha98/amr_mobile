@@ -37,7 +37,7 @@ platform :android do
     firebase_app_distribution(
         app: "1:883462030053:android:44eb0947b0e42a71f74a0c",
         testers: "hashen.2018833@iit.ac.lk, madushalakruwan2nd@gmail.com, praveen.2018836@iit.ac.lk, rashni.2018822@iit.ac.lk, ruvindra.2018848@iit.ac.lk, sudeeptha.2018831@iit.ac.lk",
-        release_notes: "QA Release 2: Monthly Scan flow completed",
+        release_notes: "QA Release 3: Quick Scan flow completed",
         firebase_cli_token: "1//0g9L-38mRXgRyCgYIARAAGBASNwF-L9IrgUfUGSp-f9B-MY3f5f796eIqqIHbH7Z5r1v5WB5rGnbOs5Af6kShuTCii26QSm842TU",
         apk_path: "../build/app/outputs/apk/release/app-release.apk"
     )
